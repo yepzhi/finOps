@@ -40,6 +40,10 @@ class Settings:
         return self.settings_dict.get("app", {})
 
     @property
+    def horizons(self) -> Dict[str, Any]:
+        return self.settings_dict.get("horizons", {})
+
+    @property
     def scoring(self) -> Dict[str, Any]:
         return self.settings_dict.get("scoring", {})
 

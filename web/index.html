@@ -86,11 +86,36 @@
 
         <!-- Controls Bar -->
         <section class="controls-bar">
-            <div class="filter-tabs">
-                <button class="tab-btn active" data-market="all">All Markets (20)</button>
-                <button class="tab-btn" data-market="us">United States</button>
-                <button class="tab-btn" data-market="cn">China A-Shares</button>
-                <button class="tab-btn" data-market="mx">Mexico (BMV)</button>
+            <div class="controls-left">
+                <!-- Horizon Selector Tabs -->
+                <div class="horizon-selector">
+                    <span class="horizon-badge-label"><i class="fa-solid fa-hourglass-half"></i> HORIZON</span>
+                    <div class="horizon-tabs">
+                        <button class="horizon-tab active" data-horizon="daily" title="1-3 Days Momentum & Overnight Setup">
+                            <span class="h-icon">⚡</span>
+                            <span class="h-name">Daily</span>
+                            <span class="h-sub">1-3 Days</span>
+                        </button>
+                        <button class="horizon-tab" data-horizon="weekly" title="1-4 Weeks Swing & Multi-Day Breakout">
+                            <span class="h-icon">📈</span>
+                            <span class="h-name">Weekly</span>
+                            <span class="h-sub">1-4 Weeks</span>
+                        </button>
+                        <button class="horizon-tab" data-horizon="monthly" title="3-12 Months Compounding & Quality Value">
+                            <span class="h-icon">🏛️</span>
+                            <span class="h-name">Long-Term</span>
+                            <span class="h-sub">3-12 Mo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Market Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-market="all">All Markets</button>
+                    <button class="tab-btn" data-market="us">United States</button>
+                    <button class="tab-btn" data-market="cn">China A-Shares</button>
+                    <button class="tab-btn" data-market="mx">Mexico (BMV)</button>
+                </div>
             </div>
 
             <div class="search-box">
@@ -104,12 +129,13 @@
             <table class="stock-table">
                 <thead>
                     <tr>
-                        <th style="width: 60px;">Rank</th>
+                        <th style="width: 50px;">Rank</th>
                         <th>Symbol & Asset</th>
                         <th>Price</th>
+                        <th>Horizon</th>
                         <th>Factor Breakdown</th>
                         <th>Score</th>
-                        <th>Overnight Directive</th>
+                        <th>Directive</th>
                         <th>Entry Zone (Limit)</th>
                         <th>Stop Loss</th>
                         <th>Target 1</th>
@@ -125,19 +151,20 @@
 
         <!-- Mandatory Disclaimer -->
         <footer class="disclaimer-banner">
-            <strong>RESEARCH PLATFORM NOTICE:</strong> This system is strictly an algorithmic quantitative research platform developed for pair-programming and modeling demonstration. It <strong>DOES NOT</strong> provide financial, investment, legal, or tax advice. No automated order execution is conducted. Overnight trade plans represent quantitative scenario models with limit envelopes and strict stop-loss bounds.
+            <strong>RESEARCH PLATFORM NOTICE:</strong> This system is strictly an algorithmic quantitative research platform developed for pair-programming and modeling demonstration. It <strong>DOES NOT</strong> provide financial, investment, legal, or tax advice. No automated order execution is conducted. Trade plans represent quantitative scenario models with limit envelopes and strict stop-loss bounds tailored by investment horizon.
         </footer>
     </div>
 
-    <!-- Modal Inspector for Deep-Dive & Overnight Trade Plan -->
+    <!-- Modal Inspector for Deep-Dive & Trade Plan -->
     <div class="modal-overlay" id="detailModal">
         <div class="modal-content">
             <div class="modal-header">
                 <div>
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px; flex-wrap: wrap;">
                         <span id="modalRank" class="rank-badge top3">#1</span>
                         <h2 id="modalTicker" style="font-family: var(--font-display); font-size: 24px; font-weight: 800;">NVDA</h2>
                         <span id="modalMarketTag" class="market-tag us">US</span>
+                        <span id="modalHorizonBadge" class="horizon-pill daily">⚡ DAILY (1-3 Days)</span>
                         <span id="modalActionPill" class="action-pill buy">BUY</span>
                     </div>
                     <p id="modalName" style="color: var(--fg-muted); font-size: 14px;">NVIDIA Corporation — Technology (Semiconductors)</p>

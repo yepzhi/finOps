@@ -5,6 +5,7 @@ Orchestrates Market Scanning -> Factor Scoring -> LLM Deep Dive -> Trade Plannin
 """
 
 import logging
+import math
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 import uuid
@@ -37,10 +38,12 @@ class ScanPipeline:
         self,
         target_markets: Optional[List[str]] = None,
         candidate_limit_per_market: Optional[int] = None,
-        force_run: bool = False
+        force_run: bool = False,
+        horizon: str = "daily"
     ) -> ScanReport:
         """
-        Executes the end-to-end scanning and analysis pipeline.
+        Executes the end-to-end scanning and analysis pipeline for a specific
+        investment horizon ('daily', 'weekly', 'monthly').
         """
         now = datetime.utcnow()
         scan_date_str = now.strftime("%Y-%m-%d")
@@ -48,7 +51,7 @@ class ScanPipeline:
         if target_markets is None:
             target_markets = self.settings.settings_dict.get("markets", {}).get("enabled", ["us", "cn", "mx"])
 
-        logger.info(f"Starting daily scan for markets: {target_markets} (Force: {force_run})")
+        logger.info(f"Starting [{horizon.upper()}] scan for markets: {target_markets} (Force: {force_run})")
 
         # Determine target trading session from exchange calendar
         try:
@@ -81,8 +84,12 @@ class ScanPipeline:
                         sent_score, news_items = self.sentiment_aggregator.evaluate_sentiment(raw_news)
                         mkt_data["news_items"] = news_items
 
-                        # Quantitative multi-factor evaluation
-                        evaluated = self.screener.evaluate_candidate(mkt_data, sentiment_score=sent_score)
+                        # Quantitative multi-factor evaluation tailored to horizon
+                        evaluated = self.screener.evaluate_candidate(
+                            mkt_data,
+                            sentiment_score=sent_score,
+                            horizon=horizon
+                        )
                         evaluated["market_id"] = market_id
                         evaluated_pool.append(evaluated)
                         market_counts[market_id] = market_counts.get(market_id, 0) + 1
@@ -94,11 +101,11 @@ class ScanPipeline:
 
         logger.info(f"Successfully evaluated {len(evaluated_pool)} candidates across {len(market_counts)} markets.")
 
-        # Step 2: Rank candidates and extract Top 20
+        # Step 2: Rank candidates and extract Top 20 for this horizon
         top_candidates = self.screener.rank_candidates(evaluated_pool, top_count=20)
-        logger.info(f"Identified Top {len(top_candidates)} opportunities. Synthesizing deep-dive theses and trade plans...")
+        logger.info(f"Identified Top {len(top_candidates)} [{horizon.upper()}] opportunities. Synthesizing deep-dive theses and trade plans...")
 
-        # Step 3: Deep dive and overnight trade plan generation
+        # Step 3: Deep dive and trade plan generation
         top_20_opportunities: List[StockOpportunity] = []
 
         for rank_idx, item in enumerate(top_candidates, 1):
@@ -108,18 +115,25 @@ class ScanPipeline:
             ticker = mkt["ticker"]
             name = mkt["name"]
             sector = mkt["sector"]
-            industry = mkt["industry"]
-            current_price = mkt["current_price"]
-            currency = mkt.get("currency", "USD")
+            raw_price = mkt.get("current_price")
+            if raw_price is None or (isinstance(raw_price, float) and (math.isnan(raw_price) or math.isinf(raw_price) or raw_price <= 0)):
+                df_p = item.get("market_data", {}).get("prices")
+                if df_p is not None and not df_p.empty and "close" in df_p.columns and not math.isnan(df_p["close"].iloc[-1]):
+                    current_price = round(float(df_p["close"].iloc[-1]), 2)
+                else:
+                    current_price = 100.0
+            else:
+                current_price = round(float(raw_price), 2)
             market_id = item["market_id"]
 
-            # Compute Overnight Trade Plan
+            # Compute Trade Plan tailored to horizon
             trade_plan = self.trade_planner.generate_plan(
                 ticker=ticker,
                 current_price=current_price,
                 composite_score=scores.composite_score,
                 technical_indicators=tech_indicators,
-                market_meta=mkt
+                market_meta=mkt,
+                horizon=horizon
             )
 
             # Synthesize Deep Dive (Thesis + Bull vs Bear Debate)
@@ -132,7 +146,8 @@ class ScanPipeline:
                 currency=currency,
                 scores=scores,
                 news_items=[n.model_dump() for n in mkt.get("news_items", [])],
-                technical_data=tech_indicators
+                technical_data=tech_indicators,
+                horizon=horizon
             )
 
             opp = StockOpportunity(
@@ -145,6 +160,7 @@ class ScanPipeline:
                 current_price=current_price,
                 currency=currency,
                 market_cap=mkt.get("market_cap", 1e9),
+                horizon=horizon,
                 scores=scores,
                 thesis_summary=research["thesis_summary"],
                 bull_case=research["bull_case"],
@@ -156,10 +172,11 @@ class ScanPipeline:
             )
             top_20_opportunities.append(opp)
 
-        # Step 4: Assemble ScanReport
+        # Step 4: Assemble ScanReport with horizon metadata
         report = ScanReport(
-            run_id=f"run_{scan_date_str}_{uuid.uuid4().hex[:8]}",
+            run_id=f"run_{scan_date_str}_{horizon}_{uuid.uuid4().hex[:8]}",
             scan_date=scan_date_str,
+            horizon=horizon,
             market_close_time=now,
             run_triggered_at=now,
             target_trade_session=target_trade_session,

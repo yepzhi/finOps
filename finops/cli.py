@@ -29,38 +29,50 @@ def cli():
 
 @cli.command()
 @click.option("--market", default="all", help="Target market: 'us', 'cn', 'mx', or 'all'")
+@click.option("--horizon", default="daily", type=click.Choice(["daily", "weekly", "monthly", "all"], case_sensitive=False), help="Investment horizon: 'daily' (1-3 days), 'weekly' (1-4 weeks), 'monthly' (long term 3-12 months), or 'all'")
 @click.option("--limit", default=None, type=int, help="Optional limit per market for testing (e.g. 5)")
 @click.option("--force", is_flag=True, help="Force scan execution regardless of schedule")
-def scan(market: str, limit: int, force: bool):
-    """Executes the daily market scanning, factor scoring, and overnight trade planning."""
+def scan(market: str, horizon: str, limit: int, force: bool):
+    """Executes the daily market scanning, factor scoring, and trade planning by investment horizon."""
     click.echo("=================================================================")
-    click.echo("🚀 finOps — Launching Multi-Market Daily Scan & Ranking Pipeline")
+    click.echo("🚀 finOps — Launching Multi-Market Scan & Ranking Pipeline")
     click.echo("=================================================================")
 
     target_markets = None
     if market != "all":
         target_markets = [m.strip().lower() for m in market.split(",")]
 
+    horizons_to_run = ["daily", "weekly", "monthly"] if horizon.lower() == "all" else [horizon.lower()]
+
     pipeline = ScanPipeline()
-    report = pipeline.run_daily_scan(
-        target_markets=target_markets,
-        candidate_limit_per_market=limit,
-        force_run=force
-    )
+    for h in horizons_to_run:
+        h_label = {
+            "daily": "⚡ DAILY (1-3 Days)",
+            "weekly": "📈 WEEKLY (1-4 Weeks)",
+            "monthly": "🏛️ LONG-TERM (3-12 Months)"
+        }.get(h, h.upper())
 
-    click.echo("\n🏆 TOP OPPORTUNITIES SUMMARY:")
-    click.echo(f"Run ID: {report.run_id} | Session: {report.target_trade_session}")
-    click.echo("-" * 75)
-    click.echo(f"{'Rank':<5} {'Ticker':<8} {'Market':<6} {'Score':<7} {'Action':<6} {'Price':<12} {'R:R':<6} {'Stop Loss':<10} {'Target 1'}")
-    click.echo("-" * 75)
-    for opp in report.top_20[:10]:
-        p = opp.trade_plan
-        click.echo(f"#{opp.rank:<4} {opp.ticker:<8} {opp.market.upper():<6} {opp.scores.composite_score:<7.1f} {p.action:<6} {opp.currency} {opp.current_price:<7.2f} {p.risk_reward_ratio:<6.1f}x {p.stop_loss:<10.2f} {p.target_1:.2f}")
+        click.echo(f"\n🎯 Running Screener for Horizon: {h_label}")
+        report = pipeline.run_daily_scan(
+            target_markets=target_markets,
+            candidate_limit_per_market=limit,
+            horizon=h,
+            force_run=force
+        )
 
-    if len(report.top_20) > 10:
-        click.echo(f"... and {len(report.top_20) - 10} more top opportunities (view full report in data/reports/)")
+        click.echo(f"\n🏆 TOP OPPORTUNITIES SUMMARY ({h.upper()} HORIZON):")
+        click.echo(f"Run ID: {report.run_id} | Session: {report.target_trade_session} | Horizon: {report.horizon}")
+        click.echo("-" * 90)
+        click.echo(f"{'Rank':<5} {'Ticker':<8} {'Market':<6} {'Score':<7} {'Horizon':<9} {'Holding':<11} {'Action':<6} {'Price':<10} {'R:R':<6} {'Stop Loss':<10} {'Target 1'}")
+        click.echo("-" * 90)
+        for opp in report.top_20[:10]:
+            p = opp.trade_plan
+            click.echo(f"#{opp.rank:<4} {opp.ticker:<8} {opp.market.upper():<6} {opp.scores.composite_score:<7.1f} {p.horizon:<9} {p.holding_period:<11} {p.action:<6} {opp.currency} {opp.current_price:<6.2f} {p.risk_reward_ratio:<6.1f}x {p.stop_loss:<10.2f} {p.target_1:.2f}")
 
-    click.echo("\n✅ Scan complete! Artifacts archived at data/reports/scan_" + report.scan_date + ".md")
+        if len(report.top_20) > 10:
+            click.echo(f"... and {len(report.top_20) - 10} more top opportunities (view full report in data/reports/)")
+
+        click.echo(f"✅ [{h.upper()}] Artifacts archived at data/reports/scan_{report.scan_date}_{report.horizon}.md and latest_{report.horizon}.json")
 
 
 @cli.command()

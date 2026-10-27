@@ -8,10 +8,17 @@ from finops.core.models import ScanReport
 
 
 def generate_markdown_report(report: ScanReport) -> str:
+    horizon_label = {
+        "daily": "⚡ DAILY (1-3 Days Holding Period)",
+        "weekly": "📈 WEEKLY (1-4 Weeks Holding Period)",
+        "monthly": "🏛️ LONG-TERM (3-12 Months Compounding Horizon)"
+    }.get(report.horizon, report.horizon.upper())
+
     lines = [
-        f"# 🦅 finOps Daily Stock Opportunities Report (Top 20)",
+        f"# 🦅 finOps Stock Opportunities Report (Top 20) — {horizon_label}",
         f"",
         f"**Date:** {report.scan_date}  ",
+        f"**Horizon Mode:** `{report.horizon.upper()}` ({horizon_label})  ",
         f"**Run Trigger:** NYSE/NASDAQ Close + 5.0h ({report.run_triggered_at.strftime('%Y-%m-%d %H:%M:%S UTC')})  ",
         f"**Target Execution Session:** {report.target_trade_session}  ",
         f"**Scanned Universe:** {report.scanned_universe_size} stocks across US, China A-Shares, and Mexico BMV  ",
@@ -19,9 +26,9 @@ def generate_markdown_report(report: ScanReport) -> str:
         f"",
         f"---",
         f"",
-        f"## 🏆 Executive Summary: Top 20 Opportunities & Overnight Trade Plans",
+        f"## 🏆 Executive Summary: Top 20 Opportunities & Trade Plans ({report.horizon.capitalize()} Horizon)",
         f"",
-        f"| Rank | Ticker | Name | Market | Price | Score | Action | Limit Entry Zone | Stop Loss | Target 1 | R:R | Shares |",
+        f"| Rank | Ticker | Name | Market | Price | Score | Horizon | Action | Limit Entry Zone | Stop Loss | Target 1 | R:R |",
         f"| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |"
     ]
 
@@ -31,8 +38,9 @@ def generate_markdown_report(report: ScanReport) -> str:
         lines.append(
             f"| **#{opp.rank}** | **{opp.ticker}** | {opp.name} | {opp.market.upper()} | "
             f"{curr} {opp.current_price:.2f} | **{opp.scores.composite_score:.1f}** | "
-            f"`{p.action}` | {curr} {p.entry_zone_low:.2f} - {p.entry_zone_high:.2f} | "
-            f"{curr} {p.stop_loss:.2f} | {curr} {p.target_1:.2f} | **{p.risk_reward_ratio:.1f}x** | {p.suggested_shares} |"
+            f"{p.horizon.capitalize()} ({p.holding_period}) | `{p.action}` | "
+            f"{curr} {p.entry_zone_low:.2f} - {p.entry_zone_high:.2f} | "
+            f"{curr} {p.stop_loss:.2f} | {curr} {p.target_1:.2f} | **{p.risk_reward_ratio:.1f}x** |"
         )
 
     lines.extend([
@@ -58,8 +66,9 @@ def generate_markdown_report(report: ScanReport) -> str:
             f"**Investment Thesis:**  ",
             f"> {opp.thesis_summary}",
             f"",
-            f"#### 📋 Overnight Trade Plan (Next Regular Session)",
-            f"- **Action:** `{p.action}` (Valid strictly for next regular session)",
+            f"#### 📋 Trade Plan ({p.horizon.capitalize()} Horizon)",
+            f"- **Horizon & Duration:** **{p.horizon.capitalize()}** (Estimated holding period: **{p.holding_period}**)",
+            f"- **Action:** `{p.action}`",
             f"- **Execution Envelope:** Limit order between **{curr} {p.entry_zone_low:.2f}** and **{curr} {p.entry_zone_high:.2f}**",
             f"- **Invalidation Stop Loss:** **{curr} {p.stop_loss:.2f}** (Strict thesis exit)",
             f"- **Primary Target 1:** **{curr} {p.target_1:.2f}** (Expected R:R: **{p.risk_reward_ratio:.1f}x**)",

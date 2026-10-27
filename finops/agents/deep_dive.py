@@ -27,14 +27,18 @@ class DeepDiveAgent:
         currency: str,
         scores: FactorScores,
         news_items: List[Dict[str, Any]],
-        technical_data: Dict[str, Any]
+        technical_data: Dict[str, Any],
+        horizon: str = "daily"
     ) -> Dict[str, Any]:
         """
-        Executes deep-dive research synthesis.
+        Executes deep-dive research synthesis tailored to chosen investment horizon.
         """
+        timeframe_label = "Daily (1-3 days overnight)" if horizon == "daily" else ("Weekly Swing (1-4 weeks)" if horizon == "weekly" else "Long-Term Investment (3-12 months)")
+
         # Formulate context for LLM
         prompt = f"""
 Ticker: {ticker} ({name})
+Target Investment Horizon: {timeframe_label}
 Sector: {sector} | Industry: {industry}
 Current Price: {currency} {current_price}
 Factor Scores (0-100):
@@ -58,10 +62,10 @@ Recent Headlines:
 {chr(10).join([f"- {n.get('title', '')} ({n.get('source', '')})" for n in news_items[:3]])}
 
 Task:
-Produce a JSON object with:
-1. "thesis_summary": 2 concise sentences explaining why this stock is a top opportunity.
-2. "bull_case": Strongest fundamental and technical catalyst.
-3. "bear_case": Chief vulnerability or risk that could invalidate the trade.
+Produce a JSON object tailored to {timeframe_label} with:
+1. "thesis_summary": 2 concise sentences explaining why this stock is a top opportunity for this timeframe.
+2. "bull_case": Strongest fundamental and technical catalyst for this horizon.
+3. "bear_case": Chief vulnerability or risk that could invalidate the thesis.
 4. "catalysts": List of 2-3 specific near-term triggers.
 5. "key_risks": List of 2-3 downside risks.
 Return ONLY valid JSON.
@@ -89,7 +93,7 @@ Return ONLY valid JSON.
                 pass
 
         # High-fidelity domain-aware deterministic quantitative fallback
-        return self._generate_heuristic_thesis(ticker, name, sector, scores, current_price, currency, technical_data)
+        return self._generate_heuristic_thesis(ticker, name, sector, scores, current_price, currency, technical_data, horizon)
 
     def _generate_heuristic_thesis(
         self,
@@ -99,36 +103,60 @@ Return ONLY valid JSON.
         scores: FactorScores,
         current_price: float,
         currency: str,
-        technical_data: Dict[str, Any]
+        technical_data: Dict[str, Any],
+        horizon: str = "daily"
     ) -> Dict[str, Any]:
         """
-        High-fidelity institutional synthesis based on quantitative factor profile.
+        High-fidelity institutional synthesis based on quantitative factor profile and investment horizon.
         """
         trend_status = "bullish breakout confirmation" if scores.trend_score >= 65 else "constructive base consolidation"
         fund_status = "superior operating leverage and free-cash-flow resilience" if scores.fundamental_score >= 60 else "stable capital efficiency"
         rsi_desc = "healthy accumulation" if 45 <= (scores.rsi_14d or 50) <= 65 else ("oversold technical snapback" if (scores.rsi_14d or 50) < 45 else "momentum expansion")
 
+        if horizon == "daily":
+            horizon_desc = "short-term momentum and next-session limit execution"
+            inval_level = technical_data.get('support_20d', current_price * 0.95)
+        elif horizon == "weekly":
+            horizon_desc = "multi-week swing continuation and 50-day moving average accumulation"
+            inval_level = technical_data.get('ma50', current_price * 0.92)
+        else: # monthly
+            horizon_desc = "multi-month fundamental compounding and secular institutional leadership"
+            inval_level = technical_data.get('ma200', current_price * 0.88)
+
         thesis_summary = (
-            f"{name} ranks high on institutional quantitative criteria, pairing {fund_status} with {trend_status}. "
-            f"Trading at {currency} {current_price}, technical momentum shows {rsi_desc} with favorable risk/reward for next-session execution."
+            f"{name} ranks high on institutional quantitative criteria for {horizon_desc}, pairing {fund_status} with {trend_status}. "
+            f"Trading at {currency} {current_price}, the setup exhibits {rsi_desc} with favorable risk/reward parameters."
         )
 
         bull_case = (
             f"Sustained top-line growth ({scores.revenue_growth_yoy or 12.5}%) and robust ROE ({scores.roe or 18.0}%) "
-            f"support multiple expansion. Price holding comfortably above the 200-day moving average ({scores.price_vs_ma200_pct or 4.5}%) "
+            f"support multiple expansion. Price holding comfortably above moving averages ({scores.price_vs_ma200_pct or 4.5}%) "
             f"confirms institutional accumulation and technical tailwinds."
         )
 
         bear_case = (
             f"Valuation at {scores.pe_ratio or 22.0}x P/E leaves modest buffer for broad macro pullbacks or sector rotation. "
-            f"A breakdown below technical support at {currency} {technical_data.get('support_20d', current_price * 0.95)} would invalidate the short-term thesis."
+            f"A breakdown below structural support at {currency} {inval_level} would invalidate the {horizon} thesis."
         )
 
-        catalysts = [
-            f"Volume surge of {scores.volume_surge_ratio or 1.2}x indicates block order accumulation ahead of index rebalancing.",
-            f"RSI sweet-spot ({scores.rsi_14d or 52.0}) provides runway before encountering overbought resistance.",
-            f"Strong sector leadership in {sector} benefiting from secular capital expenditure."
-        ]
+        if horizon == "daily":
+            catalysts = [
+                f"Volume surge of {scores.volume_surge_ratio or 1.2}x indicates block order accumulation ahead of next session.",
+                f"RSI sweet-spot ({scores.rsi_14d or 52.0}) provides runway before encountering overbought resistance.",
+                f"Strong sector leadership in {sector} benefiting from secular capital expenditure."
+            ]
+        elif horizon == "weekly":
+            catalysts = [
+                f"Consolidation pattern above 50-day SMA supporting multi-week continuation.",
+                f"MACD histogram expansion signalling sustained weekly buying momentum.",
+                f"Sector rotation toward quality cash-flow compounders in {sector}."
+            ]
+        else: # monthly
+            catalysts = [
+                f"High Return on Equity ({scores.roe or 18.0}%) enabling internal reinvestment without dilution.",
+                f"Free cash flow yield ({scores.fcf_yield or 4.5}%) supporting share buybacks and dividend growth.",
+                f"Secular industry leadership in {sector} with strong economic moats and pricing power."
+            ]
 
         key_risks = [
             "Unexpected broad market risk-off sentiment or interest rate volatility.",

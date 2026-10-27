@@ -479,11 +479,12 @@ const DEFAULT_TOP_20 = [
 
 let allOpportunities = [];
 let currentFilter = "all";
+let currentHorizon = "daily";
 
 document.addEventListener("DOMContentLoaded", async () => {
     initClock();
     setupEventHandlers();
-    await loadReportData();
+    await loadReportData(currentHorizon);
 });
 
 function initClock() {
@@ -499,11 +500,16 @@ function initClock() {
     setInterval(update, 1000);
 }
 
-async function loadReportData() {
+async function loadReportData(horizon = currentHorizon) {
     const candidatePaths = [
+        `data/reports/latest_${horizon}.json`,
+        `/data/reports/latest_${horizon}.json`,
+        `../data/reports/latest_${horizon}.json`,
+        `latest_${horizon}.json`,
         "data/reports/latest.json",
         "/data/reports/latest.json",
-        "../data/reports/latest.json"
+        "../data/reports/latest.json",
+        "latest.json"
     ];
 
     for (const p of candidatePaths) {
@@ -523,8 +529,26 @@ async function loadReportData() {
         }
     }
 
-    // Fallback to built-in dataset
-    allOpportunities = DEFAULT_TOP_20;
+    // Fallback to built-in dataset adapted for horizon
+    allOpportunities = DEFAULT_TOP_20.map(item => {
+        const copy = JSON.parse(JSON.stringify(item));
+        copy.horizon = horizon;
+        if (horizon === "weekly") {
+            copy.trade_plan.holding_period = "1-4 Weeks";
+            copy.trade_plan.risk_reward_ratio = Number((copy.trade_plan.risk_reward_ratio * 1.25).toFixed(1));
+            copy.trade_plan.stop_loss = Number((copy.trade_plan.stop_loss * 0.97).toFixed(2));
+            copy.trade_plan.target_1 = Number((copy.trade_plan.target_1 * 1.08).toFixed(2));
+        } else if (horizon === "monthly") {
+            copy.trade_plan.holding_period = "3-12 Months";
+            copy.trade_plan.risk_reward_ratio = Number((copy.trade_plan.risk_reward_ratio * 1.8).toFixed(1));
+            copy.trade_plan.stop_loss = Number((copy.trade_plan.stop_loss * 0.93).toFixed(2));
+            copy.trade_plan.target_1 = Number((copy.trade_plan.target_1 * 1.25).toFixed(2));
+        } else {
+            copy.trade_plan.holding_period = "1-3 Days";
+        }
+        return copy;
+    });
+
     renderTable();
 }
 
@@ -533,6 +557,11 @@ function updateKpis(report) {
         const top = report.top_20[0];
         document.getElementById("kpiTopStock").innerHTML = `${top.ticker} <span style="font-size: 16px; color: var(--teal-400)">${top.scores.composite_score.toFixed(1)}</span>`;
         document.getElementById("kpiTopName").textContent = `${top.name} — Action: ${top.trade_plan.action}`;
+
+        // Compute average R:R across current universe
+        const avgRR = (report.top_20.reduce((acc, x) => acc + (x.trade_plan?.risk_reward_ratio || 2.5), 0) / report.top_20.length).toFixed(1);
+        const kpiRR = document.getElementById("kpiAvgRR");
+        if (kpiRR) kpiRR.textContent = `${avgRR}x`;
     }
     if (report.scanned_universe_size) {
         document.getElementById("kpiUniverse").innerHTML = `${report.scanned_universe_size} <span style="font-size: 15px; color: var(--fg-dim)">stocks</span>`;
@@ -540,6 +569,17 @@ function updateKpis(report) {
 }
 
 function setupEventHandlers() {
+    // Horizon Selector Tabs
+    document.querySelectorAll(".horizon-tab").forEach(tab => {
+        tab.addEventListener("click", async (e) => {
+            document.querySelectorAll(".horizon-tab").forEach(t => t.classList.remove("active"));
+            const btn = e.currentTarget;
+            btn.classList.add("active");
+            currentHorizon = btn.getAttribute("data-horizon") || "daily";
+            await loadReportData(currentHorizon);
+        });
+    });
+
     // Market Tabs
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -571,14 +611,15 @@ function setupEventHandlers() {
     // Run Pipeline Button
     const runBtn = document.getElementById("btnRunScan");
     if (runBtn) {
-        runBtn.addEventListener("click", () => {
-            runBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Scanning Markets...`;
+        runBtn.addEventListener("click", async () => {
+            runBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Scanning ${currentHorizon.toUpperCase()}...`;
+            await loadReportData(currentHorizon);
             setTimeout(() => {
-                runBtn.innerHTML = `<i class="fa-solid fa-check"></i> Scan Up to Date`;
+                runBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${currentHorizon.toUpperCase()} Ready`;
                 setTimeout(() => {
                     runBtn.innerHTML = `<i class="fa-solid fa-bolt"></i> Run Pipeline`;
                 }, 3000);
-            }, 1200);
+            }, 800);
         });
     }
 }
@@ -601,7 +642,7 @@ function renderTable() {
     tbody.innerHTML = "";
 
     if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; padding: 40px; color: var(--fg-dim);">No matching opportunities found for current filter.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="12" style="text-align: center; padding: 40px; color: var(--fg-dim);">No matching opportunities found for current filter.</td></tr>`;
         return;
     }
 
@@ -611,6 +652,9 @@ function renderTable() {
         const s = opp.scores;
         const curr = opp.currency;
         const isTop3 = opp.rank <= 3;
+        const h = opp.horizon || currentHorizon;
+        const hLabel = h === "monthly" ? "Long-Term" : (h === "weekly" ? "Weekly" : "Daily");
+        const hDur = p.holding_period || (h === "monthly" ? "3-12 Mo" : (h === "weekly" ? "1-4 Wk" : "1-3 Day"));
 
         tr.innerHTML = `
             <td>
@@ -626,7 +670,13 @@ function renderTable() {
                 </div>
             </td>
             <td>
-                <div class="price-text">${curr} ${opp.current_price.toFixed(2)}</div>
+                <div class="price-text">${curr} ${Number(opp.current_price).toFixed(2)}</div>
+            </td>
+            <td>
+                <div class="horizon-tag ${h}">
+                    <span class="h-type">${hLabel}</span>
+                    <span class="h-dur">${hDur}</span>
+                </div>
             </td>
             <td>
                 <div class="meter-group">
@@ -685,6 +735,7 @@ function openModal(opp) {
     const p = opp.trade_plan;
     const s = opp.scores;
     const curr = opp.currency;
+    const h = opp.horizon || currentHorizon;
 
     document.getElementById("modalRank").textContent = `#${opp.rank}`;
     document.getElementById("modalTicker").textContent = opp.ticker;
@@ -692,6 +743,15 @@ function openModal(opp) {
     const tag = document.getElementById("modalMarketTag");
     tag.className = `market-tag ${opp.market}`;
     tag.textContent = opp.market.toUpperCase();
+
+    const hBadge = document.getElementById("modalHorizonBadge");
+    if (hBadge) {
+        const hIcon = h === "monthly" ? "🏛️" : (h === "weekly" ? "📈" : "⚡");
+        const hLabel = h === "monthly" ? "LONG-TERM" : (h === "weekly" ? "WEEKLY" : "DAILY");
+        const hDur = p.holding_period || (h === "monthly" ? "3-12 Months" : (h === "weekly" ? "1-4 Weeks" : "1-3 Days"));
+        hBadge.className = `horizon-pill ${h}`;
+        hBadge.textContent = `${hIcon} ${hLabel} (${hDur})`;
+    }
 
     const pill = document.getElementById("modalActionPill");
     pill.className = `action-pill ${p.action.toLowerCase()}`;

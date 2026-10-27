@@ -262,11 +262,85 @@ body {
     margin-bottom: 24px;
 }
 
+.controls-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* Horizon Selector */
+.horizon-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.horizon-badge-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal-400);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.horizon-tabs {
+    display: flex;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 3px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-glass);
+}
+
+.horizon-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    color: var(--fg-muted);
+    font-family: var(--font-display);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.horizon-tab .h-icon {
+    font-size: 12px;
+}
+
+.horizon-tab .h-name {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.horizon-tab .h-sub {
+    font-size: 10px;
+    opacity: 0.75;
+    font-family: var(--font-mono);
+}
+
+.horizon-tab.active {
+    background: linear-gradient(135deg, var(--teal-500), #0284c7);
+    color: white;
+    box-shadow: 0 2px 10px var(--teal-glow);
+}
+
+.horizon-tab:hover:not(.active) {
+    color: var(--fg-main);
+    background: rgba(255, 255, 255, 0.06);
+}
+
 .filter-tabs {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     background: rgba(0, 0, 0, 0.3);
-    padding: 4px;
+    padding: 3px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-glass);
 }
@@ -407,6 +481,73 @@ body {
 .market-tag.us { background: rgba(56, 189, 248, 0.15); color: var(--sky-400); border: 1px solid rgba(56, 189, 248, 0.3); }
 .market-tag.cn { background: rgba(244, 63, 94, 0.15); color: var(--rose-400); border: 1px solid rgba(244, 63, 94, 0.3); }
 .market-tag.mx { background: rgba(52, 211, 153, 0.15); color: var(--emerald-400); border: 1px solid rgba(52, 211, 153, 0.3); }
+
+/* Horizon Badges in Table and Modal */
+.horizon-tag {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    line-height: 1.2;
+}
+
+.horizon-tag .h-type {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.horizon-tag .h-dur {
+    font-size: 9px;
+    opacity: 0.8;
+}
+
+.horizon-tag.daily {
+    background: rgba(20, 184, 166, 0.12);
+    color: var(--teal-400);
+    border: 1px solid rgba(20, 184, 166, 0.35);
+}
+
+.horizon-tag.weekly {
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--sky-400);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.horizon-tag.monthly {
+    background: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.horizon-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.horizon-pill.daily {
+    background: rgba(20, 184, 166, 0.15);
+    color: var(--teal-400);
+    border: 1px solid rgba(20, 184, 166, 0.4);
+}
+
+.horizon-pill.weekly {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--sky-400);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.horizon-pill.monthly {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+}
 
 .ticker-name {
     font-size: 12px;

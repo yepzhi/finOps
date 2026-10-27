@@ -19,7 +19,47 @@ markets:
   schedule_offset_hours: 5.0 # Hours after regular market close
   auto_dst_adjustment: true
 
-# ── Multi-Factor Weighting Model ──
+# ── Multi-Horizon Investment Profiles ──
+# Allows filtering opportunities by holding timeframe: Daily, Weekly, or Long-Term
+horizons:
+  default: "daily"
+  daily:
+    label: "Daily / Overnight (1-3 Days)"
+    holding_period: "1-3 Days"
+    weights:
+      fundamental: 0.30
+      trend: 0.50
+      sentiment: 0.20
+    stop_multiplier_atr: 1.5
+    target_rr_ratio: 2.5
+    gap_rule_pct: 3.5
+    window: "Pre-Market 08:30-09:30 ET / Regular Open Limit Order"
+
+  weekly:
+    label: "Weekly Swing (1-4 Weeks)"
+    holding_period: "1-4 Weeks"
+    weights:
+      fundamental: 0.50
+      trend: 0.35
+      sentiment: 0.15
+    stop_multiplier_atr: 2.5
+    target_rr_ratio: 3.5
+    gap_rule_pct: 5.0
+    window: "Weekly Pullback Zone / 50-day Moving Average Retest"
+
+  monthly:
+    label: "Long Term Position (3-12 Months)"
+    holding_period: "3-12 Months"
+    weights:
+      fundamental: 0.70
+      trend: 0.20
+      sentiment: 0.10
+    stop_multiplier_atr: 4.0
+    target_rr_ratio: 5.0
+    gap_rule_pct: 8.0
+    window: "Core Accumulation Band / Fundamental Value Envelope"
+
+# ── Multi-Factor Weighting Model (Base) ──
 # Combined Score = (Fundamental * W_f) + (Trend * W_t) + (Sentiment * W_s)
 scoring:
   weights:

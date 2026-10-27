@@ -57,3 +57,57 @@ def test_trade_plan_cn_board_lots():
     # Must respect 100-share lot size constraint for China A-shares
     assert plan.suggested_shares % 100 == 0
     assert len(plan.event_risk_flags) > 0
+
+
+def test_trade_plan_horizons():
+    planner = TradePlanGenerator()
+    tech_data = {
+        "atr_14": 4.0,
+        "support_20d": 140.0,
+        "ma50": 138.0,
+        "ma200": 125.0
+    }
+    market_meta = {"lot_size": 1, "after_hours_earnings": False}
+
+    # Daily Horizon (1-3 Days)
+    daily_plan = planner.generate_plan(
+        ticker="AAPL",
+        current_price=150.0,
+        composite_score=85.0,
+        technical_indicators=tech_data,
+        market_meta=market_meta,
+        horizon="daily"
+    )
+    assert daily_plan.horizon == "daily"
+    assert daily_plan.holding_period == "1-3 Days"
+    assert daily_plan.gap_rule_pct == 3.5
+
+    # Weekly Horizon (1-4 Weeks)
+    weekly_plan = planner.generate_plan(
+        ticker="AAPL",
+        current_price=150.0,
+        composite_score=85.0,
+        technical_indicators=tech_data,
+        market_meta=market_meta,
+        horizon="weekly"
+    )
+    assert weekly_plan.horizon == "weekly"
+    assert weekly_plan.holding_period == "1-4 Weeks"
+    # Weekly stop should give more breathing room than daily
+    assert weekly_plan.stop_loss <= daily_plan.stop_loss
+    assert weekly_plan.risk_reward_ratio >= 3.0
+
+    # Monthly / Long-Term Horizon (3-12 Months)
+    monthly_plan = planner.generate_plan(
+        ticker="AAPL",
+        current_price=150.0,
+        composite_score=85.0,
+        technical_indicators=tech_data,
+        market_meta=market_meta,
+        horizon="monthly"
+    )
+    assert monthly_plan.horizon == "monthly"
+    assert monthly_plan.holding_period == "3-12 Months"
+    assert monthly_plan.stop_loss <= weekly_plan.stop_loss
+    assert monthly_plan.risk_reward_ratio >= 4.0
+

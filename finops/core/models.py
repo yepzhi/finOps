@@ -39,6 +39,14 @@ class OvernightTradePlan(BaseModel):
     action: Literal["BUY", "WATCH", "AVOID"] = Field(
         description="Action recommendation for next regular session"
     )
+    horizon: Literal["daily", "weekly", "monthly"] = Field(
+        default="daily",
+        description="Investment horizon: daily (1-3 days), weekly (1-4 weeks), monthly (3-12 months)"
+    )
+    holding_period: str = Field(
+        default="1-3 Days",
+        description="Expected holding period duration"
+    )
     entry_zone_low: float = Field(description="Lower limit order envelope boundary")
     entry_zone_high: float = Field(description="Upper limit order envelope boundary")
     stop_loss: float = Field(description="Strict invalidation stop price")
@@ -87,6 +95,10 @@ class StockOpportunity(BaseModel):
     current_price: float
     currency: str = "USD"
     market_cap: float
+    horizon: Literal["daily", "weekly", "monthly"] = Field(
+        default="daily",
+        description="Investment horizon profile"
+    )
     scores: FactorScores
 
     thesis_summary: str = Field(description="Concise 2-3 sentence investment thesis")
@@ -104,6 +116,7 @@ class StockOpportunity(BaseModel):
 class ScanReport(BaseModel):
     run_id: str
     scan_date: str # YYYY-MM-DD
+    horizon: str = Field(default="daily", description="Timeframe horizon: daily, weekly, or monthly")
     market_close_time: datetime
     run_triggered_at: datetime
     target_trade_session: str
