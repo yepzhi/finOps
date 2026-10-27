@@ -1,0 +1,51 @@
+# Market Registry & Calendar Definitions
+# ==============================================================================
+# Plug-in mapping for multi-market universe scanning
+
+markets:
+  us:
+    name: "United States (NYSE & NASDAQ)"
+    calendar: "XNYS"
+    timezone: "America/New_York"
+    currency: "USD"
+    regular_close_time: "16:00:00"
+    early_close_time: "13:00:00"
+    primary_data_adapter: "yfinance"
+    fallback_data_adapter: "openbb"
+    ticker_suffix: ""
+    trade_rules:
+      settlement: "T+1"
+      price_limits: false
+      lot_size: 1
+    benchmark: "SPY"
+
+  cn:
+    name: "China Mainland A-Shares (SSE & SZSE)"
+    calendar: "XSHG"
+    timezone: "Asia/Shanghai"
+    currency: "CNY"
+    regular_close_time: "15:00:00"
+    primary_data_adapter: "akshare"
+    fallback_data_adapter: "tushare"
+    ticker_suffix: ""
+    trade_rules:
+      settlement: "T+1"
+      price_limits: true
+      daily_limit_pct: 10.0 # Main board (20% for STAR / ChiNext)
+      lot_size: 100
+    benchmark: "000300.SH" # CSI 300
+
+  mx:
+    name: "Mexico (Bolsa Mexicana de Valores - BMV)"
+    calendar: "XMEX"
+    timezone: "America/Mexico_City"
+    currency: "MXN"
+    regular_close_time: "15:00:00"
+    primary_data_adapter: "yfinance"
+    fallback_data_adapter: "bmv_stub"
+    ticker_suffix: ".MX"
+    trade_rules:
+      settlement: "T+1"
+      price_limits: false
+      lot_size: 1
+    benchmark: "^MXX" # S&P/BMV IPC

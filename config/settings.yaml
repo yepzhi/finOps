@@ -1,0 +1,87 @@
+# finOps — Daily Stock Opportunities Platform Configuration
+# ==============================================================================
+# Architecture: Deterministic Multi-Factor Screener -> LLM Deep Dive -> Overnight Trade Plan
+
+app:
+  name: "finOps Quant Engine"
+  version: "1.0.0"
+  environment: "production"
+  timezone: "America/New_York"
+  target_top_count: 20
+  shortlist_count: 100
+
+# ── Multi-Market Universe & Schedule ──
+markets:
+  enabled:
+    - "us"
+    - "cn"
+    - "mx"  # Third market plug-in stub (Mexico BMV / HKEX)
+  schedule_offset_hours: 5.0 # Hours after regular market close
+  auto_dst_adjustment: true
+
+# ── Multi-Factor Weighting Model ──
+# Combined Score = (Fundamental * W_f) + (Trend * W_t) + (Sentiment * W_s)
+scoring:
+  weights:
+    fundamental: 0.50
+    trend: 0.35
+    sentiment: 0.15
+
+  # Fundamental Sub-Factors (Normalized Within Sector)
+  fundamental_factors:
+    revenue_growth_yoy: 0.20
+    operating_margin: 0.15
+    return_on_equity: 0.20
+    free_cash_flow_yield: 0.20
+    debt_to_equity: 0.10  # Inverse penalty
+    valuation_peg_pe: 0.15 # Inverse vs sector median
+
+  # Technical & Trend Sub-Factors
+  trend_factors:
+    price_vs_ma200: 0.25 # Trend direction
+    ma50_ma200_golden_cross: 0.20 # Regime shift
+    rsi_14d_sweet_spot: 0.20 # 40-65 range accumulation
+    macd_histogram_momentum: 0.20 # Bullish expansion
+    volume_expansion_vs_20d: 0.15 # Institutional accumulation footprint
+
+# ── Overnight Trade Plan Risk Model ──
+trade_plan:
+  portfolio_risk_per_trade_pct: 1.5 # Maximum portfolio capital risked per trade
+  default_portfolio_equity: 100000.0 # Standard base USD
+  max_portfolio_positions: 10
+  max_sector_allocation_pct: 25.0
+  premarket_gap_invalidation_pct: 3.5 # If stock gaps >3.5% beyond limit entry, cancel order
+  default_risk_reward_ratio: 2.5 # Minimum 1:2.5 target vs stop loss
+  entry_zone_buffer_pct: 0.75 # Limit price envelope around technical support
+  flag_after_hours_earnings: true
+
+# ── LLM Multi-Agent Synthesis ──
+llm:
+  provider: "gemini" # Options: gemini, openai, deepseek, anthropic, ollama
+  model: "gemini-2.5-flash"
+  temperature: 0.2
+  bull_bear_debate_enabled: true
+  max_retries: 3
+
+# ── Delivery & Notifications ──
+delivery:
+  telegram:
+    enabled: false
+    bot_token: ""
+    chat_id: ""
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender: ""
+    recipients: []
+  report_output_dir: "data/reports"
+  audit_cache_dir: "data/cache"
+
+# ── Legal & Compliance ──
+compliance:
+  disclaimer: >
+    DISCLAIMER: This report is generated strictly by the finOps algorithmic research
+    platform for quantitative modeling and informational purposes only. It DOES NOT
+    constitute financial, investment, legal, or tax advice. No automated order
+    execution is performed. Trading stocks involves substantial risk of loss.

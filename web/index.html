@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finOps — Daily Stock Opportunities Platform (Top 20)</title>
+    <meta name="description" content="Institutional multi-market quant engine scanning US, China A-Shares, and international markets for daily Top 20 opportunities with overnight trade plans.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Ambient glowing grid & aurora -->
+    <div class="ambient-grid"></div>
+    <div class="ambient-aurora"></div>
+
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <header class="navbar">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <span class="brand-title">finOps</span>
+                    <span class="brand-tag">QUANT ENGINE v1.0</span>
+                </div>
+            </div>
+
+            <div class="nav-meta">
+                <div class="clock-pill">
+                    <span class="dot"></span>
+                    <span id="marketStatus">REGULAR CLOSE + 5H TRIGGER</span>
+                </div>
+                <div class="clock-pill" id="liveClock">
+                    <i class="fa-regular fa-clock"></i> 21:00:00 ET
+                </div>
+                <button class="btn-scan" id="btnRunScan">
+                    <i class="fa-solid fa-bolt"></i> Run Pipeline
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero KPI Metrics Bar -->
+        <section class="hero-stats">
+            <div class="kpi-card">
+                <div class="kpi-label">
+                    <span>ACTIVE MARKETS</span>
+                    <i class="fa-solid fa-earth-americas" style="color: var(--sky-400)"></i>
+                </div>
+                <div class="kpi-value" id="kpiMarkets">3</div>
+                <div class="kpi-sub">US (NYSE/NAS), CN (SSE/SZSE), MX (BMV)</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-label">
+                    <span>SCANNED UNIVERSE</span>
+                    <i class="fa-solid fa-filter" style="color: var(--teal-400)"></i>
+                </div>
+                <div class="kpi-value" id="kpiUniverse">60+ <span style="font-size: 15px; color: var(--fg-dim)">stocks</span></div>
+                <div class="kpi-sub">Multi-factor shortlist filtered to Top 20</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-label">
+                    <span>TOP RANKED OPPORTUNITY</span>
+                    <i class="fa-solid fa-trophy" style="color: var(--amber-400)"></i>
+                </div>
+                <div class="kpi-value" id="kpiTopStock">NVDA <span style="font-size: 16px; color: var(--teal-400)">92.4</span></div>
+                <div class="kpi-sub" id="kpiTopName">NVIDIA Corp. — Action: BUY</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-label">
+                    <span>AVG EXPECTED RISK/REWARD</span>
+                    <i class="fa-solid fa-scale-balanced" style="color: var(--emerald-400)"></i>
+                </div>
+                <div class="kpi-value" id="kpiAvgRR">2.8x</div>
+                <div class="kpi-sub">Strict limit envelope vs invalidation stop</div>
+            </div>
+        </section>
+
+        <!-- Controls Bar -->
+        <section class="controls-bar">
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-market="all">All Markets (20)</button>
+                <button class="tab-btn" data-market="us">United States</button>
+                <button class="tab-btn" data-market="cn">China A-Shares</button>
+                <button class="tab-btn" data-market="mx">Mexico (BMV)</button>
+            </div>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--fg-dim)"></i>
+                <input type="text" id="searchInput" placeholder="Filter ticker, name, or sector...">
+            </div>
+        </section>
+
+        <!-- Top 20 Opportunities Table -->
+        <main class="table-container">
+            <table class="stock-table">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">Rank</th>
+                        <th>Symbol & Asset</th>
+                        <th>Price</th>
+                        <th>Factor Breakdown</th>
+                        <th>Score</th>
+                        <th>Overnight Directive</th>
+                        <th>Entry Zone (Limit)</th>
+                        <th>Stop Loss</th>
+                        <th>Target 1</th>
+                        <th>R:R</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="opportunitiesTableBody">
+                    <!-- Populated dynamically via JS -->
+                </tbody>
+            </table>
+        </main>
+
+        <!-- Mandatory Disclaimer -->
+        <footer class="disclaimer-banner">
+            <strong>RESEARCH PLATFORM NOTICE:</strong> This system is strictly an algorithmic quantitative research platform developed for pair-programming and modeling demonstration. It <strong>DOES NOT</strong> provide financial, investment, legal, or tax advice. No automated order execution is conducted. Overnight trade plans represent quantitative scenario models with limit envelopes and strict stop-loss bounds.
+        </footer>
+    </div>
+
+    <!-- Modal Inspector for Deep-Dive & Overnight Trade Plan -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+                        <span id="modalRank" class="rank-badge top3">#1</span>
+                        <h2 id="modalTicker" style="font-family: var(--font-display); font-size: 24px; font-weight: 800;">NVDA</h2>
+                        <span id="modalMarketTag" class="market-tag us">US</span>
+                        <span id="modalActionPill" class="action-pill buy">BUY</span>
+                    </div>
+                    <p id="modalName" style="color: var(--fg-muted); font-size: 14px;">NVIDIA Corporation — Technology (Semiconductors)</p>
+                </div>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+
+            <!-- Overnight Trade Plan Card -->
+            <div class="plan-card">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style="font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--teal-400);">
+                        <i class="fa-solid fa-crosshairs"></i> OVERNIGHT TRADE PLAN (NEXT REGULAR SESSION)
+                    </h3>
+                    <span style="font-size: 12px; font-family: var(--font-mono); color: var(--fg-dim);" id="modalWindow">
+                        Pre-Market 08:30-09:30 ET
+                    </span>
+                </div>
+
+                <div class="plan-grid">
+                    <div class="plan-item">
+                        <div class="plan-item-label">Limit Entry Zone</div>
+                        <div class="plan-item-val" style="color: var(--teal-400);" id="modalEntryZone">$138.50 - $141.20</div>
+                    </div>
+                    <div class="plan-item">
+                        <div class="plan-item-label">Invalidation Stop</div>
+                        <div class="plan-item-val" style="color: var(--rose-400);" id="modalStopLoss">$134.80</div>
+                    </div>
+                    <div class="plan-item">
+                        <div class="plan-item-label">Target 1 (Conservative)</div>
+                        <div class="plan-item-val" style="color: var(--emerald-400);" id="modalTarget1">$155.00</div>
+                    </div>
+                    <div class="plan-item">
+                        <div class="plan-item-label">Target 2 (Runner)</div>
+                        <div class="plan-item-val" style="color: var(--sky-400);" id="modalTarget2">$168.00</div>
+                    </div>
+                    <div class="plan-item">
+                        <div class="plan-item-label">Suggested Sizing</div>
+                        <div class="plan-item-val" id="modalShares">320 shares</div>
+                    </div>
+                    <div class="plan-item">
+                        <div class="plan-item-label">Risked Capital</div>
+                        <div class="plan-item-val" id="modalRiskCapital">$1,500.00 (1.5%)</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 16px; font-size: 12px; color: var(--fg-muted); display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: var(--amber-400)"></i>
+                    <span id="modalGapRule">Pre-Market Gap Rule: Cancel limit order if open gaps > 3.5% away.</span>
+                </div>
+            </div>
+
+            <!-- Investment Thesis -->
+            <div style="margin-bottom: 24px;">
+                <h4 style="font-family: var(--font-display); font-size: 14px; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 8px;">
+                    Investment Thesis
+                </h4>
+                <p id="modalThesis" style="font-size: 14px; color: var(--fg-main); line-height: 1.7; background: rgba(0,0,0,0.2); padding: 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--teal-500);">
+                    Thesis details...
+                </p>
+            </div>
+
+            <!-- Bull vs Bear Debate -->
+            <div class="debate-box">
+                <div class="debate-card bull">
+                    <div class="debate-title bull">
+                        <i class="fa-solid fa-arrow-trend-up"></i> BULL RESEARCHER CASE
+                    </div>
+                    <p id="modalBullCase" style="font-size: 13px; color: var(--fg-main); line-height: 1.6;">Bull case...</p>
+                </div>
+                <div class="debate-card bear">
+                    <div class="debate-title bear">
+                        <i class="fa-solid fa-shield-halved"></i> BEAR RESEARCHER CASE
+                    </div>
+                    <p id="modalBearCase" style="font-size: 13px; color: var(--fg-main); line-height: 1.6;">Bear case...</p>
+                </div>
+            </div>
+
+            <!-- Catalysts & Downside Risks -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+                <div>
+                    <h5 style="font-size: 12px; font-family: var(--font-mono); color: var(--teal-400); margin-bottom: 8px; text-transform: uppercase;">
+                        Key Near-Term Catalysts
+                    </h5>
+                    <ul id="modalCatalysts" style="font-size: 13px; color: var(--fg-muted); padding-left: 18px; line-height: 1.6;">
+                    </ul>
+                </div>
+                <div>
+                    <h5 style="font-size: 12px; font-family: var(--font-mono); color: var(--rose-400); margin-bottom: 8px; text-transform: uppercase;">
+                        Key Invalidation Risks
+                    </h5>
+                    <ul id="modalRisks" style="font-size: 13px; color: var(--fg-muted); padding-left: 18px; line-height: 1.6;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
