@@ -49,7 +49,40 @@ class ReportStorage:
             f.write(markdown_content)
 
         logger.info(f"Daily [{horizon.upper()}] scan artifacts saved to {json_file} and {md_file}")
+
+        # Automatically sync to yepzhiweb if repository exists
+        self.sync_to_yepzhiweb()
+
         return json_file
+
+    def sync_to_yepzhiweb(self):
+        """
+        Synchronizes the web dashboard and report artifacts to yepzhi.com/finOps
+        """
+        import shutil
+        yepzhiweb_root = self.root.parent / "yepzhiweb"
+        if not yepzhiweb_root.exists():
+            return None
+
+        dest_finops = yepzhiweb_root / "finOps"
+        dest_finops.mkdir(parents=True, exist_ok=True)
+
+        web_dir = self.root / "web"
+        for item in ["index.html", "css", "js"]:
+            src = web_dir / item
+            dst = dest_finops / item
+            if src.is_dir():
+                shutil.copytree(src, dst, dirs_exist_ok=True)
+            elif src.is_file():
+                shutil.copy2(src, dst)
+
+        dest_reports = dest_finops / "data" / "reports"
+        dest_reports.mkdir(parents=True, exist_ok=True)
+        for rf in self.reports_dir.glob("latest*.json"):
+            shutil.copy2(rf, dest_reports / rf.name)
+
+        logger.info(f"Successfully synced finOps web dashboard and reports to {dest_finops}")
+        return dest_finops
 
     def load_latest_report(self, horizon: str = None) -> ScanReport:
         if horizon:

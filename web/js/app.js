@@ -501,14 +501,19 @@ function initClock() {
 }
 
 async function loadReportData(horizon = currentHorizon) {
+    const loc = window.location.pathname;
+    const base = loc.endsWith('/') ? loc : loc.substring(0, loc.lastIndexOf('/') + 1);
+
     const candidatePaths = [
         `data/reports/latest_${horizon}.json`,
+        `${base}data/reports/latest_${horizon}.json`,
+        `/finOps/data/reports/latest_${horizon}.json`,
         `/data/reports/latest_${horizon}.json`,
-        `../data/reports/latest_${horizon}.json`,
         `latest_${horizon}.json`,
-        "data/reports/latest.json",
+        `data/reports/latest.json`,
+        `${base}data/reports/latest.json`,
+        `/finOps/data/reports/latest.json`,
         "/data/reports/latest.json",
-        "../data/reports/latest.json",
         "latest.json"
     ];
 
