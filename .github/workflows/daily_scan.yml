@@ -1,0 +1,85 @@
+name: finOps Daily Market Scan & Trade Planning Pipeline
+
+on:
+  schedule:
+    # Trigger Mon-Fri at 01:00 UTC and 02:00 UTC (9:00 PM ET during EDT and EST)
+    - cron: '0 1,2 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force scan execution regardless of market close schedule'
+        required: false
+        default: 'false'
+        type: boolean
+      horizon:
+        description: 'Target horizon (daily, weekly, monthly, all)'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - daily
+          - weekly
+          - monthly
+
+permissions:
+  contents: write
+
+jobs:
+  scan-and-rank:
+    name: Execute Daily Multi-Market Scan (US, CN, MX)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout finOps Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv Package Manager
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install Dependencies
+        run: uv sync --frozen
+
+      - name: Verify Exchange Calendar & Schedule (+5h offset)
+        id: check_schedule
+        run: |
+          uv run python -m finops.cli schedule --offset 5.0
+
+      - name: Run Multi-Market Scan Pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          HORIZON="${{ github.event.inputs.horizon || 'all' }}"
+          uv run python -m finops.cli scan --horizon "$HORIZON" $FORCE_FLAG --notify
+
+      - name: Update Recommendation Backtest & Hit Rate
+        run: |
+          uv run python -m finops.cli backtest
+
+      - name: Commit & Push Daily Reports
+        run: |
+          git config --global user.name "finOps Autonomous Bot"
+          git config --global user.email "bot@finops.internal"
+          git add data/reports/
+          if git diff --staged --quiet; then
+            echo "No report changes to commit."
+          else
+            git commit -m "chore(daily): publish daily stock opportunities report [skip ci]"
+            git push origin main
+          fi

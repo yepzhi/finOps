@@ -12,6 +12,10 @@ from datetime import datetime
 from finops.core.engine import ScanPipeline
 from finops.core.calendar import MarketCalendarService
 from finops.core.config import Settings
+from finops.backtest.engine import BacktestEngine
+from finops.delivery.notifications import NotificationDispatcher
+from finops.delivery.storage import ReportStorage
+from finops.delivery.markdown_report import generate_markdown_report
 
 logging.basicConfig(
     level=logging.INFO,
@@ -32,7 +36,8 @@ def cli():
 @click.option("--horizon", default="daily", type=click.Choice(["daily", "weekly", "monthly", "all"], case_sensitive=False), help="Investment horizon: 'daily' (1-3 days), 'weekly' (1-4 weeks), 'monthly' (long term 3-12 months), or 'all'")
 @click.option("--limit", default=None, type=int, help="Optional limit per market for testing (e.g. 5)")
 @click.option("--force", is_flag=True, help="Force scan execution regardless of schedule")
-def scan(market: str, horizon: str, limit: int, force: bool):
+@click.option("--notify", is_flag=True, help="Dispatch report alerts to Telegram/Email/Webhook if configured")
+def scan(market: str, horizon: str, limit: int, force: bool, notify: bool):
     """Executes the daily market scanning, factor scoring, and trade planning by investment horizon."""
     click.echo("=================================================================")
     click.echo("🚀 finOps — Launching Multi-Market Scan & Ranking Pipeline")
@@ -45,6 +50,8 @@ def scan(market: str, horizon: str, limit: int, force: bool):
     horizons_to_run = ["daily", "weekly", "monthly"] if horizon.lower() == "all" else [horizon.lower()]
 
     pipeline = ScanPipeline()
+    dispatcher = NotificationDispatcher() if notify else None
+
     for h in horizons_to_run:
         h_label = {
             "daily": "⚡ DAILY (1-3 Days)",
@@ -73,6 +80,62 @@ def scan(market: str, horizon: str, limit: int, force: bool):
             click.echo(f"... and {len(report.top_20) - 10} more top opportunities (view full report in data/reports/)")
 
         click.echo(f"✅ [{h.upper()}] Artifacts archived at data/reports/scan_{report.scan_date}_{report.horizon}.md and latest_{report.horizon}.json")
+
+        if dispatcher:
+            md_content = generate_markdown_report(report)
+            res = dispatcher.dispatch_report(report, md_content)
+            click.echo(f"📡 Notifications dispatched: Telegram={'OK' if res['telegram'] else 'Skip/Off'} | Email={'OK' if res['email'] else 'Skip/Off'} | Webhook={'OK' if res['webhook'] else 'Skip/Off'}")
+
+
+@cli.command()
+@click.option("--limit", default=30, type=int, help="Maximum number of historical reports to backtest")
+def backtest(limit: int):
+    """Runs historical recommendation backtest, calculating hit rate, profit factor and returns."""
+    click.echo("=================================================================")
+    click.echo("📊 finOps — Historical Recommendation Performance & Backtest")
+    click.echo("=================================================================")
+
+    engine = BacktestEngine()
+    results = engine.run_backtest(max_reports=limit)
+
+    click.echo(f"\n📈 OVERALL PERFORMANCE METRICS:")
+    click.echo(f"Evaluated At: {results['evaluated_at']}")
+    click.echo(f"Total Trades Analyzed: {results['total_trades_analyzed']}")
+    click.echo(f"Win Rate:              {results['win_rate_pct']}% (Target 1 Reached before Stop Loss)")
+    click.echo(f"Profit Factor:         {results['profit_factor']}x (Gross Gains / Gross Losses)")
+    click.echo(f"Avg Trade Return:      {results['avg_trade_return_pct']:+.2f}%")
+    click.echo(f"Max Strategy Drawdown: {results['max_drawdown_pct']}%")
+
+    click.echo("\n🎯 PERFORMANCE BY HORIZON:")
+    click.echo(f"{'Horizon':<12} {'Trades':<8} {'Win Rate':<10} {'Avg Return'}")
+    click.echo("-" * 45)
+    for h, data in results["performance_by_horizon"].items():
+        click.echo(f"{h.capitalize():<12} {data['total_trades']:<8} {data['win_rate_pct']:<10.1f}% {data['avg_return_pct']:+.2f}%")
+
+    click.echo("\n🌍 PERFORMANCE BY MARKET:")
+    click.echo(f"{'Market':<10} {'Trades':<8} {'Win Rate':<10} {'Avg Return'}")
+    click.echo("-" * 45)
+    for m, data in results["performance_by_market"].items():
+        click.echo(f"{m:<10} {data['total_trades']:<8} {data['win_rate_pct']:<10.1f}% {data['avg_return_pct']:+.2f}%")
+
+    click.echo("\n📜 RECENT TRADE AUDIT TRAIL:")
+    click.echo(f"{'Date':<11} {'Ticker':<8} {'Market':<6} {'Horizon':<8} {'R:R':<6} {'Outcome':<16} {'Realized Return'}")
+    click.echo("-" * 75)
+    for t in results["recent_trades"][:8]:
+        click.echo(f"{t['scan_date']:<11} {t['ticker']:<8} {t['market']:<6} {t['horizon']:<8} {t['risk_reward_ratio']:<6.1f}x {t['outcome']:<16} {t['realized_return_pct']:+.2f}%")
+
+    click.echo("\n✅ Backtest saved to data/reports/backtest_results.json and synced to web dashboard.")
+
+
+@cli.command()
+def sync():
+    """Manually synchronizes current dashboard and data reports to yepzhi.com/finOps repository."""
+    storage = ReportStorage()
+    dest = storage.sync_to_yepzhiweb()
+    if dest:
+        click.echo(f"✅ Successfully synced web assets and reports to {dest}")
+    else:
+        click.echo("⚠️ yepzhiweb repository not found in parent directory.")
 
 
 @cli.command()

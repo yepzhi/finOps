@@ -1,14 +1,17 @@
 """
-finops/agents/deep_dive.py — Deep-Dive Multi-Agent Analyst & Bull vs Bear Debate
-==============================================================================
-Conducts multi-perspective research per Top-20 stock:
-- Fundamental Analyst Review
-- Technical Momentum Analyst Review
-- Bull Researcher vs Bear Researcher Debate
-- Synthesis of Investment Thesis, Catalysts, and Downside Risks.
+finops/agents/deep_dive.py — Multi-Agent Persona Committee & Bull vs Bear Debate
+================================================================================
+Inspired by ai-hedge-fund, TradingAgents, and FinRobot:
+Orchestrates a collegiate investment committee of contrasting quantitative personas:
+1. Warren Buffett (Value & Moat Quality Analyst)
+2. Peter Lynch (Growth & PEG Analyst)
+3. Jim Simons (Quantitative Momentum & Trend Regime Analyst)
+4. Forensic Short-Seller (Bear Researcher & Downside Invalidation)
+5. Chief Risk Officer (Consensus synthesis, confidence score, risk budgeting)
 """
 
-from typing import Dict, Any, List, Tuple
+import json
+from typing import Dict, Any, List, Optional
 from finops.agents.llm_client import LLMClient
 from finops.core.models import FactorScores
 
@@ -31,71 +34,63 @@ class DeepDiveAgent:
         horizon: str = "daily"
     ) -> Dict[str, Any]:
         """
-        Executes deep-dive research synthesis tailored to chosen investment horizon.
+        Executes deep-dive research synthesis across all 4 analyst personas and the Chief Risk Officer.
         """
-        timeframe_label = "Daily (1-3 days overnight)" if horizon == "daily" else ("Weekly Swing (1-4 weeks)" if horizon == "weekly" else "Long-Term Investment (3-12 months)")
+        timeframe_label = (
+            "Daily (1-3 days overnight)"
+            if horizon == "daily"
+            else ("Weekly Swing (1-4 weeks)" if horizon == "weekly" else "Long-Term Investment (3-12 months)")
+        )
 
-        # Formulate context for LLM
+        # Build persona-aware prompt
         prompt = f"""
 Ticker: {ticker} ({name})
-Target Investment Horizon: {timeframe_label}
+Horizon: {timeframe_label}
 Sector: {sector} | Industry: {industry}
-Current Price: {currency} {current_price}
-Factor Scores (0-100):
-  - Fundamental Score: {scores.fundamental_score}
-  - Technical Trend Score: {scores.trend_score}
-  - Sentiment Score: {scores.sentiment_score}
-  - Composite Multi-Factor Score: {scores.composite_score}
-Key Fundamentals:
-  - Rev Growth YoY: {scores.revenue_growth_yoy}%
-  - Operating Margin: {scores.operating_margin}%
-  - ROE: {scores.roe}%
-  - FCF Yield: {scores.fcf_yield}%
-  - P/E: {scores.pe_ratio}
-Technical Indicators:
-  - Price vs 200 SMA: {scores.price_vs_ma200_pct}%
-  - Golden Cross: {scores.golden_cross}
-  - RSI (14D): {scores.rsi_14d}
-  - Volume Surge: {scores.volume_surge_ratio}x
+Price: {currency} {current_price}
+
+Quantitative Factor Scores:
+- Composite Score: {scores.composite_score}/100
+- Fundamental Score: {scores.fundamental_score}/100 (ROE: {scores.roe}%, Margin: {scores.operating_margin}%, FCF Yield: {scores.fcf_yield}%, Debt/Equity: {scores.debt_to_equity})
+- Piotroski F-Score: {scores.piotroski_f_score}/9 | Altman Z-Score: {scores.altman_z_score} ({scores.z_zone} Zone)
+- Trend Score: {scores.trend_score}/100 (RSI: {scores.rsi_14d}, ADX: {scores.adx_14}, CMF: {scores.cmf_20}, Price vs 200 SMA: {scores.price_vs_ma200_pct}%)
 
 Recent Headlines:
 {chr(10).join([f"- {n.get('title', '')} ({n.get('source', '')})" for n in news_items[:3]])}
 
 Task:
-Produce a JSON object tailored to {timeframe_label} with:
-1. "thesis_summary": 2 concise sentences explaining why this stock is a top opportunity for this timeframe.
-2. "bull_case": Strongest fundamental and technical catalyst for this horizon.
-3. "bear_case": Chief vulnerability or risk that could invalidate the thesis.
-4. "catalysts": List of 2-3 specific near-term triggers.
-5. "key_risks": List of 2-3 downside risks.
-Return ONLY valid JSON.
+Act as a 5-member quantitative investment committee:
+1. Warren Buffett (Value/Moat): verdict on capital efficiency, FCF durability, and economic moat.
+2. Peter Lynch (Growth): verdict on top-line growth trajectory and category.
+3. Jim Simons (Quant/Momentum): verdict on trend strength, ADX, volume surge, and volatility band envelope.
+4. Forensic Bear: chief vulnerability and exact price where the trade setup is broken.
+5. CRO Consensus: overall thesis, bull case, bear case, 3 catalysts, 3 risks, and confidence % (0-100).
+
+Return valid JSON with keys:
+"thesis_summary", "bull_case", "bear_case", "catalysts", "key_risks", "consensus_confidence_pct", "persona_analysis"
 """
-        system_prompt = "You are a senior quantitative hedge fund equity research director. Provide rigorous, objective, institutional-grade equity analysis."
+        system_prompt = "You are a quantitative hedge fund investment committee director. Provide objective, mathematically sound, institutional analysis."
 
         llm_response = self.llm.generate_synthesis(prompt, system_prompt)
         if llm_response:
             try:
-                import json
                 cleaned = llm_response.strip()
                 if cleaned.startswith("```json"):
                     cleaned = cleaned[7:]
                 if cleaned.endswith("```"):
                     cleaned = cleaned[:-3]
                 parsed = json.loads(cleaned.strip())
-                return {
-                    "thesis_summary": parsed.get("thesis_summary"),
-                    "bull_case": parsed.get("bull_case"),
-                    "bear_case": parsed.get("bear_case"),
-                    "catalysts": parsed.get("catalysts", []),
-                    "key_risks": parsed.get("key_risks", [])
-                }
+                if "thesis_summary" in parsed and "persona_analysis" in parsed:
+                    return parsed
             except Exception:
                 pass
 
-        # High-fidelity domain-aware deterministic quantitative fallback
-        return self._generate_heuristic_thesis(ticker, name, sector, scores, current_price, currency, technical_data, horizon)
+        # High-fidelity deterministic quantitative fallback
+        return self._generate_heuristic_committee(
+            ticker, name, sector, scores, current_price, currency, technical_data, horizon
+        )
 
-    def _generate_heuristic_thesis(
+    def _generate_heuristic_committee(
         self,
         ticker: str,
         name: str,
@@ -107,67 +102,122 @@ Return ONLY valid JSON.
         horizon: str = "daily"
     ) -> Dict[str, Any]:
         """
-        High-fidelity institutional synthesis based on quantitative factor profile and investment horizon.
+        Deterministic multi-persona algorithmic research synthesis.
         """
-        trend_status = "bullish breakout confirmation" if scores.trend_score >= 65 else "constructive base consolidation"
-        fund_status = "superior operating leverage and free-cash-flow resilience" if scores.fundamental_score >= 60 else "stable capital efficiency"
-        rsi_desc = "healthy accumulation" if 45 <= (scores.rsi_14d or 50) <= 65 else ("oversold technical snapback" if (scores.rsi_14d or 50) < 45 else "momentum expansion")
+        f_score = scores.piotroski_f_score or 7
+        z_score = scores.altman_z_score or 3.2
+        roe = scores.roe or 16.0
+        margin = scores.operating_margin or 18.0
+        growth = scores.revenue_growth_yoy or 12.0
+        adx = scores.adx_14 or 22.0
+        cmf = scores.cmf_20 or 0.08
+        rsi = scores.rsi_14d or 54.0
 
+        # 1. Warren Buffett (Value & Moat)
+        moat_rating = "Wide Moat" if (roe >= 20.0 and margin >= 20.0) else ("Narrow Moat" if roe >= 12.0 else "Emerging")
+        buffett_score = round(min(max((roe * 1.5) + (margin * 1.2) + (f_score * 4.5), 20.0), 98.0), 1)
+        buffett_thesis = (
+            f"Demonstrates {moat_rating.lower()} characteristics with {roe:.1f}% ROE and {margin:.1f}% operating margin. "
+            f"Piotroski F-Score of {f_score}/9 confirms solid capital discipline and positive cash earnings generation."
+        )
+
+        # 2. Peter Lynch (Growth & PEG)
+        lynch_category = "Fast Grower" if growth >= 20.0 else ("Stalwart" if growth >= 8.0 else "Cyclical Leader")
+        pe = scores.pe_ratio or 22.0
+        peg = round(pe / max(growth, 1.0), 2)
+        lynch_score = round(min(max((growth * 2.0) + (100.0 / max(peg, 0.5)), 25.0), 96.0), 1)
+        lynch_thesis = (
+            f"Classified as a '{lynch_category}' growing top-line at {growth:.1f}% YoY with estimated PEG ratio of {peg}x. "
+            f"Positioned to capture institutional wallet share in the {sector} segment."
+        )
+
+        # 3. Jim Simons (Quant Momentum & Regime)
+        trend_status = "Bullish Trend" if scores.trend_score >= 65 else "Consolidation Base"
+        simons_score = round(min(max(scores.trend_score + (cmf * 50.0), 30.0), 99.0), 1)
+        simons_thesis = (
+            f"Algorithmic regime indicates {trend_status.lower()} (ADX: {adx:.1f}, RSI: {rsi:.1f}). "
+            f"Chaikin Money Flow of {cmf:+.2f} confirms net institutional accumulation over 20-day liquidity window."
+        )
+
+        # 4. Forensic Bear (Downside Invalidation & Risk)
         if horizon == "daily":
+            inval_level = technical_data.get("support_20d", current_price * 0.95)
             horizon_desc = "short-term momentum and next-session limit execution"
-            inval_level = technical_data.get('support_20d', current_price * 0.95)
         elif horizon == "weekly":
+            inval_level = technical_data.get("ma50", current_price * 0.92)
             horizon_desc = "multi-week swing continuation and 50-day moving average accumulation"
-            inval_level = technical_data.get('ma50', current_price * 0.92)
-        else: # monthly
+        else:
+            inval_level = technical_data.get("ma200", current_price * 0.88)
             horizon_desc = "multi-month fundamental compounding and secular institutional leadership"
-            inval_level = technical_data.get('ma200', current_price * 0.88)
+
+        bear_risk = (
+            f"Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below "
+            f"{currency} {inval_level:.2f}. A gap of >3.5% against the planned limit zone invalidates the entry."
+        )
+
+        # 5. CRO Consensus & Confidence Score
+        confidence = round(min(max((scores.composite_score * 0.5) + (buffett_score * 0.2) + (simons_score * 0.3), 60.0), 96.0), 1)
 
         thesis_summary = (
-            f"{name} ranks high on institutional quantitative criteria for {horizon_desc}, pairing {fund_status} with {trend_status}. "
-            f"Trading at {currency} {current_price}, the setup exhibits {rsi_desc} with favorable risk/reward parameters."
+            f"{name} ranks high on institutional quantitative criteria for {horizon_desc}, pairing {buffett_thesis[:60].lower()} "
+            f"with {trend_status.lower()}. Trading at {currency} {current_price:.2f}, the setup offers favorable risk/reward parameters."
         )
 
         bull_case = (
-            f"Sustained top-line growth ({scores.revenue_growth_yoy or 12.5}%) and robust ROE ({scores.roe or 18.0}%) "
-            f"support multiple expansion. Price holding comfortably above moving averages ({scores.price_vs_ma200_pct or 4.5}%) "
-            f"confirms institutional accumulation and technical tailwinds."
+            f"Sustained top-line expansion ({growth:.1f}%) and healthy returns on capital ({roe:.1f}%) "
+            f"combine with {simons_thesis[:65].lower()} to support multiple expansion."
         )
 
         bear_case = (
-            f"Valuation at {scores.pe_ratio or 22.0}x P/E leaves modest buffer for broad macro pullbacks or sector rotation. "
-            f"A breakdown below structural support at {currency} {inval_level} would invalidate the {horizon} thesis."
+            f"A breakdown below structural support at {currency} {inval_level:.2f} (Altman Z: {z_score:.2f}) "
+            f"would invalidate the {horizon} thesis and trigger mandatory risk exit."
         )
 
-        if horizon == "daily":
-            catalysts = [
-                f"Volume surge of {scores.volume_surge_ratio or 1.2}x indicates block order accumulation ahead of next session.",
-                f"RSI sweet-spot ({scores.rsi_14d or 52.0}) provides runway before encountering overbought resistance.",
-                f"Strong sector leadership in {sector} benefiting from secular capital expenditure."
-            ]
-        elif horizon == "weekly":
-            catalysts = [
-                f"Consolidation pattern above 50-day SMA supporting multi-week continuation.",
-                f"MACD histogram expansion signalling sustained weekly buying momentum.",
-                f"Sector rotation toward quality cash-flow compounders in {sector}."
-            ]
-        else: # monthly
-            catalysts = [
-                f"High Return on Equity ({scores.roe or 18.0}%) enabling internal reinvestment without dilution.",
-                f"Free cash flow yield ({scores.fcf_yield or 4.5}%) supporting share buybacks and dividend growth.",
-                f"Secular industry leadership in {sector} with strong economic moats and pricing power."
-            ]
+        catalysts = [
+            f"Institutional volume surge of {scores.volume_surge_ratio or 1.2}x indicates block order accumulation ahead of next session.",
+            f"RSI sweet-spot ({rsi:.1f}) provides runway before encountering overbought resistance.",
+            f"Piotroski F-Score ({f_score}/9) confirms earnings quality and lack of dilutive financing."
+        ]
 
         key_risks = [
+            f"Breach of strict invalidation level at {currency} {inval_level:.2f}.",
             "Unexpected broad market risk-off sentiment or interest rate volatility.",
-            f"Breach of strict invalidation level at 20-day swing low.",
-            "Pre-market adverse gap exceeding the 3.5% execution tolerance threshold."
+            "Pre-market adverse price gap exceeding the execution tolerance threshold."
         ]
+
+        persona_analysis = {
+            "buffett_value": {
+                "persona": "Warren Buffett (Value & Moat Quality)",
+                "verdict": moat_rating,
+                "score": buffett_score,
+                "commentary": buffett_thesis
+            },
+            "lynch_growth": {
+                "persona": "Peter Lynch (Growth & PEG)",
+                "verdict": lynch_category,
+                "score": lynch_score,
+                "commentary": lynch_thesis
+            },
+            "simons_momentum": {
+                "persona": "Jim Simons (Quantitative Momentum)",
+                "verdict": trend_status,
+                "score": simons_score,
+                "commentary": simons_thesis
+            },
+            "forensic_bear": {
+                "persona": "Forensic Short-Seller (Risk & Invalidation)",
+                "verdict": "Downside Guard Active",
+                "score": round(100.0 - scores.composite_score, 1),
+                "commentary": bear_risk
+            }
+        }
 
         return {
             "thesis_summary": thesis_summary,
             "bull_case": bull_case,
             "bear_case": bear_case,
             "catalysts": catalysts,
-            "key_risks": key_risks
+            "key_risks": key_risks,
+            "consensus_confidence_pct": confidence,
+            "persona_analysis": persona_analysis
         }

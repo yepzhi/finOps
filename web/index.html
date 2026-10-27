@@ -39,6 +39,9 @@
                 <div class="clock-pill" id="liveClock">
                     <i class="fa-regular fa-clock"></i> 21:00:00 ET
                 </div>
+                <button class="btn-backtest" id="btnOpenBacktest">
+                    <i class="fa-solid fa-chart-pie"></i> Track Record
+                </button>
                 <button class="btn-scan" id="btnRunScan">
                     <i class="fa-solid fa-bolt"></i> Run Pipeline
                 </button>
@@ -226,6 +229,90 @@
                 </p>
             </div>
 
+            <!-- Collegiate Research Committee (Multi-Persona) -->
+            <div class="persona-section">
+                <div class="persona-header">
+                    <div class="persona-header-title">
+                        <i class="fa-solid fa-users-viewfinder"></i> Collegiate Research Committee (Multi-Persona)
+                    </div>
+                    <div id="modalConsensusPill" class="consensus-pill">
+                        <span class="cro-title">CRO ALLOCATION:</span>
+                        <span id="modalCroConfidence" class="confidence-badge">92% CONFIDENCE</span>
+                    </div>
+                </div>
+
+                <div class="persona-grid">
+                    <!-- Buffett Value -->
+                    <div class="persona-card" id="cardBuffett">
+                        <div class="persona-top">
+                            <span class="persona-avatar">🏛️</span>
+                            <div>
+                                <div class="persona-name">Warren Buffett</div>
+                                <div class="persona-role">Value & Moat Analyst</div>
+                            </div>
+                            <span class="persona-verdict" id="buffettVerdict">ACCUMULATE</span>
+                        </div>
+                        <p class="persona-thesis" id="buffettThesis">Evaluating economic moat, pricing power, and return on invested capital...</p>
+                        <div class="persona-meta" id="buffettMeta">
+                            <span>Moat: <strong id="buffettMoat">WIDE</strong></span>
+                            <span>F-Score: <strong id="buffettFScore">8/9</strong></span>
+                            <span>Z-Score: <strong id="buffettZScore">3.8 (Safe)</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Peter Lynch Growth -->
+                    <div class="persona-card" id="cardLynch">
+                        <div class="persona-top">
+                            <span class="persona-avatar">📈</span>
+                            <div>
+                                <div class="persona-name">Peter Lynch</div>
+                                <div class="persona-role">Growth & PEG Analyst</div>
+                            </div>
+                            <span class="persona-verdict" id="lynchVerdict">BUY</span>
+                        </div>
+                        <p class="persona-thesis" id="lynchThesis">Analyzing earnings trajectory vs valuation multiple...</p>
+                        <div class="persona-meta" id="lynchMeta">
+                            <span>Category: <strong id="lynchCategory">Fast Grower</strong></span>
+                            <span>PEG: <strong id="lynchPeg">1.1x</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Jim Simons Quant/Trend -->
+                    <div class="persona-card" id="cardSimons">
+                        <div class="persona-top">
+                            <span class="persona-avatar">🧮</span>
+                            <div>
+                                <div class="persona-name">Jim Simons</div>
+                                <div class="persona-role">Statistical Momentum</div>
+                            </div>
+                            <span class="persona-verdict" id="simonsVerdict">BULLISH</span>
+                        </div>
+                        <p class="persona-thesis" id="simonsThesis">Testing trend persistence, directional movement, and money flow...</p>
+                        <div class="persona-meta" id="simonsMeta">
+                            <span>ADX(14): <strong id="simonsAdx">34.2</strong></span>
+                            <span>CMF(20): <strong id="simonsCmf">+0.18</strong></span>
+                            <span>Regime: <strong id="simonsRegime">Trending</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Forensic Short-Seller Bear -->
+                    <div class="persona-card bear" id="cardForensic">
+                        <div class="persona-top">
+                            <span class="persona-avatar">🔍</span>
+                            <div>
+                                <div class="persona-name">Forensic Bear</div>
+                                <div class="persona-role">Red Flags & Downside</div>
+                            </div>
+                            <span class="persona-verdict bear" id="forensicVerdict">CLEAN</span>
+                        </div>
+                        <p class="persona-thesis" id="forensicThesis">Investigating accounting anomalies and leverage risks...</p>
+                        <div class="persona-meta" id="forensicMeta">
+                            <span>Risk Level: <strong id="forensicRisk">MODERATE</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Bull vs Bear Debate -->
             <div class="debate-box">
                 <div class="debate-card bull">
@@ -257,6 +344,111 @@
                     </h5>
                     <ul id="modalRisks" style="font-size: 13px; color: var(--fg-muted); padding-left: 18px; line-height: 1.6;">
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backtest Track Record Modal -->
+    <div class="modal-overlay" id="backtestModal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px; flex-wrap: wrap;">
+                        <span class="brand-icon" style="width: 34px; height: 34px; font-size: 16px;"><i class="fa-solid fa-chart-pie"></i></span>
+                        <h2 style="font-family: var(--font-display); font-size: 22px; font-weight: 800;">Quantitative Backtest Track Record</h2>
+                        <span class="badge-tag live">HISTORICAL SIMULATION</span>
+                    </div>
+                    <p style="color: var(--fg-muted); font-size: 13px;">
+                        Automated verification of past Top 20 recommendations tracking limit fills, Target 1 reaches, and Stop Loss invalidations.
+                    </p>
+                </div>
+                <button class="modal-close" id="backtestCloseBtn">&times;</button>
+            </div>
+
+            <!-- Backtest Top KPIs -->
+            <div class="backtest-kpi-grid">
+                <div class="bkpi-card">
+                    <div class="bkpi-label">TOTAL POSITIONS</div>
+                    <div class="bkpi-val" id="btTotalTrades">--</div>
+                    <div class="bkpi-sub">Archived daily scans</div>
+                </div>
+                <div class="bkpi-card">
+                    <div class="bkpi-label">WIN RATE</div>
+                    <div class="bkpi-val text-emerald" id="btWinRate">--%</div>
+                    <div class="bkpi-sub">Hit Target 1 before Stop</div>
+                </div>
+                <div class="bkpi-card">
+                    <div class="bkpi-label">PROFIT FACTOR</div>
+                    <div class="bkpi-val text-teal" id="btProfitFactor">--x</div>
+                    <div class="bkpi-sub">Gross Gains / Gross Losses</div>
+                </div>
+                <div class="bkpi-card">
+                    <div class="bkpi-label">AVG TRADE RETURN</div>
+                    <div class="bkpi-val text-sky" id="btAvgReturn">--%</div>
+                    <div class="bkpi-sub">Per completed position</div>
+                </div>
+                <div class="bkpi-card">
+                    <div class="bkpi-label">MAX DRAWDOWN</div>
+                    <div class="bkpi-val text-rose" id="btMaxDrawdown">--%</div>
+                    <div class="bkpi-sub">Peak-to-trough risk envelope</div>
+                </div>
+            </div>
+
+            <!-- Breakdown Section (Horizon & Market Tables) -->
+            <div class="backtest-breakdown-grid">
+                <div class="breakdown-card">
+                    <h4 class="breakdown-title"><i class="fa-solid fa-hourglass-half"></i> Performance by Horizon</h4>
+                    <table class="sub-table">
+                        <thead>
+                            <tr>
+                                <th>Horizon</th>
+                                <th>Trades</th>
+                                <th>Win Rate</th>
+                                <th style="text-align: right;">Avg Return</th>
+                            </tr>
+                        </thead>
+                        <tbody id="btHorizonTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="breakdown-card">
+                    <h4 class="breakdown-title"><i class="fa-solid fa-earth-americas"></i> Performance by Market</h4>
+                    <table class="sub-table">
+                        <thead>
+                            <tr>
+                                <th>Market</th>
+                                <th>Trades</th>
+                                <th>Win Rate</th>
+                                <th style="text-align: right;">Avg Return</th>
+                            </tr>
+                        </thead>
+                        <tbody id="btMarketTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recent Trades Table -->
+            <div class="recent-trades-card">
+                <h4 class="breakdown-title"><i class="fa-solid fa-list-check"></i> Recent Closed Positions</h4>
+                <div style="max-height: 240px; overflow-y: auto;">
+                    <table class="sub-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Symbol</th>
+                                <th>Market</th>
+                                <th>Horizon</th>
+                                <th>Entry</th>
+                                <th>Target 1</th>
+                                <th>Outcome</th>
+                                <th style="text-align: right;">Realized PnL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="btRecentTradesBody">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

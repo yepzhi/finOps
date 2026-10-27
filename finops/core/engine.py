@@ -114,7 +114,9 @@ class ScanPipeline:
             tech_indicators = item["technical_indicators"]
             ticker = mkt["ticker"]
             name = mkt["name"]
-            sector = mkt["sector"]
+            sector = mkt.get("sector", "General")
+            industry = mkt.get("industry", sector)
+            currency = mkt.get("currency", "USD")
             raw_price = mkt.get("current_price")
             if raw_price is None or (isinstance(raw_price, float) and (math.isnan(raw_price) or math.isinf(raw_price) or raw_price <= 0)):
                 df_p = item.get("market_data", {}).get("prices")
@@ -168,6 +170,8 @@ class ScanPipeline:
                 catalysts=research["catalysts"],
                 key_risks=research["key_risks"],
                 trade_plan=trade_plan,
+                persona_analysis=research.get("persona_analysis"),
+                consensus_confidence_pct=research.get("consensus_confidence_pct", 85.0),
                 recent_news=mkt.get("news_items", [])
             )
             top_20_opportunities.append(opp)

@@ -6,7 +6,7 @@ overnight trade plans, and daily Top 20 opportunities.
 """
 
 from datetime import datetime
-from typing import List, Dict, Optional, Literal
+from typing import List, Dict, Optional, Literal, Any
 from pydantic import BaseModel, Field
 
 
@@ -21,18 +21,33 @@ class FactorScores(BaseModel):
     revenue_growth_yoy: Optional[float] = None
     operating_margin: Optional[float] = None
     roe: Optional[float] = None
+    roic: Optional[float] = None
     fcf_yield: Optional[float] = None
     debt_to_equity: Optional[float] = None
+    current_ratio: Optional[float] = None
     pe_ratio: Optional[float] = None
     pb_ratio: Optional[float] = None
     ev_ebitda: Optional[float] = None
 
-    # Technical indicator raw metrics
+    # Quantitative Accounting & Solvency Indicators
+    piotroski_f_score: Optional[int] = Field(default=None, description="Piotroski 9-point financial health score (0-9)")
+    altman_z_score: Optional[float] = Field(default=None, description="Altman Z-Score financial distress metric")
+    z_zone: Optional[str] = Field(default="Safe", description="Altman Z distress classification (Safe, Grey, Distress)")
+
+    # Technical & Institutional Flow raw metrics
     price_vs_ma200_pct: Optional[float] = None
     golden_cross: Optional[bool] = None
+    ribbon_aligned: Optional[bool] = None
     rsi_14d: Optional[float] = None
+    stoch_k: Optional[float] = None
     macd_histogram: Optional[float] = None
+    adx_14: Optional[float] = None
+    trend_strength: Optional[str] = None
     volume_surge_ratio: Optional[float] = None
+    cmf_20: Optional[float] = None
+    money_flow_regime: Optional[str] = None
+    bollinger_pct_b: Optional[float] = None
+    bollinger_bandwidth: Optional[float] = None
 
 
 class OvernightTradePlan(BaseModel):
@@ -108,6 +123,14 @@ class StockOpportunity(BaseModel):
     key_risks: List[str] = Field(default_factory=list)
 
     trade_plan: OvernightTradePlan
+    persona_analysis: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Multi-agent quantitative personas (Buffett Value, Lynch Growth, Simons Momentum, Forensic Bear)"
+    )
+    consensus_confidence_pct: float = Field(
+        default=85.0,
+        description="Multi-agent consensus confidence score (0-100%)"
+    )
     sentiment_summary: Optional[str] = None
     recent_news: List[NewsItem] = Field(default_factory=list)
     timestamp: datetime = Field(default_factory=datetime.utcnow)
