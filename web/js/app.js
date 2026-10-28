@@ -791,10 +791,9 @@ function renderTable() {
         const p = opp.trade_plan;
         const s = opp.scores;
         const curr = opp.currency;
-        const isTop3 = opp.rank <= 3;
         const h = opp.horizon || currentHorizon;
-        const hLabel = h === "monthly" ? "Long-Term" : (h === "weekly" ? "Weekly" : "Daily");
-        const hDur = p.holding_period || (h === "monthly" ? "3-12 Mo" : (h === "weekly" ? "1-4 Wk" : "1-3 Day"));
+        const hLabel = h === "monthly" ? "LONG" : (h === "weekly" ? "MID" : "SHORT");
+        const hDur = p.holding_period || (h === "monthly" ? "3+ Meses" : (h === "weekly" ? "1-4 Semanas" : "1-3 Días"));
 
         const fScore = s.piotroski_f_score != null ? s.piotroski_f_score : 8;
         const zScore = s.altman_z_score != null ? Number(s.altman_z_score).toFixed(1) : "3.8";
@@ -895,8 +894,8 @@ function openModal(opp) {
     const hBadge = document.getElementById("modalHorizonBadge");
     if (hBadge) {
         const hIcon = h === "monthly" ? "🏛️" : (h === "weekly" ? "📈" : "⚡");
-        const hLabel = h === "monthly" ? "LONG-TERM" : (h === "weekly" ? "WEEKLY" : "DAILY");
-        const hDur = p.holding_period || (h === "monthly" ? "3-12 Months" : (h === "weekly" ? "1-4 Weeks" : "1-3 Days"));
+        const hLabel = h === "monthly" ? "LONG" : (h === "weekly" ? "MID" : "SHORT");
+        const hDur = p.holding_period || (h === "monthly" ? "3+ Meses" : (h === "weekly" ? "1-4 Semanas" : "1-3 Días"));
         hBadge.className = `horizon-pill ${h}`;
         hBadge.textContent = `${hIcon} ${hLabel} (${hDur})`;
     }
@@ -910,11 +909,16 @@ function openModal(opp) {
 
     document.getElementById("modalEntryZone").textContent = `${curr} ${p.entry_zone_low.toFixed(2)} - ${p.entry_zone_high.toFixed(2)}`;
     document.getElementById("modalStopLoss").textContent = `${curr} ${p.stop_loss.toFixed(2)}`;
-    document.getElementById("modalTarget1").textContent = `${curr} ${p.target_1.toFixed(2)} (${p.risk_reward_ratio.toFixed(1)}x R:R)`;
+    document.getElementById("modalTarget1").textContent = `${curr} ${p.target_1.toFixed(2)} (${p.risk_reward_ratio.toFixed(1)}x R:R vs Stop Loss)`;
     document.getElementById("modalTarget2").textContent = `${curr} ${p.target_2.toFixed(2)} (Runner)`;
     document.getElementById("modalShares").textContent = `${p.suggested_shares.toLocaleString()} shares`;
     document.getElementById("modalRiskCapital").textContent = `${curr} ${p.suggested_capital.toLocaleString(undefined, {minimumFractionDigits: 2})} (Risk: ${curr} ${p.position_risk_amount.toFixed(2)})`;
     document.getElementById("modalGapRule").textContent = `Pre-Market Gap Invalidation: Cancel order if opening price gaps > ${p.gap_rule_pct}% beyond limit entry.`;
+
+    const liqElem = document.getElementById("modalLiquidity");
+    if (liqElem) {
+        liqElem.textContent = p.liquidity_rating || "ALTA BURSATILIDAD (Institucional / Spreads Mínimos)";
+    }
 
     // Collegiate Multi-Persona Committee
     const personas = opp.persona_analysis || {};

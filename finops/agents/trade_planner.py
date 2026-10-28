@@ -139,6 +139,14 @@ class TradePlanGenerator:
         if market_meta.get("daily_price_limit_pct"):
             event_flags.append(f"A-Share Daily Limit (+/- {market_meta.get('daily_price_limit_pct')}%) & T+1 Settlement Rule")
 
+        addv = market_meta.get("avg_daily_dollar_volume")
+        if addv and addv >= 1e8:
+            liq_str = "ALTA BURSATILIDAD (Mega-Liquid / $100M+ Turnover)"
+        elif addv and addv >= 2e7:
+            liq_str = "ALTA BURSATILIDAD (Institutional / $20M+ Turnover)"
+        else:
+            liq_str = "ALTA BURSATILIDAD (Tier 1 Volume / Tight Spreads)"
+
         return OvernightTradePlan(
             action=action,
             horizon=horizon,
@@ -155,6 +163,6 @@ class TradePlanGenerator:
             window=window,
             gap_rule_pct=gap_rule_pct,
             event_risk_flags=event_flags,
-            liquidity_rating="HIGH (Tier 1 Volume)",
+            liquidity_rating=liq_str,
             portfolio_note=f"[{horizon.upper()} HORIZON] Allocates {round(suggested_capital/self.portfolio_equity*100, 1)}% equity risking {self.risk_pct}% on stop for target holding {holding_period}."
         )

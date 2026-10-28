@@ -63,5 +63,15 @@ def test_market_plugins():
     for market_id in ["us", "cn", "mx"]:
         plugin = get_market_plugin(market_id)
         universe = plugin.get_universe()
-        assert len(universe) > 0, f"Market {market_id} universe should not be empty"
+        assert len(universe) >= 30, f"Market {market_id} universe should have at least 30 liquid candidates"
         assert "ticker" in universe[0]
+        assert "sector" in universe[0]
+
+
+def test_liquidity_filter_configuration():
+    from finops.core.config import Settings
+    settings = Settings.get()
+    liq = settings.liquidity_filters
+    assert liq.get("enforce_high_liquidity") is True
+    assert liq.get("min_avg_daily_volume") >= 200000
+    assert liq.get("min_avg_dollar_volume_usd") >= 5000000.0

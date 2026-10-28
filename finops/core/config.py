@@ -44,6 +44,10 @@ class Settings:
         return self.settings_dict.get("horizons", {})
 
     @property
+    def liquidity_filters(self) -> Dict[str, Any]:
+        return self.settings_dict.get("liquidity_filters", {})
+
+    @property
     def scoring(self) -> Dict[str, Any]:
         return self.settings_dict.get("scoring", {})
 

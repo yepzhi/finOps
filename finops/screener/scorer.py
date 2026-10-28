@@ -82,7 +82,9 @@ class ScreenerEngine:
             cmf_20=tech_indicators.get("cmf_20"),
             money_flow_regime=tech_indicators.get("money_flow_regime"),
             bollinger_pct_b=tech_indicators.get("bb_pct_b"),
-            bollinger_bandwidth=tech_indicators.get("bb_bandwidth")
+            bollinger_bandwidth=tech_indicators.get("bb_bandwidth"),
+            avg_daily_volume=market_data.get("avg_daily_volume"),
+            avg_daily_dollar_volume=market_data.get("avg_daily_dollar_volume")
         )
 
         return {

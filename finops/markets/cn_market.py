@@ -21,6 +21,7 @@ class CNMarketPlugin(BaseMarketPlugin):
     """
 
     CORE_UNIVERSE = [
+        # Premier CSI 300 leaders & ChiNext / STAR high-turnover innovators
         {"ticker": "600519", "yf_ticker": "600519.SS", "name": "Kweichow Moutai", "sector": "Consumer Defensive", "industry": "Distillers", "board": "Main"},
         {"ticker": "300750", "yf_ticker": "300750.SZ", "name": "CATL (Contemporary Amperex)", "sector": "Industrials", "industry": "Electrical Equipment", "board": "ChiNext"},
         {"ticker": "002594", "yf_ticker": "002594.SZ", "name": "BYD Company", "sector": "Consumer Cyclical", "industry": "Auto Manufacturers", "board": "Main"},
@@ -40,7 +41,19 @@ class CNMarketPlugin(BaseMarketPlugin):
         {"ticker": "002460", "yf_ticker": "002460.SZ", "name": "Ganfeng Lithium", "sector": "Basic Materials", "industry": "Lithium Compounds", "board": "Main"},
         {"ticker": "600585", "yf_ticker": "600585.SS", "name": "Anhui Conch Cement", "sector": "Basic Materials", "industry": "Building Materials", "board": "Main"},
         {"ticker": "600030", "yf_ticker": "600030.SS", "name": "CITIC Securities", "sector": "Financial Services", "industry": "Capital Markets", "board": "Main"},
-        {"ticker": "000001", "yf_ticker": "000001.SZ", "name": "Ping An Bank", "sector": "Financial Services", "industry": "Banks", "board": "Main"}
+        {"ticker": "000001", "yf_ticker": "000001.SZ", "name": "Ping An Bank", "sector": "Financial Services", "industry": "Banks", "board": "Main"},
+        {"ticker": "300308", "yf_ticker": "300308.SZ", "name": "Zhongji Innolight", "sector": "Technology", "industry": "Optical Transceivers & AI Hardware", "board": "ChiNext"},
+        {"ticker": "601138", "yf_ticker": "601138.SS", "name": "Foxconn Industrial Internet", "sector": "Technology", "industry": "AI Servers & Hardware", "board": "Main"},
+        {"ticker": "002371", "yf_ticker": "002371.SZ", "name": "NAURA Technology", "sector": "Technology", "industry": "Semiconductor Equipment", "board": "Main"},
+
+        # High-Liquidity Hong Kong Connect / Tech Champions
+        {"ticker": "0700.HK", "yf_ticker": "0700.HK", "name": "Tencent Holdings", "sector": "Communication Services", "industry": "Internet & Gaming", "board": "HKEX"},
+        {"ticker": "9988.HK", "yf_ticker": "9988.HK", "name": "Alibaba Group (HK)", "sector": "Consumer Cyclical", "industry": "E-Commerce & Cloud", "board": "HKEX"},
+        {"ticker": "3690.HK", "yf_ticker": "3690.HK", "name": "Meituan", "sector": "Consumer Cyclical", "industry": "Local Services & Delivery", "board": "HKEX"},
+        {"ticker": "1810.HK", "yf_ticker": "1810.HK", "name": "Xiaomi Corporation", "sector": "Technology", "industry": "Consumer Electronics & EV", "board": "HKEX"},
+        {"ticker": "9618.HK", "yf_ticker": "9618.HK", "name": "JD.com (HK)", "sector": "Consumer Cyclical", "industry": "E-Commerce & Logistics", "board": "HKEX"},
+        {"ticker": "9888.HK", "yf_ticker": "9888.HK", "name": "Baidu Inc. (HK)", "sector": "Communication Services", "industry": "Search & Autonomous Driving", "board": "HKEX"},
+        {"ticker": "2015.HK", "yf_ticker": "2015.HK", "name": "Li Auto (HK)", "sector": "Consumer Cyclical", "industry": "Auto Manufacturers", "board": "HKEX"}
     ]
 
     def get_universe(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:

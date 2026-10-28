@@ -94,20 +94,20 @@
                 <div class="horizon-selector">
                     <span class="horizon-badge-label"><i class="fa-solid fa-hourglass-half"></i> HORIZON</span>
                     <div class="horizon-tabs">
-                        <button class="horizon-tab active" data-horizon="daily" title="1-3 Days Momentum & Overnight Setup">
+                        <button class="horizon-tab active" data-horizon="daily" title="SHORT: 1-3 Días | Momentum Diario y Overnights">
                             <span class="h-icon">⚡</span>
-                            <span class="h-name">Daily</span>
-                            <span class="h-sub">1-3 Days</span>
+                            <span class="h-name">SHORT</span>
+                            <span class="h-sub">1-3 Días</span>
                         </button>
-                        <button class="horizon-tab" data-horizon="weekly" title="1-4 Weeks Swing & Multi-Day Breakout">
+                        <button class="horizon-tab" data-horizon="weekly" title="MID: 1-4 Semanas | Swing Trading y Tendencias">
                             <span class="h-icon">📈</span>
-                            <span class="h-name">Weekly</span>
-                            <span class="h-sub">1-4 Weeks</span>
+                            <span class="h-name">MID</span>
+                            <span class="h-sub">1-4 Semanas</span>
                         </button>
-                        <button class="horizon-tab" data-horizon="monthly" title="3-12 Months Compounding & Quality Value">
+                        <button class="horizon-tab" data-horizon="monthly" title="LONG: 3+ Meses | Fundamentales Sólidos, Guidance Elevado y Recientes IPOs">
                             <span class="h-icon">🏛️</span>
-                            <span class="h-name">Long-Term</span>
-                            <span class="h-sub">3-12 Mo</span>
+                            <span class="h-name">LONG</span>
+                            <span class="h-sub">3+ Meses</span>
                         </button>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                         <th>Entry Zone (Limit)</th>
                         <th>Stop Loss</th>
                         <th>Target 1</th>
-                        <th>R:R</th>
+                        <th title="Ratio Riesgo:Beneficio (R:R). Por ejemplo, 2.5x significa buscar $2.50 de ganancia por cada $1.00 arriesgado en el Stop Loss (NO es que la acción duplique su precio)">R:R <i class="fa-solid fa-circle-question" style="font-size: 11px; opacity: 0.75; cursor: help;"></i></th>
                         <th style="text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -210,6 +210,10 @@
                     <div class="plan-item">
                         <div class="plan-item-label">Risked Capital</div>
                         <div class="plan-item-val" id="modalRiskCapital">$1,500.00 (1.5%)</div>
+                    </div>
+                    <div class="plan-item" style="grid-column: span 2;">
+                        <div class="plan-item-label">Bursatilidad y Liquidez de Mercado</div>
+                        <div class="plan-item-val" style="color: var(--teal-300); font-size: 13px;" id="modalLiquidity">ALTA BURSATILIDAD (Institucional / Spreads Mínimos)</div>
                     </div>
                 </div>
 

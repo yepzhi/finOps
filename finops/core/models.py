@@ -48,6 +48,8 @@ class FactorScores(BaseModel):
     money_flow_regime: Optional[str] = None
     bollinger_pct_b: Optional[float] = None
     bollinger_bandwidth: Optional[float] = None
+    avg_daily_volume: Optional[float] = Field(default=None, description="20-day Average Daily Volume (ADV)")
+    avg_daily_dollar_volume: Optional[float] = Field(default=None, description="20-day Average Daily Dollar Volume (ADDV)")
 
 
 class OvernightTradePlan(BaseModel):

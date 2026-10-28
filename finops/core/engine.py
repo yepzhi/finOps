@@ -79,6 +79,40 @@ class ScanPipeline:
                         if not mkt_data:
                             continue
 
+                        # Calculate and enforce Alta Bursatilidad / High Liquidity metrics
+                        prices_df = mkt_data.get("prices")
+                        if prices_df is not None and not prices_df.empty and "Volume" in prices_df.columns:
+                            adv_20 = float(prices_df["Volume"].tail(20).mean())
+                            curr_price = float(mkt_data.get("current_price") or prices_df["Close"].iloc[-1])
+                            addv = adv_20 * curr_price
+                            mkt_data["avg_daily_volume"] = adv_20
+                            mkt_data["avg_daily_dollar_volume"] = addv
+
+                            # Enforce liquidity filter if enabled
+                            liq_cfg = self.settings.liquidity_filters
+                            if liq_cfg.get("enforce_high_liquidity", True):
+                                min_vol = liq_cfg.get("min_avg_daily_volume", 200000)
+                                min_price = liq_cfg.get("min_share_price", 2.0)
+                                max_price = liq_cfg.get("max_share_price", 3500.0)
+                                min_dollar_usd = liq_cfg.get("min_avg_dollar_volume_usd", 10000000.0)
+
+                                # Currency-adjusted turnover threshold
+                                currency = mkt_data.get("currency", "USD")
+                                if currency == "MXN":
+                                    min_turnover = min_dollar_usd * 18.0
+                                elif currency == "CNY":
+                                    min_turnover = min_dollar_usd * 7.2
+                                elif currency == "HKD":
+                                    min_turnover = min_dollar_usd * 7.8
+                                else:
+                                    min_turnover = min_dollar_usd
+
+                                if adv_20 < min_vol or addv < min_turnover or curr_price < min_price or curr_price > max_price:
+                                    logger.debug(
+                                        f"Skipping {ticker} ({market_id}): Below liquidity criteria (ADV: {adv_20:,.0f}, Turnover: {addv:,.0f} {currency})"
+                                    )
+                                    continue
+
                         # Fetch news and assess sentiment
                         raw_news = plugin.fetch_recent_news(ticker, limit=4)
                         sent_score, news_items = self.sentiment_aggregator.evaluate_sentiment(raw_news)

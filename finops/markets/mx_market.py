@@ -19,6 +19,7 @@ class MXMarketPlugin(BaseMarketPlugin):
     Mexico BMV (Bolsa Mexicana de Valores) plug-in scanning IPC blue chips.
     """
 
+    # Official S&P/BMV IPC 35 constituent basket (Alta Bursatilidad de la Bolsa Mexicana de Valores)
     CORE_UNIVERSE = [
         {"ticker": "WALMEX.MX", "name": "Wal-Mart de México", "sector": "Consumer Defensive", "industry": "Discount Stores"},
         {"ticker": "FEMSAUBD.MX", "name": "Fomento Económico Mexicano (FEMSA)", "sector": "Consumer Defensive", "industry": "Beverages & Retail"},
@@ -29,7 +30,32 @@ class MXMarketPlugin(BaseMarketPlugin):
         {"ticker": "BIMBOA.MX", "name": "Grupo Bimbo", "sector": "Consumer Defensive", "industry": "Packaged Foods"},
         {"ticker": "GAPB.MX", "name": "Grupo Aeroportuario del Pacífico", "sector": "Industrials", "industry": "Airports & Infrastructure"},
         {"ticker": "ASURB.MX", "name": "Grupo Aeroportuario del Sureste", "sector": "Industrials", "industry": "Airports & Infrastructure"},
-        {"ticker": "ALPEKA.MX", "name": "Alpek S.A.B.", "sector": "Basic Materials", "industry": "Specialty Chemicals"}
+        {"ticker": "OMAB.MX", "name": "Grupo Aeroportuario del Centro Norte", "sector": "Industrials", "industry": "Airports & Infrastructure"},
+        {"ticker": "AC.MX", "name": "Arca Continental", "sector": "Consumer Defensive", "industry": "Beverages"},
+        {"ticker": "ALFAA.MX", "name": "Alfa S.A.B. de C.V.", "sector": "Industrials", "industry": "Conglomerates"},
+        {"ticker": "ALPEKA.MX", "name": "Alpek S.A.B.", "sector": "Basic Materials", "industry": "Specialty Chemicals"},
+        {"ticker": "ALSEA.MX", "name": "Alsea S.A.B.", "sector": "Consumer Cyclical", "industry": "Restaurants & Food Service"},
+        {"ticker": "BBAJIOO.MX", "name": "Banco del Bajío", "sector": "Financial Services", "industry": "Regional Banks"},
+        {"ticker": "CUERVO.MX", "name": "Becle (Jose Cuervo)", "sector": "Consumer Defensive", "industry": "Distillers & Spirits"},
+        {"ticker": "ELEKTRA.MX", "name": "Grupo Elektra", "sector": "Financial Services", "industry": "Specialty Finance & Retail"},
+        {"ticker": "GRUMAB.MX", "name": "Gruma S.A.B.", "sector": "Consumer Defensive", "industry": "Packaged Foods"},
+        {"ticker": "KOFUBL.MX", "name": "Coca-Cola FEMSA", "sector": "Consumer Defensive", "industry": "Beverages"},
+        {"ticker": "LIVEPOLC-1.MX", "name": "El Puerto de Liverpool", "sector": "Consumer Cyclical", "industry": "Department Stores"},
+        {"ticker": "ORBIA.MX", "name": "Orbia Advance Corporation", "sector": "Basic Materials", "industry": "Specialty Chemicals"},
+        {"ticker": "PINFRA.MX", "name": "Promotora y Operadora de Infraestructura", "sector": "Industrials", "industry": "Toll Roads & Infrastructure"},
+        {"ticker": "TLEVISACPO.MX", "name": "Grupo Televisa", "sector": "Communication Services", "industry": "Broadcasting & Telecom"},
+        {"ticker": "VESTA.MX", "name": "Corporación Inmobiliaria Vesta", "sector": "Real Estate", "industry": "Industrial Real Estate"},
+        {"ticker": "VOLARA.MX", "name": "Controladora Vuela (Volaris)", "sector": "Industrials", "industry": "Airlines"},
+        {"ticker": "MEGACPO.MX", "name": "Megacable Holdings", "sector": "Communication Services", "industry": "Cable & Broadband"},
+        {"ticker": "LABB.MX", "name": "Genomma Lab Internacional", "sector": "Healthcare", "industry": "Pharmaceuticals & OTC"},
+        {"ticker": "CHDRAUIB.MX", "name": "Grupo Comercial Chedraui", "sector": "Consumer Defensive", "industry": "Supermarkets"},
+        {"ticker": "GENTERA.MX", "name": "Gentera S.A.B.", "sector": "Financial Services", "industry": "Microfinance & Banking"},
+        {"ticker": "RA.MX", "name": "Regional S.A.B. (Banregio)", "sector": "Financial Services", "industry": "Commercial Banking"},
+        {"ticker": "GCC.MX", "name": "GCC S.A.B. de C.V.", "sector": "Basic Materials", "industry": "Cement & Aggregates"},
+        {"ticker": "KIMBERA.MX", "name": "Kimberly-Clark de México", "sector": "Consumer Defensive", "industry": "Household Products"},
+        {"ticker": "PE&OLES.MX", "name": "Industrias Peñoles", "sector": "Basic Materials", "industry": "Silver & Gold Mining"},
+        {"ticker": "FIBRAMQ12.MX", "name": "Fibra Macquarie México", "sector": "Real Estate", "industry": "REIT - Industrial"},
+        {"ticker": "FUNO11.MX", "name": "Fibra Uno", "sector": "Real Estate", "industry": "REIT - Diversified"}
     ]
 
     def get_universe(self, limit: Optional[int] = None) -> List[Dict[str, Any]]:
