@@ -1,27 +1,27 @@
 {
-  "run_id": "run_2026-10-27_daily_fe18b07e",
-  "scan_date": "2026-10-27",
+  "run_id": "run_2026-10-28_daily_1450333c",
+  "scan_date": "2026-10-28",
   "horizon": "daily",
-  "market_close_time": "2026-10-27T06:37:08.785436",
-  "run_triggered_at": "2026-10-27T06:37:08.785436",
-  "target_trade_session": "2026-10-28 (Next Regular Session)",
+  "market_close_time": "2026-10-28T06:39:32.229445",
+  "run_triggered_at": "2026-10-28T06:39:32.229445",
+  "target_trade_session": "2026-10-29 (Next Regular Session)",
   "top_20": [
     {
       "rank": 1,
-      "ticker": "600036",
-      "name": "China Merchants Bank",
+      "ticker": "600900",
+      "name": "China Yangtze Power",
       "market": "cn",
-      "sector": "Financial Services",
-      "industry": "Banks",
-      "current_price": 42.95,
+      "sector": "Utilities",
+      "industry": "Renewable Electricity",
+      "current_price": 29.36,
       "currency": "CNY",
-      "market_cap": 42950000762.93945,
+      "market_cap": 29360000610.351562,
       "horizon": "daily",
       "scores": {
         "fundamental_score": 79.1,
-        "trend_score": 89.4,
+        "trend_score": 92.4,
         "sentiment_score": 70.0,
-        "composite_score": 82.4,
+        "composite_score": 83.9,
         "revenue_growth_yoy": 9.2,
         "operating_margin": 16.8,
         "roe": 14.2,
@@ -35,30 +35,30 @@
         "piotroski_f_score": 8,
         "altman_z_score": 4.39,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": 11.28,
+        "price_vs_ma200_pct": 8.73,
         "golden_cross": true,
-        "ribbon_aligned": true,
-        "rsi_14d": 65.3,
-        "stoch_k": 90.3,
-        "macd_histogram": -0.027,
-        "adx_14": 39.3,
+        "ribbon_aligned": false,
+        "rsi_14d": 56.9,
+        "stoch_k": 41.7,
+        "macd_histogram": 0.004,
+        "adx_14": 55.9,
         "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.88,
-        "cmf_20": 0.17,
+        "volume_surge_ratio": 1.07,
+        "cmf_20": 0.35,
         "money_flow_regime": "Heavy Institutional Buying",
-        "bollinger_pct_b": 0.8,
-        "bollinger_bandwidth": 8.4
+        "bollinger_pct_b": 0.58,
+        "bollinger_bandwidth": 7.5
       },
-      "thesis_summary": "China Merchants Bank ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at CNY 42.95, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 39.3, rsi: 65.3) to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at CNY 40.22 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "China Yangtze Power ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at CNY 29.36, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 55.9, rsi: 56.9) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 27.94 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.88x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (65.3) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 1.07x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (56.9) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at CNY 40.22.",
+        "Breach of strict invalidation level at CNY 27.94.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
@@ -66,15 +66,138 @@
         "action": "BUY",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 42.31,
-        "entry_zone_high": 43.16,
-        "stop_loss": 39.8,
-        "target_1": 51.56,
-        "target_2": 56.6,
+        "entry_zone_low": 28.92,
+        "entry_zone_high": 29.51,
+        "stop_loss": 27.68,
+        "target_1": 34.09,
+        "target_2": 36.83,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 400,
-        "suggested_capital": 17094.0,
-        "position_risk_amount": 1174.0,
+        "suggested_shares": 600,
+        "suggested_capital": 17529.0,
+        "position_risk_amount": 921.0,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [
+          "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
+        ],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 17.5% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 77.5,
+          "commentary": "Demonstrates narrow moat characteristics with 14.2% ROE and 16.8% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 60.2,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Utilities segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 99.0,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 55.9, RSI: 56.9). Chaikin Money Flow of +0.35 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 16.1,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 27.94. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 87.2,
+      "sentiment_summary": null,
+      "recent_news": [
+        {
+          "title": "China Yangtze Power reports robust quarterly production numbers amidst institutional buying",
+          "source": "East Money (东方财富)",
+          "url": "https://quote.eastmoney.com/600900.html",
+          "published_at": "Today",
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "title": "Northbound Stock Connect flows register net inflows into China Yangtze Power",
+          "source": "Xueqiu (雪球)",
+          "url": "https://xueqiu.com/S/600900",
+          "published_at": "Today",
+          "sentiment": "BULLISH"
+        }
+      ],
+      "timestamp": "2026-10-28T06:40:25.891310"
+    },
+    {
+      "rank": 2,
+      "ticker": "000333",
+      "name": "Midea Group",
+      "market": "cn",
+      "sector": "Consumer Cyclical",
+      "industry": "Household Appliances",
+      "current_price": 86.15,
+      "currency": "CNY",
+      "market_cap": 86150001525.8789,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 79.1,
+        "trend_score": 87.5,
+        "sentiment_score": 70.0,
+        "composite_score": 81.5,
+        "revenue_growth_yoy": 9.2,
+        "operating_margin": 16.8,
+        "roe": 14.2,
+        "roic": 14.0,
+        "fcf_yield": 5.4,
+        "debt_to_equity": 38.0,
+        "current_ratio": null,
+        "pe_ratio": 22.0,
+        "pb_ratio": 3.1,
+        "ev_ebitda": 15.5,
+        "piotroski_f_score": 8,
+        "altman_z_score": 4.39,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 9.69,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 67.6,
+        "stoch_k": 81.9,
+        "macd_histogram": 0.301,
+        "adx_14": 27.4,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 0.7,
+        "cmf_20": 0.07,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.84,
+        "bollinger_bandwidth": 8.4
+      },
+      "thesis_summary": "Midea Group ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at CNY 86.15, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 27.4, rsi: 67.6) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 78.30 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.7x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (67.6) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at CNY 78.30.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 84.86,
+        "entry_zone_high": 86.58,
+        "stop_loss": 78.86,
+        "target_1": 105.88,
+        "target_2": 117.46,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 200,
+        "suggested_capital": 17144.0,
+        "position_risk_amount": 1372.0,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [
@@ -94,22 +217,145 @@
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Stalwart",
           "score": 60.2,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Consumer Cyclical segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 91.0,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 27.4, RSI: 67.6). Chaikin Money Flow of +0.07 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 18.5,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 78.30. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 83.5,
+      "sentiment_summary": null,
+      "recent_news": [
+        {
+          "title": "Midea Group reports robust quarterly production numbers amidst institutional buying",
+          "source": "East Money (东方财富)",
+          "url": "https://quote.eastmoney.com/000333.html",
+          "published_at": "Today",
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "title": "Northbound Stock Connect flows register net inflows into Midea Group",
+          "source": "Xueqiu (雪球)",
+          "url": "https://xueqiu.com/S/000333",
+          "published_at": "Today",
+          "sentiment": "BULLISH"
+        }
+      ],
+      "timestamp": "2026-10-28T06:40:25.891389"
+    },
+    {
+      "rank": 3,
+      "ticker": "600036",
+      "name": "China Merchants Bank",
+      "market": "cn",
+      "sector": "Financial Services",
+      "industry": "Banks",
+      "current_price": 42.09,
+      "currency": "CNY",
+      "market_cap": 42090000000.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 79.1,
+        "trend_score": 86.3,
+        "sentiment_score": 70.0,
+        "composite_score": 80.9,
+        "revenue_growth_yoy": 9.2,
+        "operating_margin": 16.8,
+        "roe": 14.2,
+        "roic": 14.0,
+        "fcf_yield": 5.4,
+        "debt_to_equity": 38.0,
+        "current_ratio": null,
+        "pe_ratio": 22.0,
+        "pb_ratio": 3.1,
+        "ev_ebitda": 15.5,
+        "piotroski_f_score": 8,
+        "altman_z_score": 4.39,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 8.95,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 53.2,
+        "stoch_k": 38.5,
+        "macd_histogram": -0.061,
+        "adx_14": 39.5,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 1.25,
+        "cmf_20": 0.15,
+        "money_flow_regime": "Heavy Institutional Buying",
+        "bollinger_pct_b": 0.54,
+        "bollinger_bandwidth": 8.1
+      },
+      "thesis_summary": "China Merchants Bank ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at CNY 42.09, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 39.5, rsi: 53.2) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 40.22 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 1.25x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (53.2) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at CNY 40.22.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 41.46,
+        "entry_zone_high": 42.3,
+        "stop_loss": 39.79,
+        "target_1": 48.57,
+        "target_2": 52.34,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 400,
+        "suggested_capital": 16752.0,
+        "position_risk_amount": 836.0,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [
+          "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
+        ],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 16.8% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 77.5,
+          "commentary": "Demonstrates narrow moat characteristics with 14.2% ROE and 16.8% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 60.2,
           "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Financial Services segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
           "verdict": "Bullish Trend",
-          "score": 97.9,
-          "commentary": "Algorithmic regime indicates bullish trend (ADX: 39.3, RSI: 65.3). Chaikin Money Flow of +0.17 confirms net institutional accumulation over 20-day liquidity window."
+          "score": 93.8,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 39.5, RSI: 53.2). Chaikin Money Flow of +0.15 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 17.6,
+          "score": 19.1,
           "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 40.22. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 86.1,
+      "consensus_confidence_pct": 84.1,
       "sentiment_summary": null,
       "recent_news": [
         {
@@ -127,57 +373,57 @@
           "sentiment": "BULLISH"
         }
       ],
-      "timestamp": "2026-10-27T06:37:22.326290"
+      "timestamp": "2026-10-28T06:40:25.891451"
     },
     {
-      "rank": 2,
+      "rank": 4,
       "ticker": "AAPL",
       "name": "Apple Inc.",
       "market": "us",
       "sector": "Technology",
       "industry": "Consumer Electronics",
-      "current_price": 343.91,
+      "current_price": 347.1,
       "currency": "USD",
-      "market_cap": 5019084521472.0,
+      "market_cap": 5065640247296.0,
       "horizon": "daily",
       "scores": {
-        "fundamental_score": 77.1,
-        "trend_score": 89.5,
+        "fundamental_score": 77.0,
+        "trend_score": 92.1,
         "sentiment_score": 55.0,
-        "composite_score": 78.9,
+        "composite_score": 80.1,
         "revenue_growth_yoy": 16.400000000000002,
         "operating_margin": 32.623002,
         "roe": 148.75101,
         "roic": 100.0,
-        "fcf_yield": 2.1462454954714985,
+        "fcf_yield": 2.126520443560932,
         "debt_to_equity": 78.445,
         "current_ratio": null,
-        "pe_ratio": 39.43922,
-        "pb_ratio": 46.726902,
-        "ev_ebitda": 30.013,
+        "pe_ratio": 39.805046,
+        "pb_ratio": 47.160328,
+        "ev_ebitda": 30.291,
         "piotroski_f_score": 7,
         "altman_z_score": 3.83,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": 16.76,
+        "price_vs_ma200_pct": 17.67,
         "golden_cross": true,
         "ribbon_aligned": true,
-        "rsi_14d": 64.2,
-        "stoch_k": 62.8,
-        "macd_histogram": 0.079,
-        "adx_14": 21.3,
+        "rsi_14d": 64.3,
+        "stoch_k": 78.0,
+        "macd_histogram": 0.094,
+        "adx_14": 22.8,
         "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 1.09,
-        "cmf_20": -0.05,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.71,
-        "bollinger_bandwidth": 6.6
+        "volume_surge_ratio": 1.02,
+        "cmf_20": 0.03,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.83,
+        "bollinger_bandwidth": 6.3
       },
-      "thesis_summary": "Apple Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 148.8% roe and 3 with bullish trend. Trading at USD 343.91, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (16.4%) and healthy returns on capital (148.8%) combine with algorithmic regime indicates bullish trend (adx: 21.3, rsi: 64.2) to support multiple expansion.",
+      "thesis_summary": "Apple Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 148.8% roe and 3 with bullish trend. Trading at USD 347.10, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (16.4%) and healthy returns on capital (148.8%) combine with algorithmic regime indicates bullish trend (adx: 22.8, rsi: 64.3) to support multiple expansion.",
       "bear_case": "A breakdown below structural support at USD 325.81 (Altman Z: 3.83) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 1.09x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (64.2) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 1.02x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (64.3) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
@@ -189,20 +435,20 @@
         "action": "BUY",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 338.75,
-        "entry_zone_high": 345.63,
-        "stop_loss": 322.61,
-        "target_1": 403.18,
-        "target_2": 437.71,
+        "entry_zone_low": 341.89,
+        "entry_zone_high": 348.84,
+        "stop_loss": 322.63,
+        "target_1": 414.36,
+        "target_2": 453.68,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 58,
-        "suggested_capital": 19847.02,
-        "position_risk_amount": 1135.64,
+        "suggested_shares": 57,
+        "suggested_capital": 19685.81,
+        "position_risk_amount": 1295.9,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 19.8% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 19.7% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
@@ -214,80 +460,80 @@
         "lynch_growth": {
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Stalwart",
-          "score": 74.5,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 16.4% YoY with estimated PEG ratio of 2.4x. Positioned to capture institutional wallet share in the Technology segment."
+          "score": 74.0,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 16.4% YoY with estimated PEG ratio of 2.43x. Positioned to capture institutional wallet share in the Technology segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
           "verdict": "Bullish Trend",
-          "score": 87.0,
-          "commentary": "Algorithmic regime indicates bullish trend (ADX: 21.3, RSI: 64.2). Chaikin Money Flow of -0.05 confirms net institutional accumulation over 20-day liquidity window."
+          "score": 93.6,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 22.8, RSI: 64.3). Chaikin Money Flow of +0.03 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 21.1,
+          "score": 19.9,
           "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 325.81. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 85.2,
+      "consensus_confidence_pct": 87.7,
       "sentiment_summary": null,
       "recent_news": [],
-      "timestamp": "2026-10-27T06:37:22.326400"
+      "timestamp": "2026-10-28T06:40:25.891504"
     },
     {
-      "rank": 3,
-      "ticker": "MSFT",
-      "name": "Microsoft Corporation",
+      "rank": 5,
+      "ticker": "XOM",
+      "name": "ExxonMobil Holdings Corporation",
       "market": "us",
-      "sector": "Technology",
-      "industry": "Software - Infrastructure",
-      "current_price": 532.6,
+      "sector": "Energy",
+      "industry": "Oil & Gas Integrated",
+      "current_price": 179.91,
       "currency": "USD",
-      "market_cap": 3954845417472.0,
+      "market_cap": 739774103552.0,
       "horizon": "daily",
       "scores": {
-        "fundamental_score": 76.8,
-        "trend_score": 83.7,
+        "fundamental_score": 76.5,
+        "trend_score": 92.1,
         "sentiment_score": 55.0,
-        "composite_score": 75.9,
-        "revenue_growth_yoy": 17.7,
-        "operating_margin": 45.111000000000004,
-        "roe": 34.039003,
-        "roic": 35.2,
-        "fcf_yield": 0.41836022431885966,
-        "debt_to_equity": 29.118,
+        "composite_score": 80.0,
+        "revenue_growth_yoy": 44.1,
+        "operating_margin": 15.859000000000002,
+        "roe": 12.584000000000001,
+        "roic": 13.1,
+        "fcf_yield": 2.7942314385903613,
+        "debt_to_equity": 15.921,
         "current_ratio": null,
-        "pe_ratio": 29.215578,
-        "pb_ratio": 8.941492,
-        "ev_ebitda": 20.628,
-        "piotroski_f_score": 8,
-        "altman_z_score": 5.13,
+        "pe_ratio": 23.15444,
+        "pb_ratio": 2.8520925,
+        "ev_ebitda": 11.456,
+        "piotroski_f_score": 7,
+        "altman_z_score": 5.76,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": 22.25,
+        "price_vs_ma200_pct": 17.98,
         "golden_cross": true,
         "ribbon_aligned": true,
-        "rsi_14d": 51.9,
-        "stoch_k": 47.7,
-        "macd_histogram": -2.005,
-        "adx_14": 34.5,
+        "rsi_14d": 74.8,
+        "stoch_k": 72.6,
+        "macd_histogram": 0.703,
+        "adx_14": 60.1,
         "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.93,
-        "cmf_20": -0.09,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.62,
-        "bollinger_bandwidth": 7.3
+        "volume_surge_ratio": 1.22,
+        "cmf_20": 0.24,
+        "money_flow_regime": "Heavy Institutional Buying",
+        "bollinger_pct_b": 0.74,
+        "bollinger_bandwidth": 16.7
       },
-      "thesis_summary": "Microsoft Corporation ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 34.0% roe and 45 with bullish trend. Trading at USD 532.60, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (17.7%) and healthy returns on capital (34.0%) combine with algorithmic regime indicates bullish trend (adx: 34.5, rsi: 51.9) to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at USD 502.40 (Altman Z: 5.13) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "ExxonMobil Holdings Corporation ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 12.6% roe and  with bullish trend. Trading at USD 179.91, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (44.1%) and healthy returns on capital (12.6%) combine with algorithmic regime indicates bullish trend (adx: 60.1, rsi: 74.8) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 160.81 (Altman Z: 5.76) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.93x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (51.9) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+        "Institutional volume surge of 1.22x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (74.8) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at USD 502.40.",
+        "Breach of strict invalidation level at USD 160.81.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
@@ -295,68 +541,386 @@
         "action": "BUY",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 524.61,
-        "entry_zone_high": 535.26,
-        "stop_loss": 496.84,
-        "target_1": 631.31,
-        "target_2": 688.94,
+        "entry_zone_low": 177.21,
+        "entry_zone_high": 180.81,
+        "stop_loss": 164.69,
+        "target_1": 221.11,
+        "target_2": 245.29,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 37,
-        "suggested_capital": 19607.59,
-        "position_risk_amount": 1224.51,
+        "suggested_shares": 104,
+        "suggested_capital": 18617.04,
+        "position_risk_amount": 1489.28,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 19.6% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.6% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 69.4,
+          "commentary": "Demonstrates narrow moat characteristics with 12.6% ROE and 15.9% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Fast Grower",
+          "score": 96.0,
+          "commentary": "Classified as a 'Fast Grower' growing top-line at 44.1% YoY with estimated PEG ratio of 0.53x. Positioned to capture institutional wallet share in the Energy segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 99.0,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 60.1, RSI: 74.8). Chaikin Money Flow of +0.24 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 20.0,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 160.81. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 83.6,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891553"
+    },
+    {
+      "rank": 6,
+      "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "market": "us",
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "current_price": 240.89,
+      "currency": "USD",
+      "market_cap": 198252462080.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 80.7,
+        "trend_score": 89.1,
+        "sentiment_score": 55.0,
+        "composite_score": 79.8,
+        "revenue_growth_yoy": 10.8,
+        "operating_margin": 21.375,
+        "roe": 19.381,
+        "roic": 17.3,
+        "fcf_yield": 8.944088073339906,
+        "debt_to_equity": 110.417,
+        "current_ratio": null,
+        "pe_ratio": 22.039341,
+        "pb_ratio": 5.165766,
+        "ev_ebitda": 17.771,
+        "piotroski_f_score": 7,
+        "altman_z_score": 3.46,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 21.78,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 65.5,
+        "stoch_k": 64.1,
+        "macd_histogram": 0.65,
+        "adx_14": 39.4,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 1.02,
+        "cmf_20": 0.08,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.61,
+        "bollinger_bandwidth": 13.4
+      },
+      "thesis_summary": "Salesforce, Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 19.4% roe and  with bullish trend. Trading at USD 240.89, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (10.8%) and healthy returns on capital (19.4%) combine with algorithmic regime indicates bullish trend (adx: 39.4, rsi: 65.5) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 220.29 (Altman Z: 3.46) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 1.02x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (65.5) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 220.29.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 237.28,
+        "entry_zone_high": 242.09,
+        "stop_loss": 220.51,
+        "target_1": 296.04,
+        "target_2": 328.41,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 78,
+        "suggested_capital": 18695.43,
+        "position_risk_amount": 1495.65,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.7% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 86.2,
+          "commentary": "Demonstrates narrow moat characteristics with 19.4% ROE and 21.4% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 70.6,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 10.8% YoY with estimated PEG ratio of 2.04x. Positioned to capture institutional wallet share in the Technology segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 93.1,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 39.4, RSI: 65.5). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 20.2,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 220.29. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 85.1,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891600"
+    },
+    {
+      "rank": 7,
+      "ticker": "V",
+      "name": "Visa Inc.",
+      "market": "us",
+      "sector": "Financial Services",
+      "industry": "Credit Services",
+      "current_price": 401.86,
+      "currency": "USD",
+      "market_cap": 754433982464.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 77.5,
+        "trend_score": 87.8,
+        "sentiment_score": 55.0,
+        "composite_score": 78.2,
+        "revenue_growth_yoy": 14.399999999999999,
+        "operating_margin": 66.130996,
+        "roe": 61.19,
+        "roic": 56.5,
+        "fcf_yield": 2.7045442334609624,
+        "debt_to_equity": 67.821,
+        "current_ratio": null,
+        "pe_ratio": 32.618507,
+        "pb_ratio": 21.296236,
+        "ev_ebitda": 24.094,
+        "piotroski_f_score": 7,
+        "altman_z_score": 3.95,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 18.09,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 73.3,
+        "stoch_k": 71.2,
+        "macd_histogram": 1.114,
+        "adx_14": 61.9,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 1.37,
+        "cmf_20": 0.2,
+        "money_flow_regime": "Heavy Institutional Buying",
+        "bollinger_pct_b": 0.68,
+        "bollinger_bandwidth": 18.8
+      },
+      "thesis_summary": "Visa Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 61.2% roe and 66 with bullish trend. Trading at USD 401.86, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (14.4%) and healthy returns on capital (61.2%) combine with algorithmic regime indicates bullish trend (adx: 61.9, rsi: 73.3) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 356.75 (Altman Z: 3.95) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 1.37x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (73.3) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 356.75.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 395.83,
+        "entry_zone_high": 403.87,
+        "stop_loss": 367.86,
+        "target_1": 493.89,
+        "target_2": 547.91,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 46,
+        "suggested_capital": 18393.1,
+        "position_risk_amount": 1471.54,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.4% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
           "persona": "Warren Buffett (Value & Moat Quality)",
           "verdict": "Wide Moat",
           "score": 98.0,
-          "commentary": "Demonstrates wide moat characteristics with 34.0% ROE and 45.1% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+          "commentary": "Demonstrates wide moat characteristics with 61.2% ROE and 66.1% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
         },
         "lynch_growth": {
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Stalwart",
-          "score": 96.0,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 17.7% YoY with estimated PEG ratio of 1.65x. Positioned to capture institutional wallet share in the Technology segment."
+          "score": 72.9,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 14.4% YoY with estimated PEG ratio of 2.27x. Positioned to capture institutional wallet share in the Financial Services segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
           "verdict": "Bullish Trend",
-          "score": 79.2,
-          "commentary": "Algorithmic regime indicates bullish trend (ADX: 34.5, RSI: 51.9). Chaikin Money Flow of -0.09 confirms net institutional accumulation over 20-day liquidity window."
+          "score": 97.8,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 61.9, RSI: 73.3). Chaikin Money Flow of +0.20 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 24.1,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 502.40. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "score": 21.8,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 356.75. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 81.3,
+      "consensus_confidence_pct": 88.0,
       "sentiment_summary": null,
       "recent_news": [],
-      "timestamp": "2026-10-27T06:37:22.326472"
+      "timestamp": "2026-10-28T06:40:25.891644"
     },
     {
-      "rank": 4,
+      "rank": 8,
+      "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "market": "us",
+      "sector": "Healthcare",
+      "industry": "Drug Manufacturers - General",
+      "current_price": 1281.91,
+      "currency": "USD",
+      "market_cap": 1143132258304.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 71.9,
+        "trend_score": 90.0,
+        "sentiment_score": 55.0,
+        "composite_score": 77.6,
+        "revenue_growth_yoy": 47.699999999999996,
+        "operating_margin": 54.222,
+        "roe": 102.28600000000002,
+        "roic": 79.4,
+        "fcf_yield": 0.9680332220191077,
+        "debt_to_equity": 162.071,
+        "current_ratio": null,
+        "pe_ratio": 43.031555,
+        "pb_ratio": 33.7327,
+        "ev_ebitda": 28.499,
+        "piotroski_f_score": 6,
+        "altman_z_score": 3.44,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 18.15,
+        "golden_cross": true,
+        "ribbon_aligned": true,
+        "rsi_14d": 66.1,
+        "stoch_k": 79.3,
+        "macd_histogram": 7.769,
+        "adx_14": 38.2,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 0.79,
+        "cmf_20": -0.14,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.8,
+        "bollinger_bandwidth": 18.6
+      },
+      "thesis_summary": "Eli Lilly and Company ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 102.3% roe and 5 with bullish trend. Trading at USD 1281.91, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (47.7%) and healthy returns on capital (102.3%) combine with algorithmic regime indicates bullish trend (adx: 38.2, rsi: 66.1) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 1131.21 (Altman Z: 3.44) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.79x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (66.1) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (6/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 1131.21.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 1262.68,
+        "entry_zone_high": 1288.32,
+        "stop_loss": 1173.46,
+        "target_1": 1575.47,
+        "target_2": 1747.76,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 14,
+        "suggested_capital": 17857.0,
+        "position_risk_amount": 1428.56,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 17.9% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Wide Moat",
+          "score": 98.0,
+          "commentary": "Demonstrates wide moat characteristics with 102.3% ROE and 54.2% operating margin. Piotroski F-Score of 6/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Fast Grower",
+          "score": 96.0,
+          "commentary": "Classified as a 'Fast Grower' growing top-line at 47.7% YoY with estimated PEG ratio of 0.9x. Positioned to capture institutional wallet share in the Healthcare segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 83.0,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 38.2, RSI: 66.1). Chaikin Money Flow of -0.14 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 22.4,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 1131.21. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 83.3,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891687"
+    },
+    {
+      "rank": 9,
       "ticker": "600519",
       "name": "Kweichow Moutai",
       "market": "cn",
       "sector": "Consumer Defensive",
       "industry": "Distillers",
-      "current_price": 1355.98,
+      "current_price": 1330.95,
       "currency": "CNY",
-      "market_cap": 1355979980468.75,
+      "market_cap": 1330949951171.875,
       "horizon": "daily",
       "scores": {
         "fundamental_score": 90.9,
-        "trend_score": 60.0,
+        "trend_score": 72.1,
         "sentiment_score": 70.0,
-        "composite_score": 71.3,
+        "composite_score": 77.3,
         "revenue_growth_yoy": 9.2,
         "operating_margin": 24.5,
         "roe": 28.5,
@@ -370,26 +934,26 @@
         "piotroski_f_score": 9,
         "altman_z_score": 4.65,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": 2.33,
+        "price_vs_ma200_pct": 0.46,
         "golden_cross": false,
         "ribbon_aligned": true,
-        "rsi_14d": 76.8,
-        "stoch_k": 99.1,
-        "macd_histogram": 8.244,
-        "adx_14": 47.0,
+        "rsi_14d": 68.4,
+        "stoch_k": 74.4,
+        "macd_histogram": 6.274,
+        "adx_14": 48.5,
         "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.84,
-        "cmf_20": 0.3,
+        "volume_surge_ratio": 0.92,
+        "cmf_20": 0.29,
         "money_flow_regime": "Heavy Institutional Buying",
-        "bollinger_pct_b": 0.91,
+        "bollinger_pct_b": 0.73,
         "bollinger_bandwidth": 12.3
       },
-      "thesis_summary": "Kweichow Moutai ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 28.5% roe and 24 with consolidation base. Trading at CNY 1355.98, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (28.5%) combine with algorithmic regime indicates consolidation base (adx: 47.0, rsi:  to support multiple expansion.",
+      "thesis_summary": "Kweichow Moutai ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 28.5% roe and 24 with bullish trend. Trading at CNY 1330.95, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (28.5%) combine with algorithmic regime indicates bullish trend (adx: 48.5, rsi: 68.4) to support multiple expansion.",
       "bear_case": "A breakdown below structural support at CNY 1228.10 (Altman Z: 4.65) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.84x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (76.8) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 0.92x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (68.4) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (9/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
@@ -401,22 +965,22 @@
         "action": "BUY",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 1335.64,
-        "entry_zone_high": 1362.76,
-        "stop_loss": 1241.26,
-        "target_1": 1666.51,
-        "target_2": 1848.76,
+        "entry_zone_low": 1310.99,
+        "entry_zone_high": 1337.6,
+        "stop_loss": 1218.35,
+        "target_1": 1635.72,
+        "target_2": 1814.6,
         "risk_reward_ratio": 2.5,
         "suggested_shares": 100,
-        "suggested_capital": 134920.0,
-        "position_risk_amount": 10794.0,
+        "suggested_capital": 132429.5,
+        "position_risk_amount": 10594.5,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [
           "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
         ],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 134.9% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 132.4% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
@@ -433,18 +997,18 @@
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 75.0,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 47.0, RSI: 76.8). Chaikin Money Flow of +0.30 confirms net institutional accumulation over 20-day liquidity window."
+          "verdict": "Bullish Trend",
+          "score": 86.6,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 48.5, RSI: 68.4). Chaikin Money Flow of +0.29 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 28.7,
+          "score": 22.7,
           "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 1228.10. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 77.8,
+      "consensus_confidence_pct": 84.2,
       "sentiment_summary": null,
       "recent_news": [
         {
@@ -462,24 +1026,783 @@
           "sentiment": "BULLISH"
         }
       ],
-      "timestamp": "2026-10-27T06:37:22.326546"
+      "timestamp": "2026-10-28T06:40:25.891743"
     },
     {
-      "rank": 5,
-      "ticker": "601318",
-      "name": "Ping An Insurance",
+      "rank": 10,
+      "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "market": "us",
+      "sector": "Technology",
+      "industry": "Software - Infrastructure",
+      "current_price": 531.33,
+      "currency": "USD",
+      "market_cap": 3945415311360.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 76.8,
+        "trend_score": 83.9,
+        "sentiment_score": 55.0,
+        "composite_score": 76.0,
+        "revenue_growth_yoy": 17.7,
+        "operating_margin": 45.111000000000004,
+        "roe": 34.039003,
+        "roic": 35.2,
+        "fcf_yield": 0.4193601650087555,
+        "debt_to_equity": 29.118,
+        "current_ratio": null,
+        "pe_ratio": 29.600557,
+        "pb_ratio": 8.920172,
+        "ev_ebitda": 20.58,
+        "piotroski_f_score": 8,
+        "altman_z_score": 5.13,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 21.88,
+        "golden_cross": true,
+        "ribbon_aligned": true,
+        "rsi_14d": 50.9,
+        "stoch_k": 44.1,
+        "macd_histogram": -1.872,
+        "adx_14": 30.9,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 0.97,
+        "cmf_20": -0.1,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.57,
+        "bollinger_bandwidth": 6.4
+      },
+      "thesis_summary": "Microsoft Corporation ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 34.0% roe and 45 with bullish trend. Trading at USD 531.33, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (17.7%) and healthy returns on capital (34.0%) combine with algorithmic regime indicates bullish trend (adx: 30.9, rsi: 50.9) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 510.31 (Altman Z: 5.13) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.97x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (50.9) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 510.31.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 523.36,
+        "entry_zone_high": 533.99,
+        "stop_loss": 504.77,
+        "target_1": 607.04,
+        "target_2": 650.87,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 37,
+        "suggested_capital": 19560.97,
+        "position_risk_amount": 884.48,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 19.6% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Wide Moat",
+          "score": 98.0,
+          "commentary": "Demonstrates wide moat characteristics with 34.0% ROE and 45.1% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 95.3,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 17.7% YoY with estimated PEG ratio of 1.67x. Positioned to capture institutional wallet share in the Technology segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 78.9,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 30.9, RSI: 50.9). Chaikin Money Flow of -0.10 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 24.0,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 510.31. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 81.3,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891809"
+    },
+    {
+      "rank": 11,
+      "ticker": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "market": "us",
+      "sector": "Financial Services",
+      "industry": "Banks - Diversified",
+      "current_price": 335.79,
+      "currency": "USD",
+      "market_cap": 891723972608.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 81.9,
+        "trend_score": 80.3,
+        "sentiment_score": 55.0,
+        "composite_score": 75.7,
+        "revenue_growth_yoy": 10.2,
+        "operating_margin": 42.584,
+        "roe": 18.013,
+        "roic": 21.5,
+        "fcf_yield": 4.2,
+        "debt_to_equity": 65.0,
+        "current_ratio": null,
+        "pe_ratio": 14.085152,
+        "pb_ratio": 2.538153,
+        "ev_ebitda": 18.0,
+        "piotroski_f_score": 8,
+        "altman_z_score": 3.81,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 4.98,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 59.0,
+        "stoch_k": 54.1,
+        "macd_histogram": 0.768,
+        "adx_14": 19.3,
+        "trend_strength": "Emerging Trend",
+        "volume_surge_ratio": 0.66,
+        "cmf_20": -0.04,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.73,
+        "bollinger_bandwidth": 3.2
+      },
+      "thesis_summary": "JP Morgan Chase & Co. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 18.0% roe and  with bullish trend. Trading at USD 335.79, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (18.0%) combine with algorithmic regime indicates bullish trend (adx: 19.3, rsi: 59.0) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 324.25 (Altman Z: 3.81) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.66x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (59.0) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 324.25.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 330.75,
+        "entry_zone_high": 337.47,
+        "stop_loss": 321.1,
+        "target_1": 378.4,
+        "target_2": 402.95,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 59,
+        "suggested_capital": 19712.49,
+        "position_risk_amount": 767.59,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 19.7% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 98.0,
+          "commentary": "Demonstrates narrow moat characteristics with 18.0% ROE and 42.6% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 92.9,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.38x. Positioned to capture institutional wallet share in the Financial Services segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 78.3,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 19.3, RSI: 59.0). Chaikin Money Flow of -0.04 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 24.3,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 324.25. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 80.9,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891860"
+    },
+    {
+      "rank": 12,
+      "ticker": "NOW",
+      "name": "ServiceNow, Inc.",
+      "market": "us",
+      "sector": "Technology",
+      "industry": "Software - Application",
+      "current_price": 154.78,
+      "currency": "USD",
+      "market_cap": 160021168128.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 56.8,
+        "trend_score": 91.8,
+        "sentiment_score": 55.0,
+        "composite_score": 73.9,
+        "revenue_growth_yoy": 24.0,
+        "operating_margin": 4.063,
+        "roe": 14.244000000000002,
+        "roic": 10.8,
+        "fcf_yield": 3.2179336248070913,
+        "debt_to_equity": 67.538,
+        "current_ratio": null,
+        "pe_ratio": 96.737495,
+        "pb_ratio": 12.785396,
+        "ev_ebitda": 56.545,
+        "piotroski_f_score": 6,
+        "altman_z_score": 2.71,
+        "z_zone": "Grey",
+        "price_vs_ma200_pct": 34.31,
+        "golden_cross": true,
+        "ribbon_aligned": true,
+        "rsi_14d": 69.7,
+        "stoch_k": 80.3,
+        "macd_histogram": 1.415,
+        "adx_14": 46.3,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 1.17,
+        "cmf_20": 0.12,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.82,
+        "bollinger_bandwidth": 23.0
+      },
+      "thesis_summary": "ServiceNow, Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at USD 154.78, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (24.0%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 46.3, rsi: 69.7) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 128.85 (Altman Z: 2.71) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 1.17x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (69.7) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (6/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 128.85.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 152.46,
+        "entry_zone_high": 155.55,
+        "stop_loss": 141.68,
+        "target_1": 190.23,
+        "target_2": 211.03,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 121,
+        "suggested_capital": 18634.6,
+        "position_risk_amount": 1491.32,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.6% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 53.2,
+          "commentary": "Demonstrates narrow moat characteristics with 14.2% ROE and 4.1% operating margin. Piotroski F-Score of 6/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Fast Grower",
+          "score": 72.8,
+          "commentary": "Classified as a 'Fast Grower' growing top-line at 24.0% YoY with estimated PEG ratio of 4.03x. Positioned to capture institutional wallet share in the Technology segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 97.8,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 46.3, RSI: 69.7). Chaikin Money Flow of +0.12 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 26.1,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 128.85. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 76.9,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891904"
+    },
+    {
+      "rank": 13,
+      "ticker": "QCOM",
+      "name": "QUALCOMM Incorporated",
+      "market": "us",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "current_price": 184.17,
+      "currency": "USD",
+      "market_cap": 196664000512.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 76.3,
+        "trend_score": 79.2,
+        "sentiment_score": 55.0,
+        "composite_score": 73.5,
+        "revenue_growth_yoy": -4.0,
+        "operating_margin": 18.528,
+        "roe": 33.754003,
+        "roic": 27.7,
+        "fcf_yield": 5.207358958090104,
+        "debt_to_equity": 55.21,
+        "current_ratio": null,
+        "pe_ratio": 21.315971,
+        "pb_ratio": 7.0382543,
+        "ev_ebitda": 16.7,
+        "piotroski_f_score": 6,
+        "altman_z_score": 4.16,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 9.52,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 58.1,
+        "stoch_k": 98.4,
+        "macd_histogram": 0.368,
+        "adx_14": 20.9,
+        "trend_strength": "Emerging Trend",
+        "volume_surge_ratio": 1.24,
+        "cmf_20": -0.04,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.9,
+        "bollinger_bandwidth": 9.0
+      },
+      "thesis_summary": "QUALCOMM Incorporated ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 33.8% roe and  with bullish trend. Trading at USD 184.17, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (-4.0%) and healthy returns on capital (33.8%) combine with algorithmic regime indicates bullish trend (adx: 20.9, rsi: 58.1) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 168.84 (Altman Z: 4.16) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 1.24x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (58.1) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (6/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 168.84.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 181.41,
+        "entry_zone_high": 185.09,
+        "stop_loss": 168.59,
+        "target_1": 226.34,
+        "target_2": 251.09,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 102,
+        "suggested_capital": 18691.5,
+        "position_risk_amount": 1495.32,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.7% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 98.0,
+          "commentary": "Demonstrates narrow moat characteristics with 33.8% ROE and 18.5% operating margin. Piotroski F-Score of 6/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Cyclical Leader",
+          "score": 25.0,
+          "commentary": "Classified as a 'Cyclical Leader' growing top-line at -4.0% YoY with estimated PEG ratio of 21.32x. Positioned to capture institutional wallet share in the Technology segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 77.2,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 20.9, RSI: 58.1). Chaikin Money Flow of -0.04 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 26.5,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 168.84. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 79.5,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891943"
+    },
+    {
+      "rank": 14,
+      "ticker": "UNH",
+      "name": "UnitedHealth Group Incorporated",
+      "market": "us",
+      "sector": "Healthcare",
+      "industry": "Healthcare Plans",
+      "current_price": 410.39,
+      "currency": "USD",
+      "market_cap": 368363962368.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 64.5,
+        "trend_score": 83.1,
+        "sentiment_score": 55.0,
+        "composite_score": 71.9,
+        "revenue_growth_yoy": -0.4,
+        "operating_margin": 5.824,
+        "roe": 15.773000000000001,
+        "roic": 12.2,
+        "fcf_yield": 7.19431098895742,
+        "debt_to_equity": 70.426,
+        "current_ratio": null,
+        "pe_ratio": 26.39164,
+        "pb_ratio": 3.5549455,
+        "ev_ebitda": 14.44,
+        "piotroski_f_score": 5,
+        "altman_z_score": 2.85,
+        "z_zone": "Grey",
+        "price_vs_ma200_pct": 14.49,
+        "golden_cross": true,
+        "ribbon_aligned": true,
+        "rsi_14d": 68.8,
+        "stoch_k": 72.2,
+        "macd_histogram": 2.826,
+        "adx_14": 52.3,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 0.62,
+        "cmf_20": -0.04,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.72,
+        "bollinger_bandwidth": 20.6
+      },
+      "thesis_summary": "UnitedHealth Group Incorporated ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 15.8% roe and  with bullish trend. Trading at USD 410.39, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (-0.4%) and healthy returns on capital (15.8%) combine with algorithmic regime indicates bullish trend (adx: 52.3, rsi: 68.8) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 362.60 (Altman Z: 2.85) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.62x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (68.8) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (5/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 362.60.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 404.23,
+        "entry_zone_high": 412.44,
+        "stop_loss": 375.67,
+        "target_1": 504.36,
+        "target_2": 559.52,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 45,
+        "suggested_capital": 18375.08,
+        "position_risk_amount": 1469.93,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.4% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 53.1,
+          "commentary": "Demonstrates narrow moat characteristics with 15.8% ROE and 5.8% operating margin. Piotroski F-Score of 5/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Cyclical Leader",
+          "score": 25.0,
+          "commentary": "Classified as a 'Cyclical Leader' growing top-line at -0.4% YoY with estimated PEG ratio of 26.39x. Positioned to capture institutional wallet share in the Healthcare segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 81.1,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 52.3, RSI: 68.8). Chaikin Money Flow of -0.04 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 28.1,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 362.60. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 70.9,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.891982"
+    },
+    {
+      "rank": 15,
+      "ticker": "MU",
+      "name": "Micron Technology, Inc.",
+      "market": "us",
+      "sector": "Technology",
+      "industry": "Semiconductors",
+      "current_price": 928.76,
+      "currency": "USD",
+      "market_cap": 1050820673536.0,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 90.3,
+        "trend_score": 66.2,
+        "sentiment_score": 55.0,
+        "composite_score": 71.2,
+        "revenue_growth_yoy": 379.3,
+        "operating_margin": 80.678004,
+        "roe": 88.26,
+        "roic": 85.4,
+        "fcf_yield": 2.773094530577075,
+        "debt_to_equity": 3.743,
+        "current_ratio": null,
+        "pe_ratio": 12.49509,
+        "pb_ratio": 7.5910096,
+        "ev_ebitda": 9.303,
+        "piotroski_f_score": 8,
+        "altman_z_score": 6.07,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": 25.9,
+        "golden_cross": true,
+        "ribbon_aligned": false,
+        "rsi_14d": 31.3,
+        "stoch_k": 33.3,
+        "macd_histogram": -8.048,
+        "adx_14": 69.4,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 0.84,
+        "cmf_20": -0.07,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.37,
+        "bollinger_bandwidth": 33.5
+      },
+      "thesis_summary": "Micron Technology, Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 88.3% roe and 80 with bullish trend. Trading at USD 928.76, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (379.3%) and healthy returns on capital (88.3%) combine with algorithmic regime indicates bullish trend (adx: 69.4, rsi: 31.3) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 849.25 (Altman Z: 6.07) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 0.84x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (31.3) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at USD 849.25.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "BUY",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 914.83,
+        "entry_zone_high": 933.4,
+        "stop_loss": 850.19,
+        "target_1": 1141.42,
+        "target_2": 1266.24,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 20,
+        "suggested_capital": 18482.3,
+        "position_risk_amount": 1478.5,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.5% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Wide Moat",
+          "score": 98.0,
+          "commentary": "Demonstrates wide moat characteristics with 88.3% ROE and 80.7% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Fast Grower",
+          "score": 96.0,
+          "commentary": "Classified as a 'Fast Grower' growing top-line at 379.3% YoY with estimated PEG ratio of 0.03x. Positioned to capture institutional wallet share in the Technology segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Bullish Trend",
+          "score": 62.7,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 69.4, RSI: 31.3). Chaikin Money Flow of -0.07 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 28.8,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 849.25. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 74.0,
+      "sentiment_summary": null,
+      "recent_news": [],
+      "timestamp": "2026-10-28T06:40:25.892021"
+    },
+    {
+      "rank": 16,
+      "ticker": "000858",
+      "name": "Wuliangye Yibin",
+      "market": "cn",
+      "sector": "Consumer Defensive",
+      "industry": "Distillers",
+      "current_price": 70.73,
+      "currency": "CNY",
+      "market_cap": 70730003356.9336,
+      "horizon": "daily",
+      "scores": {
+        "fundamental_score": 84.4,
+        "trend_score": 61.0,
+        "sentiment_score": 70.0,
+        "composite_score": 69.8,
+        "revenue_growth_yoy": 9.2,
+        "operating_margin": 24.5,
+        "roe": 14.2,
+        "roic": 15.8,
+        "fcf_yield": 5.4,
+        "debt_to_equity": 38.0,
+        "current_ratio": null,
+        "pe_ratio": 22.0,
+        "pb_ratio": 3.1,
+        "ev_ebitda": 15.5,
+        "piotroski_f_score": 9,
+        "altman_z_score": 4.39,
+        "z_zone": "Safe",
+        "price_vs_ma200_pct": -16.9,
+        "golden_cross": false,
+        "ribbon_aligned": false,
+        "rsi_14d": 52.1,
+        "stoch_k": 12.0,
+        "macd_histogram": 0.261,
+        "adx_14": 42.8,
+        "trend_strength": "Strong Trend",
+        "volume_surge_ratio": 2.36,
+        "cmf_20": 0.05,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.4,
+        "bollinger_bandwidth": 10.6
+      },
+      "thesis_summary": "Wuliangye Yibin ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with consolidation base. Trading at CNY 70.73, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates consolidation base (adx: 42.8, rsi:  to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 68.68 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "catalysts": [
+        "Institutional volume surge of 2.36x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (52.1) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (9/9) confirms earnings quality and lack of dilutive financing."
+      ],
+      "key_risks": [
+        "Breach of strict invalidation level at CNY 68.68.",
+        "Unexpected broad market risk-off sentiment or interest rate volatility.",
+        "Pre-market adverse price gap exceeding the execution tolerance threshold."
+      ],
+      "trade_plan": {
+        "action": "WATCH",
+        "horizon": "daily",
+        "holding_period": "1-3 Days",
+        "entry_zone_low": 69.67,
+        "entry_zone_high": 71.08,
+        "stop_loss": 67.88,
+        "target_1": 79.08,
+        "target_2": 83.88,
+        "risk_reward_ratio": 2.5,
+        "suggested_shares": 200,
+        "suggested_capital": 14075.0,
+        "position_risk_amount": 499.0,
+        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
+        "gap_rule_pct": 3.5,
+        "event_risk_flags": [
+          "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
+        ],
+        "liquidity_rating": "HIGH (Tier 1 Volume)",
+        "portfolio_note": "[DAILY HORIZON] Allocates 14.1% equity risking 1.5% on stop for target holding 1-3 Days."
+      },
+      "persona_analysis": {
+        "buffett_value": {
+          "persona": "Warren Buffett (Value & Moat Quality)",
+          "verdict": "Narrow Moat",
+          "score": 91.2,
+          "commentary": "Demonstrates narrow moat characteristics with 14.2% ROE and 24.5% operating margin. Piotroski F-Score of 9/9 confirms solid capital discipline and positive cash earnings generation."
+        },
+        "lynch_growth": {
+          "persona": "Peter Lynch (Growth & PEG)",
+          "verdict": "Stalwart",
+          "score": 60.2,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Consumer Defensive segment."
+        },
+        "simons_momentum": {
+          "persona": "Jim Simons (Quantitative Momentum)",
+          "verdict": "Consolidation Base",
+          "score": 63.5,
+          "commentary": "Algorithmic regime indicates consolidation base (ADX: 42.8, RSI: 52.1). Chaikin Money Flow of +0.05 confirms net institutional accumulation over 20-day liquidity window."
+        },
+        "forensic_bear": {
+          "persona": "Forensic Short-Seller (Risk & Invalidation)",
+          "verdict": "Downside Guard Active",
+          "score": 30.2,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 68.68. A gap of >3.5% against the planned limit zone invalidates the entry."
+        }
+      },
+      "consensus_confidence_pct": 72.2,
+      "sentiment_summary": null,
+      "recent_news": [
+        {
+          "title": "Wuliangye Yibin reports robust quarterly production numbers amidst institutional buying",
+          "source": "East Money (东方财富)",
+          "url": "https://quote.eastmoney.com/000858.html",
+          "published_at": "Today",
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "title": "Northbound Stock Connect flows register net inflows into Wuliangye Yibin",
+          "source": "Xueqiu (雪球)",
+          "url": "https://xueqiu.com/S/000858",
+          "published_at": "Today",
+          "sentiment": "BULLISH"
+        }
+      ],
+      "timestamp": "2026-10-28T06:40:25.892070"
+    },
+    {
+      "rank": 17,
+      "ticker": "000001",
+      "name": "Ping An Bank",
       "market": "cn",
       "sector": "Financial Services",
-      "industry": "Insurance",
-      "current_price": 52.75,
+      "industry": "Banks",
+      "current_price": 11.33,
       "currency": "CNY",
-      "market_cap": 52750000000.0,
+      "market_cap": 11329999923.706055,
       "horizon": "daily",
       "scores": {
         "fundamental_score": 79.1,
-        "trend_score": 66.2,
+        "trend_score": 63.2,
         "sentiment_score": 70.0,
-        "composite_score": 70.8,
+        "composite_score": 69.3,
         "revenue_growth_yoy": 9.2,
         "operating_margin": 16.8,
         "roe": 14.2,
@@ -493,53 +1816,53 @@
         "piotroski_f_score": 8,
         "altman_z_score": 4.39,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": -4.83,
-        "golden_cross": false,
+        "price_vs_ma200_pct": 5.53,
+        "golden_cross": true,
         "ribbon_aligned": false,
-        "rsi_14d": 45.9,
-        "stoch_k": 82.2,
-        "macd_histogram": 0.082,
-        "adx_14": 39.0,
-        "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.8,
-        "cmf_20": 0.23,
-        "money_flow_regime": "Heavy Institutional Buying",
-        "bollinger_pct_b": 0.6,
-        "bollinger_bandwidth": 7.3
+        "rsi_14d": 37.1,
+        "stoch_k": 26.3,
+        "macd_histogram": -0.028,
+        "adx_14": 17.8,
+        "trend_strength": "Consolidation",
+        "volume_surge_ratio": 1.32,
+        "cmf_20": -0.15,
+        "money_flow_regime": "Distribution",
+        "bollinger_pct_b": 0.31,
+        "bollinger_bandwidth": 5.5
       },
-      "thesis_summary": "Ping An Insurance ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with bullish trend. Trading at CNY 52.75, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates bullish trend (adx: 39.0, rsi: 45.9) to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at CNY 50.11 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "Ping An Bank ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with consolidation base. Trading at CNY 11.33, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates consolidation base (adx: 17.8, rsi:  to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 11.13 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.8x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (45.9) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 1.32x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (37.1) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at CNY 50.11.",
+        "Breach of strict invalidation level at CNY 11.13.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
       "trade_plan": {
-        "action": "BUY",
+        "action": "WATCH",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 51.96,
-        "entry_zone_high": 53.01,
-        "stop_loss": 49.62,
-        "target_1": 61.48,
-        "target_2": 66.57,
+        "entry_zone_low": 11.19,
+        "entry_zone_high": 11.39,
+        "stop_loss": 10.93,
+        "target_1": 12.54,
+        "target_2": 13.23,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 300,
-        "suggested_capital": 15745.5,
-        "position_risk_amount": 859.5,
+        "suggested_shares": 1700,
+        "suggested_capital": 19193.0,
+        "position_risk_amount": 612.0,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [
           "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
         ],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 15.7% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 19.2% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
@@ -556,90 +1879,90 @@
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Bullish Trend",
-          "score": 77.7,
-          "commentary": "Algorithmic regime indicates bullish trend (ADX: 39.0, RSI: 45.9). Chaikin Money Flow of +0.23 confirms net institutional accumulation over 20-day liquidity window."
+          "verdict": "Consolidation Base",
+          "score": 55.7,
+          "commentary": "Algorithmic regime indicates consolidation base (ADX: 17.8, RSI: 37.1). Chaikin Money Flow of -0.15 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 29.2,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 50.11. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "score": 30.7,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 11.13. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 74.2,
+      "consensus_confidence_pct": 66.9,
       "sentiment_summary": null,
       "recent_news": [
         {
-          "title": "Ping An Insurance reports robust quarterly production numbers amidst institutional buying",
+          "title": "Ping An Bank reports robust quarterly production numbers amidst institutional buying",
           "source": "East Money (东方财富)",
-          "url": "https://quote.eastmoney.com/601318.html",
+          "url": "https://quote.eastmoney.com/000001.html",
           "published_at": "Today",
           "sentiment": "NEUTRAL"
         },
         {
-          "title": "Northbound Stock Connect flows register net inflows into Ping An Insurance",
+          "title": "Northbound Stock Connect flows register net inflows into Ping An Bank",
           "source": "Xueqiu (雪球)",
-          "url": "https://xueqiu.com/S/601318",
+          "url": "https://xueqiu.com/S/000001",
           "published_at": "Today",
           "sentiment": "BULLISH"
         }
       ],
-      "timestamp": "2026-10-27T06:37:22.326623"
+      "timestamp": "2026-10-28T06:40:25.892116"
     },
     {
-      "rank": 6,
-      "ticker": "NVDA",
-      "name": "NVIDIA Corporation",
+      "rank": 18,
+      "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
       "market": "us",
       "sector": "Technology",
-      "industry": "Semiconductors",
-      "current_price": 216.0,
+      "industry": "Computer Hardware",
+      "current_price": 187.0,
       "currency": "USD",
-      "market_cap": 5215751766016.0,
+      "market_cap": 235849023488.0,
       "horizon": "daily",
       "scores": {
-        "fundamental_score": 84.4,
-        "trend_score": 59.8,
+        "fundamental_score": 73.0,
+        "trend_score": 69.9,
         "sentiment_score": 55.0,
-        "composite_score": 66.2,
-        "revenue_growth_yoy": 105.89999999999999,
-        "operating_margin": 66.236997,
-        "roe": 117.211,
-        "roic": 99.9,
-        "fcf_yield": 0.801607837558881,
-        "debt_to_equity": 16.971,
+        "composite_score": 67.8,
+        "revenue_growth_yoy": 37.7,
+        "operating_margin": 45.393001999999996,
+        "roe": 31.476,
+        "roic": 31.5,
+        "fcf_yield": 1.6500015639021717,
+        "debt_to_equity": 65.0,
         "current_ratio": null,
-        "pe_ratio": 27.307207,
-        "pb_ratio": 22.777603,
-        "ev_ebitda": 25.747,
-        "piotroski_f_score": 8,
-        "altman_z_score": 6.07,
+        "pe_ratio": 58.990536,
+        "pb_ratio": 15.937953,
+        "ev_ebitda": 47.958,
+        "piotroski_f_score": 7,
+        "altman_z_score": 3.99,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": 6.13,
+        "price_vs_ma200_pct": 13.77,
         "golden_cross": true,
         "ribbon_aligned": false,
-        "rsi_14d": 28.7,
-        "stoch_k": 20.1,
-        "macd_histogram": -1.789,
-        "adx_14": 31.5,
+        "rsi_14d": 34.1,
+        "stoch_k": 38.1,
+        "macd_histogram": -2.282,
+        "adx_14": 41.4,
         "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.88,
-        "cmf_20": -0.25,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.25,
-        "bollinger_bandwidth": 15.9
+        "volume_surge_ratio": 0.99,
+        "cmf_20": 0.05,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.36,
+        "bollinger_bandwidth": 32.2
       },
-      "thesis_summary": "NVIDIA Corporation ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 117.2% roe and 6 with consolidation base. Trading at USD 216.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (105.9%) and healthy returns on capital (117.2%) combine with algorithmic regime indicates consolidation base (adx: 31.5, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at USD 210.18 (Altman Z: 6.07) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "Arista Networks, Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 31.5% roe and 45 with bullish trend. Trading at USD 187.00, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (37.7%) and healthy returns on capital (31.5%) combine with algorithmic regime indicates bullish trend (adx: 41.4, rsi: 34.1) to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at USD 168.24 (Altman Z: 3.99) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.88x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (28.7) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
+        "Institutional volume surge of 0.99x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (34.1) provides runway before encountering overbought resistance.",
+        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at USD 210.18.",
+        "Breach of strict invalidation level at USD 168.24.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
@@ -647,288 +1970,68 @@
         "action": "WATCH",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 212.76,
-        "entry_zone_high": 217.08,
-        "stop_loss": 205.71,
-        "target_1": 245.51,
-        "target_2": 262.56,
+        "entry_zone_low": 184.19,
+        "entry_zone_high": 187.93,
+        "stop_loss": 171.18,
+        "target_1": 229.81,
+        "target_2": 254.93,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 93,
-        "suggested_capital": 19987.56,
-        "position_risk_amount": 856.53,
+        "suggested_shares": 100,
+        "suggested_capital": 18606.0,
+        "position_risk_amount": 1488.0,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 20.0% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.6% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
           "persona": "Warren Buffett (Value & Moat Quality)",
           "verdict": "Wide Moat",
           "score": 98.0,
-          "commentary": "Demonstrates wide moat characteristics with 117.2% ROE and 66.2% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+          "commentary": "Demonstrates wide moat characteristics with 31.5% ROE and 45.4% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
         },
         "lynch_growth": {
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Fast Grower",
           "score": 96.0,
-          "commentary": "Classified as a 'Fast Grower' growing top-line at 105.9% YoY with estimated PEG ratio of 0.26x. Positioned to capture institutional wallet share in the Technology segment."
+          "commentary": "Classified as a 'Fast Grower' growing top-line at 37.7% YoY with estimated PEG ratio of 1.56x. Positioned to capture institutional wallet share in the Technology segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 47.3,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 31.5, RSI: 28.7). Chaikin Money Flow of -0.25 confirms net institutional accumulation over 20-day liquidity window."
+          "verdict": "Bullish Trend",
+          "score": 72.4,
+          "commentary": "Algorithmic regime indicates bullish trend (ADX: 41.4, RSI: 34.1). Chaikin Money Flow of +0.05 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 33.8,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 210.18. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "score": 32.2,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 168.24. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 66.9,
+      "consensus_confidence_pct": 75.2,
       "sentiment_summary": null,
       "recent_news": [],
-      "timestamp": "2026-10-27T06:37:22.326681"
+      "timestamp": "2026-10-28T06:40:25.892157"
     },
     {
-      "rank": 7,
-      "ticker": "AMZN",
-      "name": "Amazon.com, Inc.",
-      "market": "us",
-      "sector": "Consumer Cyclical",
-      "industry": "Internet Retail",
-      "current_price": 249.09,
-      "currency": "USD",
-      "market_cap": 2686762614784.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 75.3,
-        "trend_score": 61.4,
-        "sentiment_score": 55.0,
-        "composite_score": 64.3,
-        "revenue_growth_yoy": 19.6,
-        "operating_margin": 13.689000000000002,
-        "roe": 30.558002000000002,
-        "roic": 24.5,
-        "fcf_yield": 0.11981426919842708,
-        "debt_to_equity": 45.617,
-        "current_ratio": null,
-        "pe_ratio": 20.03942,
-        "pb_ratio": 4.8692236,
-        "ev_ebitda": 16.668,
-        "piotroski_f_score": 6,
-        "altman_z_score": 4.19,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 2.38,
-        "golden_cross": true,
-        "ribbon_aligned": false,
-        "rsi_14d": 44.0,
-        "stoch_k": 14.0,
-        "macd_histogram": -0.743,
-        "adx_14": 25.5,
-        "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.91,
-        "cmf_20": -0.04,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.25,
-        "bollinger_bandwidth": 8.7
-      },
-      "thesis_summary": "Amazon.com, Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 30.6% roe and  with consolidation base. Trading at USD 249.09, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (19.6%) and healthy returns on capital (30.6%) combine with algorithmic regime indicates consolidation base (adx: 25.5, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at USD 245.14 (Altman Z: 4.19) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.91x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (44.0) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (6/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at USD 245.14.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 246.37,
-        "entry_zone_high": 250.34,
-        "stop_loss": 237.95,
-        "target_1": 281.32,
-        "target_2": 299.9,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 80,
-        "suggested_capital": 19868.4,
-        "position_risk_amount": 832.4,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 19.9% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 89.3,
-          "commentary": "Demonstrates narrow moat characteristics with 30.6% ROE and 13.7% operating margin. Piotroski F-Score of 6/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 96.0,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 19.6% YoY with estimated PEG ratio of 1.02x. Positioned to capture institutional wallet share in the Consumer Cyclical segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 59.4,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 25.5, RSI: 44.0). Chaikin Money Flow of -0.04 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 35.7,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 245.14. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 67.8,
-      "sentiment_summary": null,
-      "recent_news": [],
-      "timestamp": "2026-10-27T06:37:22.326735"
-    },
-    {
-      "rank": 8,
-      "ticker": "GMEXICOB.MX",
-      "name": "Grupo México",
-      "market": "mx",
-      "sector": "Basic Materials",
-      "industry": "Copper Mining",
-      "current_price": 100.0,
-      "currency": "MXN",
-      "market_cap": 1785850888192.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 77.9,
-        "trend_score": 57.2,
-        "sentiment_score": 60.0,
-        "composite_score": 64.0,
-        "revenue_growth_yoy": 10.2,
-        "operating_margin": 14.8,
-        "roe": 16.5,
-        "roic": 14.8,
-        "fcf_yield": 6.1,
-        "debt_to_equity": 52.0,
-        "current_ratio": null,
-        "pe_ratio": 16.2,
-        "pb_ratio": 2.4,
-        "ev_ebitda": 9.8,
-        "piotroski_f_score": 7,
-        "altman_z_score": 3.91,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 0.0,
-        "golden_cross": false,
-        "ribbon_aligned": false,
-        "rsi_14d": 46.3,
-        "stoch_k": 50.0,
-        "macd_histogram": -0.902,
-        "adx_14": 20.0,
-        "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 0.84,
-        "cmf_20": 0.0,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.5,
-        "bollinger_bandwidth": 10.0
-      },
-      "thesis_summary": "Grupo México ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with consolidation base. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates consolidation base (adx: 20.0, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN 222.02 (Altman Z: 3.91) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.84x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (46.3) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at MXN 222.02.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 98.0,
-        "entry_zone_high": 101.0,
-        "stop_loss": 95.75,
-        "target_1": 114.12,
-        "target_2": 122.0,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 201,
-        "suggested_capital": 19999.5,
-        "position_risk_amount": 753.75,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 20.0% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 74.0,
-          "commentary": "Demonstrates narrow moat characteristics with 16.5% ROE and 14.8% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 83.3,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.59x. Positioned to capture institutional wallet share in the Basic Materials segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 61.2,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 20.0, RSI: 46.3). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 36.0,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 222.02. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 65.2,
-      "sentiment_summary": null,
-      "recent_news": [
-        {
-          "title": "GMEXICOB updates guidance with resilient domestic demand and nearshoring tailwinds",
-          "source": "El Economista / BMV",
-          "url": "https://www.bmv.com.mx",
-          "published_at": "Today",
-          "sentiment": "NEUTRAL"
-        }
-      ],
-      "timestamp": "2026-10-27T06:37:22.326832"
-    },
-    {
-      "rank": 9,
-      "ticker": "002594",
-      "name": "BYD Company",
+      "rank": 19,
+      "ticker": "002241",
+      "name": "GoerTek Inc.",
       "market": "cn",
-      "sector": "Consumer Cyclical",
-      "industry": "Auto Manufacturers",
-      "current_price": 82.75,
+      "sector": "Technology",
+      "industry": "Acoustics & VR/AR",
+      "current_price": 23.18,
       "currency": "CNY",
-      "market_cap": 82750000000.0,
+      "market_cap": 23180000305.17578,
       "horizon": "daily",
       "scores": {
         "fundamental_score": 79.1,
-        "trend_score": 49.3,
+        "trend_score": 59.7,
         "sentiment_score": 70.0,
-        "composite_score": 62.4,
+        "composite_score": 67.6,
         "revenue_growth_yoy": 9.2,
         "operating_margin": 16.8,
         "roe": 14.2,
@@ -942,30 +2045,30 @@
         "piotroski_f_score": 8,
         "altman_z_score": 4.39,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": -10.56,
+        "price_vs_ma200_pct": -4.62,
         "golden_cross": false,
         "ribbon_aligned": false,
-        "rsi_14d": 48.3,
-        "stoch_k": 55.4,
-        "macd_histogram": 0.151,
-        "adx_14": 17.7,
-        "trend_strength": "Consolidation",
-        "volume_surge_ratio": 0.65,
-        "cmf_20": -0.06,
+        "rsi_14d": 60.2,
+        "stoch_k": 83.1,
+        "macd_histogram": 0.319,
+        "adx_14": 21.5,
+        "trend_strength": "Emerging Trend",
+        "volume_surge_ratio": 1.05,
+        "cmf_20": -0.14,
         "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.47,
-        "bollinger_bandwidth": 8.1
+        "bollinger_pct_b": 0.72,
+        "bollinger_bandwidth": 26.2
       },
-      "thesis_summary": "BYD Company ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with consolidation base. Trading at CNY 82.75, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates consolidation base (adx: 17.7, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at CNY 78.49 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "GoerTek Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with consolidation base. Trading at CNY 23.18, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates consolidation base (adx: 21.5, rsi:  to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 19.50 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.65x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (48.3) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 1.05x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (60.2) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at CNY 78.49.",
+        "Breach of strict invalidation level at CNY 19.50.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
@@ -973,22 +2076,22 @@
         "action": "WATCH",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 81.51,
-        "entry_zone_high": 83.16,
-        "stop_loss": 77.46,
-        "target_1": 97.41,
-        "target_2": 105.96,
+        "entry_zone_low": 22.83,
+        "entry_zone_high": 23.3,
+        "stop_loss": 21.22,
+        "target_1": 28.5,
+        "target_2": 31.62,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 200,
-        "suggested_capital": 16467.0,
-        "position_risk_amount": 975.0,
+        "suggested_shares": 800,
+        "suggested_capital": 18452.0,
+        "position_risk_amount": 1476.0,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [
           "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
         ],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 16.5% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 18.5% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
@@ -1001,623 +2104,61 @@
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Stalwart",
           "score": 60.2,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Consumer Cyclical segment."
+          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Technology segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
           "verdict": "Consolidation Base",
-          "score": 46.3,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 17.7, RSI: 48.3). Chaikin Money Flow of -0.06 confirms net institutional accumulation over 20-day liquidity window."
+          "score": 52.7,
+          "commentary": "Algorithmic regime indicates consolidation base (ADX: 21.5, RSI: 60.2). Chaikin Money Flow of -0.14 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 37.6,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 78.49. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "score": 32.4,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 19.50. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 60.6,
+      "consensus_confidence_pct": 65.1,
       "sentiment_summary": null,
       "recent_news": [
         {
-          "title": "BYD Company reports robust quarterly production numbers amidst institutional buying",
+          "title": "GoerTek Inc. reports robust quarterly production numbers amidst institutional buying",
           "source": "East Money (东方财富)",
-          "url": "https://quote.eastmoney.com/002594.html",
+          "url": "https://quote.eastmoney.com/002241.html",
           "published_at": "Today",
           "sentiment": "NEUTRAL"
         },
         {
-          "title": "Northbound Stock Connect flows register net inflows into BYD Company",
+          "title": "Northbound Stock Connect flows register net inflows into GoerTek Inc.",
           "source": "Xueqiu (雪球)",
-          "url": "https://xueqiu.com/S/002594",
+          "url": "https://xueqiu.com/S/002241",
           "published_at": "Today",
           "sentiment": "BULLISH"
         }
       ],
-      "timestamp": "2026-10-27T06:37:22.326891"
+      "timestamp": "2026-10-28T06:40:25.892202"
     },
     {
-      "rank": 10,
-      "ticker": "GFNORTEO.MX",
-      "name": "Grupo Financiero Banorte",
-      "market": "mx",
-      "sector": "Financial Services",
-      "industry": "Regional Banks",
-      "current_price": 100.0,
-      "currency": "MXN",
-      "market_cap": 594382356480.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 77.9,
-        "trend_score": 50.4,
-        "sentiment_score": 60.0,
-        "composite_score": 60.6,
-        "revenue_growth_yoy": 10.2,
-        "operating_margin": 14.8,
-        "roe": 16.5,
-        "roic": 14.8,
-        "fcf_yield": 6.1,
-        "debt_to_equity": 52.0,
-        "current_ratio": null,
-        "pe_ratio": 16.2,
-        "pb_ratio": 2.4,
-        "ev_ebitda": 9.8,
-        "piotroski_f_score": 7,
-        "altman_z_score": 3.91,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 0.0,
-        "golden_cross": false,
-        "ribbon_aligned": false,
-        "rsi_14d": 90.0,
-        "stoch_k": 50.0,
-        "macd_histogram": 1.613,
-        "adx_14": 20.0,
-        "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 0.87,
-        "cmf_20": 0.0,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.5,
-        "bollinger_bandwidth": 10.0
-      },
-      "thesis_summary": "Grupo Financiero Banorte ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with consolidation base. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates consolidation base (adx: 20.0, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN 184.31 (Altman Z: 3.91) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.87x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (90.0) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at MXN 184.31.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 98.0,
-        "entry_zone_high": 101.0,
-        "stop_loss": 95.75,
-        "target_1": 114.12,
-        "target_2": 122.0,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 201,
-        "suggested_capital": 19999.5,
-        "position_risk_amount": 753.75,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 20.0% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 74.0,
-          "commentary": "Demonstrates narrow moat characteristics with 16.5% ROE and 14.8% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 83.3,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.59x. Positioned to capture institutional wallet share in the Financial Services segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 54.4,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 20.0, RSI: 90.0). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 39.4,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 184.31. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 61.4,
-      "sentiment_summary": null,
-      "recent_news": [
-        {
-          "title": "GFNORTEO updates guidance with resilient domestic demand and nearshoring tailwinds",
-          "source": "El Economista / BMV",
-          "url": "https://www.bmv.com.mx",
-          "published_at": "Today",
-          "sentiment": "NEUTRAL"
-        }
-      ],
-      "timestamp": "2026-10-27T06:37:22.326951"
-    },
-    {
-      "rank": 11,
-      "ticker": "AMXB.MX",
-      "name": "América Móvil",
-      "market": "mx",
-      "sector": "Communication Services",
-      "industry": "Telecom Services",
-      "current_price": 100.0,
-      "currency": "MXN",
-      "market_cap": 1345442938880.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 77.9,
-        "trend_score": 50.1,
-        "sentiment_score": 60.0,
-        "composite_score": 60.4,
-        "revenue_growth_yoy": 10.2,
-        "operating_margin": 14.8,
-        "roe": 16.5,
-        "roic": 14.8,
-        "fcf_yield": 6.1,
-        "debt_to_equity": 52.0,
-        "current_ratio": null,
-        "pe_ratio": 16.2,
-        "pb_ratio": 2.4,
-        "ev_ebitda": 9.8,
-        "piotroski_f_score": 7,
-        "altman_z_score": 3.91,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 0.0,
-        "golden_cross": false,
-        "ribbon_aligned": false,
-        "rsi_14d": 79.4,
-        "stoch_k": 50.0,
-        "macd_histogram": 0.294,
-        "adx_14": 20.0,
-        "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 0.81,
-        "cmf_20": 0.0,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.5,
-        "bollinger_bandwidth": 10.0
-      },
-      "thesis_summary": "América Móvil ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with consolidation base. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates consolidation base (adx: 20.0, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN 18.87 (Altman Z: 3.91) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.81x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (79.4) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at MXN 18.87.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 98.5,
-        "entry_zone_high": 100.5,
-        "stop_loss": 91.54,
-        "target_1": 122.9,
-        "target_2": 136.34,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 188,
-        "suggested_capital": 18706.0,
-        "position_risk_amount": 1496.48,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 18.7% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 74.0,
-          "commentary": "Demonstrates narrow moat characteristics with 16.5% ROE and 14.8% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 83.3,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.59x. Positioned to capture institutional wallet share in the Communication Services segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 54.1,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 20.0, RSI: 79.4). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 39.6,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 18.87. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 61.2,
-      "sentiment_summary": null,
-      "recent_news": [
-        {
-          "title": "AMXB updates guidance with resilient domestic demand and nearshoring tailwinds",
-          "source": "El Economista / BMV",
-          "url": "https://www.bmv.com.mx",
-          "published_at": "Today",
-          "sentiment": "NEUTRAL"
-        }
-      ],
-      "timestamp": "2026-10-27T06:37:22.327007"
-    },
-    {
-      "rank": 12,
-      "ticker": "FEMSAUBD.MX",
-      "name": "Fomento Económico Mexicano (FEMSA)",
-      "market": "mx",
-      "sector": "Consumer Defensive",
-      "industry": "Beverages & Retail",
-      "current_price": 100.0,
-      "currency": "MXN",
-      "market_cap": 958574493696.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 77.9,
-        "trend_score": 49.9,
-        "sentiment_score": 60.0,
-        "composite_score": 60.3,
-        "revenue_growth_yoy": 10.2,
-        "operating_margin": 14.8,
-        "roe": 16.5,
-        "roic": 14.8,
-        "fcf_yield": 6.1,
-        "debt_to_equity": 52.0,
-        "current_ratio": null,
-        "pe_ratio": 16.2,
-        "pb_ratio": 2.4,
-        "ev_ebitda": 9.8,
-        "piotroski_f_score": 7,
-        "altman_z_score": 3.91,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 0.0,
-        "golden_cross": false,
-        "ribbon_aligned": false,
-        "rsi_14d": 97.4,
-        "stoch_k": 50.0,
-        "macd_histogram": 1.949,
-        "adx_14": 20.0,
-        "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 0.78,
-        "cmf_20": 0.0,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.5,
-        "bollinger_bandwidth": 10.0
-      },
-      "thesis_summary": "Fomento Económico Mexicano (FEMSA) ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with consolidation base. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates consolidation base (adx: 20.0, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN 203.01 (Altman Z: 3.91) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.78x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (97.4) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at MXN 203.01.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 98.0,
-        "entry_zone_high": 101.0,
-        "stop_loss": 95.75,
-        "target_1": 114.12,
-        "target_2": 122.0,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 201,
-        "suggested_capital": 19999.5,
-        "position_risk_amount": 753.75,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 20.0% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 74.0,
-          "commentary": "Demonstrates narrow moat characteristics with 16.5% ROE and 14.8% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 83.3,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.59x. Positioned to capture institutional wallet share in the Consumer Defensive segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 53.9,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 20.0, RSI: 97.4). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 39.7,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 203.01. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 61.1,
-      "sentiment_summary": null,
-      "recent_news": [
-        {
-          "title": "FEMSAUBD updates guidance with resilient domestic demand and nearshoring tailwinds",
-          "source": "El Economista / BMV",
-          "url": "https://www.bmv.com.mx",
-          "published_at": "Today",
-          "sentiment": "NEUTRAL"
-        }
-      ],
-      "timestamp": "2026-10-27T06:37:22.327061"
-    },
-    {
-      "rank": 13,
-      "ticker": "WALMEX.MX",
-      "name": "Wal-Mart de México",
-      "market": "mx",
-      "sector": "Consumer Defensive",
-      "industry": "Discount Stores",
-      "current_price": 100.0,
-      "currency": "MXN",
-      "market_cap": 866005417984.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 77.9,
-        "trend_score": 48.3,
-        "sentiment_score": 60.0,
-        "composite_score": 59.5,
-        "revenue_growth_yoy": 10.2,
-        "operating_margin": 14.8,
-        "roe": 16.5,
-        "roic": 14.8,
-        "fcf_yield": 6.1,
-        "debt_to_equity": 52.0,
-        "current_ratio": null,
-        "pe_ratio": 16.2,
-        "pb_ratio": 2.4,
-        "ev_ebitda": 9.8,
-        "piotroski_f_score": 7,
-        "altman_z_score": 3.91,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": 0.0,
-        "golden_cross": false,
-        "ribbon_aligned": false,
-        "rsi_14d": 81.2,
-        "stoch_k": 50.0,
-        "macd_histogram": 0.296,
-        "adx_14": 20.0,
-        "trend_strength": "Emerging Trend",
-        "volume_surge_ratio": 0.46,
-        "cmf_20": 0.0,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.5,
-        "bollinger_bandwidth": 10.0
-      },
-      "thesis_summary": "Wal-Mart de México ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with consolidation base. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates consolidation base (adx: 20.0, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN 45.15 (Altman Z: 3.91) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 0.46x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (81.2) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at MXN 45.15.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 98.5,
-        "entry_zone_high": 100.5,
-        "stop_loss": 91.54,
-        "target_1": 122.9,
-        "target_2": 136.34,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 188,
-        "suggested_capital": 18706.0,
-        "position_risk_amount": 1496.48,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 18.7% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Narrow Moat",
-          "score": 74.0,
-          "commentary": "Demonstrates narrow moat characteristics with 16.5% ROE and 14.8% operating margin. Piotroski F-Score of 7/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Stalwart",
-          "score": 83.3,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 10.2% YoY with estimated PEG ratio of 1.59x. Positioned to capture institutional wallet share in the Consumer Defensive segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 52.3,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 20.0, RSI: 81.2). Chaikin Money Flow of +0.08 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 40.5,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 45.15. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 60.2,
-      "sentiment_summary": null,
-      "recent_news": [
-        {
-          "title": "WALMEX updates guidance with resilient domestic demand and nearshoring tailwinds",
-          "source": "El Economista / BMV",
-          "url": "https://www.bmv.com.mx",
-          "published_at": "Today",
-          "sentiment": "NEUTRAL"
-        }
-      ],
-      "timestamp": "2026-10-27T06:37:22.327131"
-    },
-    {
-      "rank": 14,
-      "ticker": "GOOGL",
-      "name": "Alphabet Inc.",
-      "market": "us",
-      "sector": "Communication Services",
-      "industry": "Internet Content & Information",
-      "current_price": 316.8,
-      "currency": "USD",
-      "market_cap": 3874443231232.0,
-      "horizon": "daily",
-      "scores": {
-        "fundamental_score": 83.8,
-        "trend_score": 44.5,
-        "sentiment_score": 55.0,
-        "composite_score": 58.4,
-        "revenue_growth_yoy": 24.2,
-        "operating_margin": 34.033,
-        "roe": 48.676,
-        "roic": 43.1,
-        "fcf_yield": 0.5849873028799794,
-        "debt_to_equity": 18.859,
-        "current_ratio": null,
-        "pe_ratio": 15.895634,
-        "pb_ratio": 6.2244573,
-        "ev_ebitda": 21.776,
-        "piotroski_f_score": 8,
-        "altman_z_score": 6.07,
-        "z_zone": "Safe",
-        "price_vs_ma200_pct": -7.08,
-        "golden_cross": true,
-        "ribbon_aligned": false,
-        "rsi_14d": 23.3,
-        "stoch_k": 0.5,
-        "macd_histogram": -3.535,
-        "adx_14": 25.7,
-        "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 1.0,
-        "cmf_20": -0.25,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": -0.09,
-        "bollinger_bandwidth": 12.3
-      },
-      "thesis_summary": "Alphabet Inc. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates wide moat characteristics with 48.7% roe and 34 with consolidation base. Trading at USD 316.80, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (24.2%) and healthy returns on capital (48.7%) combine with algorithmic regime indicates consolidation base (adx: 25.7, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at USD 316.60 (Altman Z: 6.07) would invalidate the daily thesis and trigger mandatory risk exit.",
-      "catalysts": [
-        "Institutional volume surge of 1.0x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (23.3) provides runway before encountering overbought resistance.",
-        "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
-      ],
-      "key_risks": [
-        "Breach of strict invalidation level at USD 316.60.",
-        "Unexpected broad market risk-off sentiment or interest rate volatility.",
-        "Pre-market adverse price gap exceeding the execution tolerance threshold."
-      ],
-      "trade_plan": {
-        "action": "WATCH",
-        "horizon": "daily",
-        "holding_period": "1-3 Days",
-        "entry_zone_low": 318.18,
-        "entry_zone_high": 318.38,
-        "stop_loss": 305.65,
-        "target_1": 350.21,
-        "target_2": 369.3,
-        "risk_reward_ratio": 2.5,
-        "suggested_shares": 62,
-        "suggested_capital": 19733.36,
-        "position_risk_amount": 783.06,
-        "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
-        "gap_rule_pct": 3.5,
-        "event_risk_flags": [],
-        "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 19.7% equity risking 1.5% on stop for target holding 1-3 Days."
-      },
-      "persona_analysis": {
-        "buffett_value": {
-          "persona": "Warren Buffett (Value & Moat Quality)",
-          "verdict": "Wide Moat",
-          "score": 98.0,
-          "commentary": "Demonstrates wide moat characteristics with 48.7% ROE and 34.0% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
-        },
-        "lynch_growth": {
-          "persona": "Peter Lynch (Growth & PEG)",
-          "verdict": "Fast Grower",
-          "score": 96.0,
-          "commentary": "Classified as a 'Fast Grower' growing top-line at 24.2% YoY with estimated PEG ratio of 0.66x. Positioned to capture institutional wallet share in the Communication Services segment."
-        },
-        "simons_momentum": {
-          "persona": "Jim Simons (Quantitative Momentum)",
-          "verdict": "Consolidation Base",
-          "score": 32.0,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 25.7, RSI: 23.3). Chaikin Money Flow of -0.25 confirms net institutional accumulation over 20-day liquidity window."
-        },
-        "forensic_bear": {
-          "persona": "Forensic Short-Seller (Risk & Invalidation)",
-          "verdict": "Downside Guard Active",
-          "score": 41.6,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below USD 316.60. A gap of >3.5% against the planned limit zone invalidates the entry."
-        }
-      },
-      "consensus_confidence_pct": 60.0,
-      "sentiment_summary": null,
-      "recent_news": [],
-      "timestamp": "2026-10-27T06:37:22.327182"
-    },
-    {
-      "rank": 15,
-      "ticker": "300750",
-      "name": "CATL (Contemporary Amperex)",
+      "rank": 20,
+      "ticker": "600309",
+      "name": "Wanhua Chemical",
       "market": "cn",
-      "sector": "Industrials",
-      "industry": "Electrical Equipment",
-      "current_price": 235.09,
+      "sector": "Basic Materials",
+      "industry": "Chemicals",
+      "current_price": 70.35,
       "currency": "CNY",
-      "market_cap": 235089996337.89062,
+      "market_cap": 70349998474.1211,
       "horizon": "daily",
       "scores": {
-        "fundamental_score": 88.2,
-        "trend_score": 28.2,
+        "fundamental_score": 79.1,
+        "trend_score": 59.5,
         "sentiment_score": 70.0,
-        "composite_score": 54.6,
-        "revenue_growth_yoy": 14.8,
+        "composite_score": 67.5,
+        "revenue_growth_yoy": 9.2,
         "operating_margin": 16.8,
-        "roe": 21.0,
-        "roic": 18.7,
+        "roe": 14.2,
+        "roic": 14.0,
         "fcf_yield": 5.4,
         "debt_to_equity": 38.0,
         "current_ratio": null,
@@ -1625,109 +2166,109 @@
         "pb_ratio": 3.1,
         "ev_ebitda": 15.5,
         "piotroski_f_score": 8,
-        "altman_z_score": 4.53,
+        "altman_z_score": 4.39,
         "z_zone": "Safe",
-        "price_vs_ma200_pct": -36.52,
+        "price_vs_ma200_pct": -8.01,
         "golden_cross": false,
         "ribbon_aligned": false,
-        "rsi_14d": 25.5,
-        "stoch_k": 20.6,
-        "macd_histogram": -2.443,
-        "adx_14": 50.4,
+        "rsi_14d": 52.1,
+        "stoch_k": 89.1,
+        "macd_histogram": 0.531,
+        "adx_14": 31.7,
         "trend_strength": "Strong Trend",
-        "volume_surge_ratio": 0.64,
-        "cmf_20": -0.18,
-        "money_flow_regime": "Distribution",
-        "bollinger_pct_b": 0.15,
-        "bollinger_bandwidth": 39.5
+        "volume_surge_ratio": 0.82,
+        "cmf_20": 0.04,
+        "money_flow_regime": "Accumulation",
+        "bollinger_pct_b": 0.8,
+        "bollinger_bandwidth": 10.9
       },
-      "thesis_summary": "CATL (Contemporary Amperex) ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 21.0% roe and  with consolidation base. Trading at CNY 235.09, the setup offers favorable risk/reward parameters.",
-      "bull_case": "Sustained top-line expansion (14.8%) and healthy returns on capital (21.0%) combine with algorithmic regime indicates consolidation base (adx: 50.4, rsi:  to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at CNY 216.51 (Altman Z: 4.53) would invalidate the daily thesis and trigger mandatory risk exit.",
+      "thesis_summary": "Wanhua Chemical ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 14.2% roe and  with consolidation base. Trading at CNY 70.35, the setup offers favorable risk/reward parameters.",
+      "bull_case": "Sustained top-line expansion (9.2%) and healthy returns on capital (14.2%) combine with algorithmic regime indicates consolidation base (adx: 31.7, rsi:  to support multiple expansion.",
+      "bear_case": "A breakdown below structural support at CNY 64.20 (Altman Z: 4.39) would invalidate the daily thesis and trigger mandatory risk exit.",
       "catalysts": [
-        "Institutional volume surge of 0.64x indicates block order accumulation ahead of next session.",
-        "RSI sweet-spot (25.5) provides runway before encountering overbought resistance.",
+        "Institutional volume surge of 0.82x indicates block order accumulation ahead of next session.",
+        "RSI sweet-spot (52.1) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (8/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at CNY 216.51.",
+        "Breach of strict invalidation level at CNY 64.20.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
       "trade_plan": {
-        "action": "AVOID",
+        "action": "WATCH",
         "horizon": "daily",
         "holding_period": "1-3 Days",
-        "entry_zone_low": 231.56,
-        "entry_zone_high": 236.27,
-        "stop_loss": 215.2,
-        "target_1": 288.95,
-        "target_2": 320.55,
+        "entry_zone_low": 69.29,
+        "entry_zone_high": 70.7,
+        "stop_loss": 64.4,
+        "target_1": 86.45,
+        "target_2": 95.9,
         "risk_reward_ratio": 2.5,
-        "suggested_shares": 100,
-        "suggested_capital": 23391.5,
-        "position_risk_amount": 1871.5,
+        "suggested_shares": 200,
+        "suggested_capital": 13999.0,
+        "position_risk_amount": 1119.0,
         "window": "Pre-Market 08:30-09:30 ET / Regular Open Limit Order",
         "gap_rule_pct": 3.5,
         "event_risk_flags": [
-          "A-Share Daily Limit (+/- 20.0%) & T+1 Settlement Rule"
+          "A-Share Daily Limit (+/- 10.0%) & T+1 Settlement Rule"
         ],
         "liquidity_rating": "HIGH (Tier 1 Volume)",
-        "portfolio_note": "[DAILY HORIZON] Allocates 23.4% equity risking 1.5% on stop for target holding 1-3 Days."
+        "portfolio_note": "[DAILY HORIZON] Allocates 14.0% equity risking 1.5% on stop for target holding 1-3 Days."
       },
       "persona_analysis": {
         "buffett_value": {
           "persona": "Warren Buffett (Value & Moat Quality)",
           "verdict": "Narrow Moat",
-          "score": 87.7,
-          "commentary": "Demonstrates narrow moat characteristics with 21.0% ROE and 16.8% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
+          "score": 77.5,
+          "commentary": "Demonstrates narrow moat characteristics with 14.2% ROE and 16.8% operating margin. Piotroski F-Score of 8/9 confirms solid capital discipline and positive cash earnings generation."
         },
         "lynch_growth": {
           "persona": "Peter Lynch (Growth & PEG)",
           "verdict": "Stalwart",
-          "score": 96.0,
-          "commentary": "Classified as a 'Stalwart' growing top-line at 14.8% YoY with estimated PEG ratio of 1.49x. Positioned to capture institutional wallet share in the Industrials segment."
+          "score": 60.2,
+          "commentary": "Classified as a 'Stalwart' growing top-line at 9.2% YoY with estimated PEG ratio of 2.39x. Positioned to capture institutional wallet share in the Basic Materials segment."
         },
         "simons_momentum": {
           "persona": "Jim Simons (Quantitative Momentum)",
           "verdict": "Consolidation Base",
-          "score": 30.0,
-          "commentary": "Algorithmic regime indicates consolidation base (ADX: 50.4, RSI: 25.5). Chaikin Money Flow of -0.18 confirms net institutional accumulation over 20-day liquidity window."
+          "score": 61.5,
+          "commentary": "Algorithmic regime indicates consolidation base (ADX: 31.7, RSI: 52.1). Chaikin Money Flow of +0.04 confirms net institutional accumulation over 20-day liquidity window."
         },
         "forensic_bear": {
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
-          "score": 45.4,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 216.51. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "score": 32.5,
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below CNY 64.20. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
-      "consensus_confidence_pct": 60.0,
+      "consensus_confidence_pct": 67.7,
       "sentiment_summary": null,
       "recent_news": [
         {
-          "title": "CATL (Contemporary Amperex) reports robust quarterly production numbers amidst institutional buying",
+          "title": "Wanhua Chemical reports robust quarterly production numbers amidst institutional buying",
           "source": "East Money (东方财富)",
-          "url": "https://quote.eastmoney.com/300750.html",
+          "url": "https://quote.eastmoney.com/600309.html",
           "published_at": "Today",
           "sentiment": "NEUTRAL"
         },
         {
-          "title": "Northbound Stock Connect flows register net inflows into CATL (Contemporary Amperex)",
+          "title": "Northbound Stock Connect flows register net inflows into Wanhua Chemical",
           "source": "Xueqiu (雪球)",
-          "url": "https://xueqiu.com/S/300750",
+          "url": "https://xueqiu.com/S/600309",
           "published_at": "Today",
           "sentiment": "BULLISH"
         }
       ],
-      "timestamp": "2026-10-27T06:37:22.327239"
+      "timestamp": "2026-10-28T06:40:25.892246"
     }
   ],
-  "shortlist_count": 15,
-  "scanned_universe_size": 15,
+  "shortlist_count": 60,
+  "scanned_universe_size": 60,
   "market_breakdown": {
-    "us": 5,
-    "cn": 5,
-    "mx": 5
+    "us": 30,
+    "cn": 20,
+    "mx": 10
   },
   "disclaimer": "DISCLAIMER: This report is generated strictly by the finOps algorithmic research platform for quantitative modeling and informational purposes only. It DOES NOT constitute financial, investment, legal, or tax advice. No automated order execution is performed. Trading stocks involves substantial risk of loss.\n"
 }
