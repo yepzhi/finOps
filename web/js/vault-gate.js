@@ -92,7 +92,6 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 34px;
                     cursor: pointer;
                     user-select: none;
                     transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -210,11 +209,21 @@
                 .yz-gate-hint {
                     margin-top: 14px;
                     font-size: 0.75rem;
-                    color: rgba(255, 255, 255, 0.4);
+                    color: rgba(255, 255, 255, 0.45);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
                 }
             </style>
             <div class="yz-gate-card">
-                <div class="yz-gate-shield" id="yzGateShield" title="Tap 3 times for secret unlock">🛡️</div>
+                <div class="yz-gate-shield" id="yzGateShield" title="Tap 3 times for secret unlock">
+                    <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:#38b6ff;">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <rect x="9" y="11" width="6" height="5" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 11V9a2 2 0 1 1 4 0v2" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
                 <div class="yz-gate-taps">
                     <div class="yz-gate-dot" id="yzDot1"></div>
                     <div class="yz-gate-dot" id="yzDot2"></div>
@@ -229,7 +238,14 @@
                         <button type="submit" class="yz-gate-btn">Unlock</button>
                     </div>
                 </form>
-                <p class="yz-gate-hint">💡 Secret trigger: Tap the Shield 3 times to unlock directly</p>
+                <p class="yz-gate-hint">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#38b6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                        <circle cx="12" cy="12" r="9"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <span>Secret trigger: Tap the Shield 3 times to unlock directly</span>
+                </p>
                 <div class="yz-gate-footer">
                     <a href="https://yepzhi.com/hub/" class="yz-gate-link">‹ Return to Developer Hub</a>
                 </div>
@@ -249,7 +265,12 @@
 
         function triggerUnlockSuccess() {
             grantAccess();
-            shield.innerHTML = '🔓';
+            shield.innerHTML = `
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+            `;
             shield.style.borderColor = '#10b981';
             shield.style.boxShadow = '0 0 30px #10b981';
             dots.forEach(d => d && d.classList.add('active'));
