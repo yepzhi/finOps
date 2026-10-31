@@ -508,30 +508,32 @@ async function loadReportData(horizon = currentHorizon) {
         `data/reports/latest_${horizon}.json`,
         `${base}data/reports/latest_${horizon}.json`,
         `/finOps/data/reports/latest_${horizon}.json`,
-        `/data/reports/latest_${horizon}.json`,
-        `latest_${horizon}.json`,
         `data/reports/latest.json`,
         `${base}data/reports/latest.json`,
-        `/finOps/data/reports/latest.json`,
-        "/data/reports/latest.json",
-        "latest.json"
+        `/finOps/data/reports/latest.json`
     ];
 
+    let loadedData = null;
     for (const p of candidatePaths) {
         try {
             const res = await fetch(p);
             if (res.ok) {
                 const data = await res.json();
                 if (data && data.top_20 && data.top_20.length > 0) {
-                    allOpportunities = data.top_20;
-                    updateKpis(data);
-                    renderTable();
-                    return;
+                    loadedData = data;
+                    break;
                 }
             }
         } catch (e) {
             // Try next candidate path
         }
+    }
+
+    if (loadedData) {
+        allOpportunities = loadedData.top_20;
+        updateKpis(loadedData);
+        renderTable();
+        return;
     }
 
     // Fallback to built-in dataset adapted for horizon
@@ -636,14 +638,22 @@ function setupEventHandlers() {
     const runBtn = document.getElementById("btnRunScan");
     if (runBtn) {
         runBtn.addEventListener("click", async () => {
+            if (runBtn.disabled) return;
+            runBtn.disabled = true;
+            const originalHtml = `<i class="fa-solid fa-bolt"></i> Run Pipeline`;
             runBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Scanning ${currentHorizon.toUpperCase()}...`;
-            await loadReportData(currentHorizon);
-            setTimeout(() => {
+            try {
+                await loadReportData(currentHorizon);
                 runBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${currentHorizon.toUpperCase()} Ready`;
+            } catch (err) {
+                console.error("[finOps] Run pipeline scan error:", err);
+                runBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Error`;
+            } finally {
                 setTimeout(() => {
-                    runBtn.innerHTML = `<i class="fa-solid fa-bolt"></i> Run Pipeline`;
-                }, 3000);
-            }, 800);
+                    runBtn.innerHTML = originalHtml;
+                    runBtn.disabled = false;
+                }, 2500);
+            }
         });
     }
 }
@@ -655,9 +665,7 @@ async function loadBacktestData() {
     const candidatePaths = [
         `data/reports/backtest_results.json`,
         `${base}data/reports/backtest_results.json`,
-        `/finOps/data/reports/backtest_results.json`,
-        `/data/reports/backtest_results.json`,
-        `backtest_results.json`
+        `/finOps/data/reports/backtest_results.json`
     ];
 
     let data = null;
@@ -798,6 +806,7 @@ function renderTable() {
         const fScore = s.piotroski_f_score != null ? s.piotroski_f_score : 8;
         const zScore = s.altman_z_score != null ? Number(s.altman_z_score).toFixed(1) : "3.8";
         const zZone = s.z_zone || "SAFE";
+        const isTop3 = (opp.rank != null && opp.rank <= 3) || index < 3;
 
         tr.innerHTML = `
             <td>

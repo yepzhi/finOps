@@ -62,7 +62,10 @@ class MarketCalendarService:
         if from_date is None:
             from_date = datetime.now(self.tz).date()
         date_str = from_date.strftime("%Y-%m-%d")
-        next_session_ts = self.calendar.next_session(date_str)
+        if self.calendar.is_session(date_str):
+            next_session_ts = self.calendar.next_session(date_str)
+        else:
+            next_session_ts = self.calendar.date_to_session(date_str, direction="next")
         return next_session_ts.date()
 
     def should_execute_now(self, offset_hours: float = 5.0) -> Tuple[bool, str]:

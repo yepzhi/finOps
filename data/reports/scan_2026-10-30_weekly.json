@@ -2169,18 +2169,18 @@
         "bollinger_pct_b": 0.5,
         "bollinger_bandwidth": 10.0,
         "avg_daily_volume": 454695.7,
-        "avg_daily_dollar_volume": NaN
+        "avg_daily_dollar_volume": null
       },
       "thesis_summary": "Gruma S.A.B. ranks high on institutional quantitative criteria for multi-week swing continuation and 50-day moving average accumulation, pairing demonstrates narrow moat characteristics with 16.5% roe and  with bullish trend. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
       "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates bullish trend (adx: 20.0, rsi: 49.4) to support multiple expansion.",
-      "bear_case": "A breakdown below structural support at MXN nan (Altman Z: 3.91) would invalidate the weekly thesis and trigger mandatory risk exit.",
+      "bear_case": "A breakdown below structural support at MXN 92.00 (Altman Z: 3.91) would invalidate the weekly thesis and trigger mandatory risk exit.",
       "catalysts": [
         "Institutional volume surge of 1.87x indicates block order accumulation ahead of next session.",
         "RSI sweet-spot (49.4) provides runway before encountering overbought resistance.",
         "Piotroski F-Score (7/9) confirms earnings quality and lack of dilutive financing."
       ],
       "key_risks": [
-        "Breach of strict invalidation level at MXN nan.",
+        "Breach of strict invalidation level at MXN 92.00.",
         "Unexpected broad market risk-off sentiment or interest rate volatility.",
         "Pre-market adverse price gap exceeding the execution tolerance threshold."
       ],
@@ -2226,7 +2226,7 @@
           "persona": "Forensic Short-Seller (Risk & Invalidation)",
           "verdict": "Downside Guard Active",
           "score": 28.2,
-          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN nan. A gap of >3.5% against the planned limit zone invalidates the entry."
+          "commentary": "Valuation multiple leaves modest buffer if earnings slow. Structural invalidation occurs below MXN 92.00. A gap of >3.5% against the planned limit zone invalidates the entry."
         }
       },
       "consensus_confidence_pct": 72.3,

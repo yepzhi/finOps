@@ -14,6 +14,19 @@ from finops.core.config import get_project_root
 logger = logging.getLogger("finops.delivery.storage")
 
 
+def _sanitize_for_json(obj):
+    import math
+    if isinstance(obj, float):
+        if math.isnan(obj) or math.isinf(obj):
+            return None
+        return obj
+    elif isinstance(obj, dict):
+        return {k: _sanitize_for_json(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [_sanitize_for_json(v) for v in obj]
+    return obj
+
+
 class ReportStorage:
     def __init__(self):
         self.root = get_project_root()
@@ -32,8 +45,8 @@ class ReportStorage:
         latest_horizon_file = self.reports_dir / f"latest_{horizon}.json"
         latest_file = self.reports_dir / "latest.json"
 
-        # Serialize Pydantic model
-        report_dict = report.model_dump(mode="json")
+        # Serialize Pydantic model and strictly sanitize NaN/Inf for valid JSON
+        report_dict = _sanitize_for_json(report.model_dump(mode="json"))
 
         with open(json_file, "w", encoding="utf-8") as f:
             json.dump(report_dict, f, indent=2, ensure_ascii=False)
@@ -68,7 +81,7 @@ class ReportStorage:
         dest_finops.mkdir(parents=True, exist_ok=True)
 
         web_dir = self.root / "web"
-        for item in ["index.html", "css", "js"]:
+        for item in ["index.html", "css", "js", "webfonts"]:
             src = web_dir / item
             dst = dest_finops / item
             if src.is_dir():

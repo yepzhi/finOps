@@ -139,15 +139,24 @@ Return valid JSON with keys:
             f"Chaikin Money Flow of {cmf:+.2f} confirms net institutional accumulation over 20-day liquidity window."
         )
 
+        def _safe_float(val, fallback):
+            if val is None:
+                return fallback
+            try:
+                f = float(val)
+                return fallback if math.isnan(f) or math.isinf(f) or f <= 0 else f
+            except (ValueError, TypeError):
+                return fallback
+
         # 4. Forensic Bear (Downside Invalidation & Risk)
         if horizon == "daily":
-            inval_level = technical_data.get("support_20d", current_price * 0.95)
+            inval_level = _safe_float(technical_data.get("support_20d"), current_price * 0.95)
             horizon_desc = "short-term momentum and next-session limit execution"
         elif horizon == "weekly":
-            inval_level = technical_data.get("ma50", current_price * 0.92)
+            inval_level = _safe_float(technical_data.get("ma50"), current_price * 0.92)
             horizon_desc = "multi-week swing continuation and 50-day moving average accumulation"
         else:
-            inval_level = technical_data.get("ma200", current_price * 0.88)
+            inval_level = _safe_float(technical_data.get("ma200"), current_price * 0.88)
             horizon_desc = "multi-month fundamental compounding and secular institutional leadership"
 
         bear_risk = (

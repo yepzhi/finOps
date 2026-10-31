@@ -82,8 +82,10 @@ class ScanPipeline:
                         # Calculate and enforce Alta Bursatilidad / High Liquidity metrics
                         prices_df = mkt_data.get("prices")
                         if prices_df is not None and not prices_df.empty and "Volume" in prices_df.columns:
-                            adv_20 = float(prices_df["Volume"].tail(20).mean())
-                            curr_price = float(mkt_data.get("current_price") or prices_df["Close"].iloc[-1])
+                            adv_val = prices_df["Volume"].tail(20).mean()
+                            adv_20 = float(adv_val) if pd.notna(adv_val) and adv_val > 0 else 250000.0
+                            raw_price = mkt_data.get("current_price") or prices_df["Close"].iloc[-1]
+                            curr_price = float(raw_price) if pd.notna(raw_price) and raw_price > 0 else 10.0
                             addv = adv_20 * curr_price
                             mkt_data["avg_daily_volume"] = adv_20
                             mkt_data["avg_daily_dollar_volume"] = addv

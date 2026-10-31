@@ -2101,7 +2101,7 @@
         "bollinger_pct_b": 0.5,
         "bollinger_bandwidth": 10.0,
         "avg_daily_volume": 314727.6,
-        "avg_daily_dollar_volume": NaN
+        "avg_daily_dollar_volume": null
       },
       "thesis_summary": "GCC S.A.B. de C.V. ranks high on institutional quantitative criteria for short-term momentum and next-session limit execution, pairing demonstrates narrow moat characteristics with 16.5% roe and  with bullish trend. Trading at MXN 100.00, the setup offers favorable risk/reward parameters.",
       "bull_case": "Sustained top-line expansion (10.2%) and healthy returns on capital (16.5%) combine with algorithmic regime indicates bullish trend (adx: 20.0, rsi: 66.9) to support multiple expansion.",
