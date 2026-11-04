@@ -1,0 +1,13 @@
+{
+  "run_id": "run_2026-11-04_weekly_58b9ec8d",
+  "scan_date": "2026-11-04",
+  "horizon": "weekly",
+  "market_close_time": "2026-11-04T07:17:03.661344",
+  "run_triggered_at": "2026-11-04T07:17:03.661344",
+  "target_trade_session": "2026-11-05 (Next Regular Session)",
+  "top_20": [],
+  "shortlist_count": 0,
+  "scanned_universe_size": 142,
+  "market_breakdown": {},
+  "disclaimer": "DISCLAIMER: This report is generated strictly by the finOps algorithmic research platform for quantitative modeling and informational purposes only. It DOES NOT constitute financial, investment, legal, or tax advice. No automated order execution is performed. Trading stocks involves substantial risk of loss.\n"
+}
