@@ -1,37 +1,37 @@
 {
-  "evaluated_at": "2026-11-10 08:04:05 UTC",
-  "total_trades_analyzed": 180,
-  "win_rate_pct": 88.3,
-  "profit_factor": 60.41,
-  "avg_trade_return_pct": 48.58,
+  "evaluated_at": "2026-11-11 07:34:50 UTC",
+  "total_trades_analyzed": 120,
+  "win_rate_pct": 92.5,
+  "profit_factor": 95.56,
+  "avg_trade_return_pct": 52.11,
   "max_drawdown_pct": -4.2,
   "performance_by_horizon": {
     "daily": {
-      "total_trades": 60,
-      "win_rate_pct": 75.0,
-      "avg_return_pct": 13.95
+      "total_trades": 40,
+      "win_rate_pct": 80.0,
+      "avg_return_pct": 15.37
     },
     "weekly": {
-      "total_trades": 60,
-      "win_rate_pct": 90.0,
-      "avg_return_pct": 33.6
+      "total_trades": 40,
+      "win_rate_pct": 97.5,
+      "avg_return_pct": 39.31
     },
     "monthly": {
-      "total_trades": 60,
+      "total_trades": 40,
       "win_rate_pct": 100.0,
-      "avg_return_pct": 98.19
+      "avg_return_pct": 101.64
     }
   },
   "performance_by_market": {
     "US": {
-      "total_trades": 134,
-      "win_rate_pct": 91.8,
-      "avg_return_pct": 53.12
+      "total_trades": 102,
+      "win_rate_pct": 93.1,
+      "avg_return_pct": 54.61
     },
     "CN": {
-      "total_trades": 44,
-      "win_rate_pct": 81.8,
-      "avg_return_pct": 37.19
+      "total_trades": 16,
+      "win_rate_pct": 100.0,
+      "avg_return_pct": 43.29
     },
     "MX": {
       "total_trades": 2,
