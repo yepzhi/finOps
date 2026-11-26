@@ -1,9 +1,9 @@
 {
-  "run_id": "run_2026-11-25_weekly_afa3f975",
-  "scan_date": "2026-11-25",
+  "run_id": "run_2026-11-26_weekly_9147b2f6",
+  "scan_date": "2026-11-26",
   "horizon": "weekly",
-  "market_close_time": "2026-11-25T09:36:49.776054",
-  "run_triggered_at": "2026-11-25T09:36:49.776054",
+  "market_close_time": "2026-11-26T09:13:24.890817",
+  "run_triggered_at": "2026-11-26T09:13:24.890817",
   "target_trade_session": "2026-11-27 (Next Regular Session)",
   "top_20": [],
   "shortlist_count": 0,
